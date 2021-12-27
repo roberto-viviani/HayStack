@@ -1,0 +1,40 @@
+.btn {
+    color: white;
+    background-color: RGB(90, 90, 120);
+    border: none;
+    width: 14.3vw;
+    height: 11vh;
+    font-size: 2vw;
+    user-select:none;
+}
+
+:focus{outline:0}::-moz-focus-inner{border:0;}
+
+#interface {
+    margin-top: 30vh;
+    text-align: center;
+}
+
+#bottom {
+    text-align: center;
+    margin-top: 40vh;
+}
+
+#message {
+    color: black;
+    font-size: 6vh;
+    text-align: center;
+    user-select: none;
+    margin-top: -10vh;
+    position: relative;
+}
+
+#btnNext {
+    width: 14.3vw;
+    height: 11vh;
+    font-size: 2vw;
+    text-align: center;
+    user-select: none;
+    visibility: hidden;
+    position: relative;
+}

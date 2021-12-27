@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>HayStack</title>
+
+        <!-- define namespace and housekeeping script -->
+        <script type="text/javascript">if (undefined === window.hayStack) window.hayStack = {};</script>
+        <!-- this will contain the name of the chosen tests -->
+        <script type="text/javascript">{{TESTREQUEST}}</script>
+        <!-- main code for client aplication -->
+        <script type="text/javascript", src="client.js"></script>
+
+        <!-- defined standard templates and styles -->
+        <script type="text/template" id="defaultStyle">
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
+            }
+        </script>
+
+        <!-- standard template: infopage -->
+        <script type="text/template" id="infopage">
+            <p id="infotext" class="infopage"></p>
+            <button class="infopage btn" id="infobtn">FORTSETZEN</button>
+        </script>
+        <script>
+            hayStack.infopage = {};
+            hayStack.infopage.continuationFactory = function(test) {
+                var conts = [];
+                conts.push(function() {
+                    hayStack.view.setTemplate("infopage", "infopageStyle");
+                    hayStack.continuations.next();
+                });
+                conts.push(function() {
+                    hayStack.view.set(test.trials[0].data, "infotext");
+                    hayStack.view.set("FORTSETZEN", "infobtn");
+                    document.getElementById(infobtn).onmousedown = hayStack.continuations.next;
+                });
+                return conts;
+            }
+        </script>
+        <script type="text/template" id="infopageStyle">
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
+            }
+            #infobtn {
+                width: 22.3vw;
+                height: 15vh;
+                font-size: 2vw;
+                text-align: center;
+                user-select: none;
+                visibility: visible;
+                position: relative;
+            }
+            .infopage {
+                font-size: 2vw;
+            }
+        </script>
+
+        <!--- SST -->
+        <script type="text/template" id="SST">
+            <button class="SST btn"  id="btn1"></button>
+            <button class="SST btn"  id="btn2"></button>
+            <button class="SST btn"  id="btn3"></button>
+            <button class="SST btn"  id="btn4"></button>
+            <button class="SST btn"  id="btn5"></button>
+            <button class="SST btn"  id="btn6"></button>
+        </script>
+        <script type="text/javascript" src="SST.js"></script>
+        <script type="text/template" id="SSTStyle">
+            .SST.btn {
+                color: white;
+                background-color: RGB(90, 90, 120);
+                border: none;
+                width: 14.3vw;
+                height: 11vh;
+                font-size: 2vw;
+                user-select:none;
+            }
+            
+            :focus{outline:0}::-moz-focus-inner{border:0;}
+            
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
+            }
+            
+            #bottom {
+                text-align: center;
+                margin-top: 40vh;
+            }
+            
+            #message {
+                color: black;
+                font-size: 6vh;
+                text-align: center;
+                user-select: none;
+                margin-top: -10vh;
+                position: relative;
+            }
+            
+            #btnNext {
+                width: 14.3vw;
+                height: 11vh;
+                font-size: 2vw;
+                text-align: center;
+                user-select: none;
+                visibility: hidden;
+                position: relative;
+            }
+        </script>
+
+        <!-- This is the active style spec, dynamically modified by code -->
+        <style id = "styleSpec">
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
+            }
+        </style>
+        
+    </head>
+    
+    
+	<body>
+        <!-- define divisions to be modified dynamically by code -->
+        <div id = "header"></div>
+        <div id = "interface">
+            <!-- at startup, the interface is the logon -->
+            <p style="font-size:1.4em" id="lblInput">instruction here</p>
+            <input type="text" name="subjId" id="subjId" value=""><br><br>
+            <p style="font-size:1.4em" id="lblNext"></p>
+            <button class="next" id="btnNext">weiter >></button>
+        </div>
+        <div id = "footer"></div>
+
+        <!-- this starts the co-routine. It goes here at the end. -->
+        <script>hayStack.continuations.next();</script>
+	</body>
+</html>
