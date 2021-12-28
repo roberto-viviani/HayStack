@@ -148,23 +148,24 @@ hayStack.SST.continuationFactory = function(test) {
             var rt = Date.now() - trialStart;
             trialobj.timestamp = hayStack.SST.timestamp(trialStart);
             if (rt < test.timeRefractory) return;
-            //in case both a timeout and an onclick were in the queue, 
-            //we only process the first
-            if (hTimeout === undefined) return;
             clearTimeout(hTimeout);
             hTimeout = undefined;
             //record response
             output.push(trialobj, numelem + 1, rt);
-            coRoutine.next();
+            //coRoutine.next(); //generate instead interval of 300msec
+            hayStack.view.msg("");
+            setTimeout(coRoutine.next, 300);
         }
     };
     // The following is a function generator to get the right closure in the for loop below
     var loopContinuationFactory = function (trialobj) {
         return function () {
+            hayStack.view.setInterface(trialobj.frame);
             view.resetHandlers();
             view.setData(trialobj.data);
             trialStart = Date.now();
-            hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
+            if (trialobj.timeout > 0)
+                hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
             view.setHandlers(onClickFactory, trialobj);
         }
     }; 
