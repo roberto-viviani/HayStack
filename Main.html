@@ -31,12 +31,12 @@
                 var conts = [];
                 conts.push(function() {
                     hayStack.view.setTemplate("infopage", "infopageStyle");
-                    hayStack.continuations.next();
-                });
-                conts.push(function() {
-                    hayStack.view.set(test.trials[0].data, "infotext");
-                    hayStack.view.set("FORTSETZEN", "infobtn");
-                    document.getElementById(infobtn).onmousedown = hayStack.continuations.next;
+                    var data = test.trials[0].data;
+                    if (undefined === data.length) data = [data];
+                    if (data.length < 2) data.push("fortsetzen");
+                    hayStack.view.set(data[0], "infotext");
+                    hayStack.view.set(data[1], "infobtn");
+                    document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
                 });
                 return conts;
             }

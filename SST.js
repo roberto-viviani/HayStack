@@ -140,7 +140,9 @@ hayStack.SST.continuationFactory = function(test) {
             hTimeout = undefined;
             trialobj.timestamp = hayStack.SST.timestamp(trialStart);
             output.push(trialobj, 0, 0);
-            coRoutine.next();
+            //coRoutine.next(); create a small pause to alert to change
+            hayStack.view.msg("");
+            setTimeout(coRoutine.next, 600);
         }
     };
     var onClickFactory = function (numelem, trialobj) {
@@ -151,7 +153,8 @@ hayStack.SST.continuationFactory = function(test) {
             clearTimeout(hTimeout);
             hTimeout = undefined;
             //record response
-            output.push(trialobj, numelem + 1, rt);
+            if (false === trialobj.skipOutput)
+                output.push(trialobj, numelem + 1, rt);
             //coRoutine.next(); //generate instead interval of 300msec
             hayStack.view.msg("");
             setTimeout(coRoutine.next, 300);
@@ -160,7 +163,7 @@ hayStack.SST.continuationFactory = function(test) {
     // The following is a function generator to get the right closure in the for loop below
     var loopContinuationFactory = function (trialobj) {
         return function () {
-            hayStack.view.setInterface(trialobj.frame);
+            hayStack.view.setTemplate("SST", "SSTStyle");
             view.resetHandlers();
             view.setData(trialobj.data);
             trialStart = Date.now();
@@ -169,60 +172,43 @@ hayStack.SST.continuationFactory = function(test) {
             view.setHandlers(onClickFactory, trialobj);
         }
     }; 
-    // The following is a function generator for simple displays without response
-    var simpleContinuationFactory = function (msg, btnText, data) {
+    // The following is a function generator for simple displays without response.
+    // It uses the infopage default template and sets its elements directly.
+    var simpleContinuationFactory = function (trialobj) {
 		return function () {
-            var btnNext = document.getElementById("btnNext");
-            var btntxt = btnNext.innerHTML;
-            btnNext.onclick = function () {
-                btnNext.style.visibility = "hidden";
-                btnNext.innerHTML = btntxt;
-				view.msg("");
-                coRoutine.next();
-            }
-            if (undefined !== data) view.setData(data);
-            view.msg(msg);
-            btnNext.innerHTML = btnText;
-            btnNext.style.visibility = "visible";
-		}
+            hayStack.view.setTemplate("infopage", "infopageStyle");
+            data = trialobj.data;
+            hayStack.view.set(data[0], "infotext");
+            hayStack.view.set(data[1], "infobtn");
+            document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
+        }
     };
     
-    //the first continuation sets the interface
-    conts.push(function () {
-        hayStack.view.setInterface("SST");
-        hayStack.view.setStyle("SSTStyle");
-        coRoutine.next();
-    });
-    /*
-	//We now present the instruction for the test
-    if (undefined !== SST.getInstruction())
-		continuations.push(simpleContinuationFactory(SST.getInstruction(),
-													 "weiter", SST.getInstructionExample()));
-	// the practice sentences
-	if (SST.isPracticeDefined()) {
-		for (var i = 0; i < SST.getPracticeTrialCount(); ++i) {
-			var trialobj = SST.getPracticeTrial(i);
-			trialobj.trialID = 0;
-			continuations.push(loopContinuationFactory(trialobj));
-		}
-		var txtStartMsg = "Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' und dann 'weiter' um mit dem Test anzufangen.";
-		continuations.push(simpleContinuationFactory(txtStartMsg, "start",
-													 ["*", "*", "*", "*", "*", "*"]));
-		continuations.push(simpleContinuationFactory("", "weiter >>",
-													 ["*", "*", "*", "*", "*", "*"]));
-	} else {
-		// we need this to start trials with a next button to record correct mouse position
-		if (options.mouseMove) {
-			var txtStartMsg = "Bevor Sie einen Satz bilden können, müssen sie auf 'weiter' clicken.<br>Clicken Sie auf 'start' und dann 'weiter' um mit dem Test anzufangen.";
-			continuations.push(	simpleContinuationFactory(txtStartMsg, "start", ["*", "*", "*", "*", "*", "*"]));
-			continuations.push(	simpleContinuationFactory("", "weiter >>", ["*", "*", "*", "*", "*", "*"]));
-		}
-	} */
     // the trials
     for (var i = 0; i < test.trials.length; ++i) {
-        var trialobj = test.trials[i]
-        trialobj.trialID = i + 1;
-        conts.push(loopContinuationFactory(trialobj));
+        var trialobj = test.trials[i];
+        //we have trials of two frames, so you need the right 
+        //continuation factory. loop factories take one trial,
+        //the other factories a test.
+        if ("SST" === trialobj.frame) {
+                trialobj.trialID = i + 1;
+                conts.push(loopContinuationFactory(trialobj));
+        }
+        else if ("infopage" === trialobj.frame) {
+            //one strategy is to use the default factory for infopage
+            //(it handles a whole test, but provides an array of only one cont)
+            //ccs = hayStack.infopage.continuationFactory({trials: [trialobj]});
+            //conts.push(ccs[0]);
+
+            //alternatively, use the factory that manipulates the template directly
+            conts.push(simpleContinuationFactory(trialobj))
+        }
+        else {
+            coRoutine.clear();
+            hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
+                ", trial " + trialobj.itemID + ": " + trialobj.frame);
+            return [];
+        }
     }
     //last continuation sends over data to server
     conts.push(function () {

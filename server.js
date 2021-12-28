@@ -78,7 +78,22 @@ function shuffle(array) {
   
     return array;
   }
-  
+function shuffleTrials(trials) {
+    //if randomOrder property is not defined, define it assuming shuffle
+    trials.forEach(function(value) {
+        if (undefined === value.randomOrder) value.randomOrder = true;
+    });
+    //select trials to reorder
+    shTrials = trials.filter(function(value) {
+        return value.randomOrder;
+    });
+    //reorder
+    shTrials = shuffle(shTrials);
+    //copy back
+    return trials.map(function(value) {
+        return value.randomOrder ? shTrials.pop() : value;
+    });
+}  
 
 /* Output. This section serializes to disk the data received from the client */
 
@@ -215,14 +230,14 @@ function requestHandler(request, response) {
                     testData.forEach(function(value){
                         //here random shuffle of sents.trials
                         if (value.randomOrder)
-                            value.trials = shuffle(value.trials);
+                            value.trials = shuffleTrials(value.trials);
                         value.sessionID = undefined; //was sent over in html page, not here
                         value.timestamp = getTimestamp();
                     });
                     //send over data
                     response.end(JSON.stringify(testData));
                     break;
-                    
+
                 /*
 				case "/styles.css":
 					console.log("uploading styles.css to " + request.socket.remoteAddress + " - " + Date(Date.now()));

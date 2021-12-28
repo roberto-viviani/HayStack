@@ -56,7 +56,7 @@ hayStack.view = {
 hayStack.view.setTemplate = function(templateName, styleName) {
     elem = hayStack.view.setInterface(templateName);
     if (undefined !== elem)
-        hayStack.view.setStyöe(styleName);
+        hayStack.view.setStyle(styleName);
     return elem;
 };
 
@@ -154,17 +154,23 @@ hayStack.continuations = (function() {
             if (counter >= continuations.length) return;
             (continuations[counter])();
         },
-        dump : function() { console.log(continuations); console.log("Current ptr: " + counter); },
-        prepend : function (conts) {
+        push : function(cont) { continuations.push(cont); },
+        insert : function (conts) {
             if (undefined === conts.length)
                 continuations.splice(counter+1, 0, conts);
             else
                 for (var i = conts.length - 1; i >= 0; i--)
                     continuations.splice(counter+1, 0, conts[i]);
         },
-        append : function (conts) {
-            continuations.push(conts);
-        }
+        dump : function() {  //debug purposes
+            console.log(continuations); 
+            console.log("Current ptr: " + counter); 
+        },
+        clear : function() {  //to stop in case of error
+            continuations = []; 
+            counter = -1; 
+            console.log("continuation queue cleared from code.");
+        } 
     };
     return coRoutine;
 })();
@@ -174,7 +180,7 @@ hayStack.continuations = (function() {
     trials to the list of continuations to the list of results. */
 
 //The first continuation collects the ID of the participant.
-hayStack.continuations.append(
+hayStack.continuations.push(
     function () {
         //setup interface to query id from user
         var lbl = document.getElementById("lblInput");
@@ -202,7 +208,7 @@ hayStack.continuations.append(
 );
 
 //We now fetch from the server the data of the test.
-hayStack.continuations.append(function () {
+hayStack.continuations.push(function () {
     var xhr = new XMLHttpRequest();
     //try and identify server, on fail use sapfsy186
     var reg = /^http:\/(\/.*:\d+)/;
@@ -224,7 +230,7 @@ hayStack.continuations.append(function () {
                     " is not defined: forgot to include in main.html?");
                 return;
             }
-            hayStack.continuations.prepend(frame.continuationFactory(test));
+            hayStack.continuations.insert(frame.continuationFactory(test));
         }
         hayStack.continuations.next();
     });
@@ -233,7 +239,7 @@ hayStack.continuations.append(function () {
 });
 
 // the final continuation cleans up the interface and sends the data to server
-hayStack.continuations.append(function () {
+hayStack.continuations.push(function () {
     hayStack.view.msg("Danke! Sie sind am Ende der Testung angekommen.");
     hayStack.view.setStyle("defaultStyle");
     hayStack.output.postTrials();
