@@ -34,14 +34,15 @@
         version: "1.0",
         timeout: 15000, 
         timeRefractory: 3000,
-        randomOrder: false,
+        randomOrder: true,
 
         //common properties of all trials
         type: "BD",
         polarity: 1,
         trials: [
             { itemID: "BD01", data: ["I felt low for most of last week", "very true", "somewhat true", "somewhat false", "false"]},
-            { itemID: "BD02", data: ["I have los all appetite", "very true", "somewhat true", "somewhat false", "false"]}
+            { itemID: "BD02", data: ["I have lost all appetite", "very true", "somewhat true", "somewhat false", "false"]},
+            { itemID: "BD03", data: ["I have a big burden to carry", "very true", "somewhat true", "somewhat false", "false"]}
         ]
     },
 

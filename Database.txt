@@ -1,6 +1,0 @@
-sessionID	subjectID	testID	trialID	itemID	type	polarity	response	RT	respKey	responseData	trialData	version	timestamp	source
-1	44mmm	LOGON	0			0		0					26/12/2021 16:4 GMT+0100	::ffff:127.0.0.1
-1	44mmm	SSTDepr	1	O2p7	OP	1	NEG	1906	1	pos:6,neg:1	verfehlen,werde,meine,Ziele,ich,erreichen		16:4:7	::ffff:127.0.0.1
-1	44mmm	SSTDepr	2	O2p9	OI	1	NEG	1880	1	pos:5,neg:1	düster,wird,Zukunft,eher,rosig,die		16:4:9	::ffff:127.0.0.1
-1	44mmm	SSTDepr	3	O2p13	AP	-1	POS	1951	3	pos:3,neg:5	macht,meine,glücklich,Arbeit,müde,mich		16:4:11	::ffff:127.0.0.1
-1	44mmm	SSTDepr	4	O2p8	OP	1	ERROR	3328	4	pos:6,neg:1	versagen,werde,mal,ich,wieder,bestehen		16:4:13	::ffff:127.0.0.1

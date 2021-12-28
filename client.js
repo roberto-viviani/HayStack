@@ -139,7 +139,7 @@ hayStack.output = (function () {
                 ' ' + /GMT\+\d+/.exec(dat.toString())[0];
         },
         getSubjectID : function() {
-            return surbjectID;
+            return subjectID;
         }
     };
 })();
@@ -213,9 +213,9 @@ hayStack.continuations.append(function () {
     url += ("/trials:" + hayStack.output.getSubjectID() + 
         ":" + hayStack.testRequest.join(","));
     xhr.addEventListener("load", function() {
-        tests = [JSON.parse(xhr.responseText)];
-        //before calling next on the coroutine,
-        //push all trials onto the cue at current position
+        var tests = JSON.parse(xhr.responseText);
+        //before calling next on the coroutine, push all trials
+        //onto the continuation queue at current position
         for (var i = tests.length - 1; i >= 0; i--) {
             var test = tests[i];
             var frame = hayStack[test.frame]; 
@@ -226,7 +226,6 @@ hayStack.continuations.append(function () {
             }
             hayStack.continuations.prepend(frame.continuationFactory(test));
         }
-        //coRoutine.next();
         hayStack.continuations.next();
     });
     xhr.open("GET", url);

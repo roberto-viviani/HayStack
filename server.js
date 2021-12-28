@@ -8,7 +8,7 @@ var PORT = 61543;  //Change this to set the port of your server
 
 var http = require("http"), 
 	fs = require("fs");
-var favicon = fs.readFileSync("./Care.ico");
+var favicon = fs.readFileSync("./HayStack.ico");
 var mainpage = fs.readFileSync("./Main.html", "utf8");
 //var clientjs = fs.readFileSync("./client.js");  //decomment here and below after development
 
@@ -147,37 +147,42 @@ function requestHandler(request, response) {
                 testNames = requrl.split(/[:,]/);
                 testNames.splice(0, 1); //drop the first element, 'test'
                 //check on testnames
-                testNames.forEach(function(value) {
+                for (var n = 0; n < testNames.length; ++n) {
+                    var value = testNames[n];
                     if (undefined === tests[value]) {
-                        console.log("Invalid request: " + value + " (not found in test cache)");
-                        respondError(404, "Invalid request: " + value + " not found.");
+                        console.log("Invalid request: " + value + " not found in test cache");
+                        respondError(404, "Invalid request: test " + value + " is not known.");
                         return;
                     } else console.log("Requested test: " + value);
-                });
+                }
                 requrl = "mainpage";  //internal name for switch code below
 			}
             var reg = /^\/?test:?$/;  //all available tests in script
             if (reg.test(requrl)) {
                 requrl = "mainpage";
-                testNames = keys(tests);
+                testNames = Object.keys(tests);
             }
 
             //request for test data
 			var reg = /^\/?trials:.+:([\w]+,)*([\w]+)$/;   //one or more tests
 			if (reg.test(requrl)) {
+                console.debug("trials:yyyy:xxx request identified");
                 testNames = requrl.split(/[:,]/);
                 testNames.splice(0, 1); //drop the first element, 'trials'...
                 subjectID = testNames.splice(0, 1); //...the subjectID (not used at present)
+                console.log("Subject ID: " + subjectID);
                 //check on testname (unnlikely, tested previously)
                 testData = [];
-                testNames.forEach(function(value) {
+                for (var n = 0; n < testNames.length; ++n) {
+                    var value = testNames[n];
                     if (undefined === tests[value]) {
                         console.log("Invalid request: " + value + " not found in test cache");
-                        respondError(404, "Invalid request: " + value + " not found.");
+                        respondError(404, "Invalid request: test " + value + " is not known.");
                         return;
-                    //here we just return all requested tests, w/o regard for subjectID
-                    } else testData.push(tests[value]);
-                });
+                    } else {
+                        testData.push(tests[value]);
+                    }
+                }
 				if (testData === undefined) {
 					console.log("Invalid request: no test found in test cache");
 					respondError(404, "Invalid request: no test found in test cache");
