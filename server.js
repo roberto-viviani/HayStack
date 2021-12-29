@@ -181,7 +181,6 @@ function requestHandler(request, response) {
             //request for test data
 			var reg = /^\/?trials:.+:([\w]+,)*([\w]+)$/;   //one or more tests
 			if (reg.test(requrl)) {
-                console.debug("trials:yyyy:xxx request identified");
                 testNames = requrl.split(/[:,]/);
                 testNames.splice(0, 1); //drop the first element, 'trials'...
                 subjectID = testNames.splice(0, 1); //...the subjectID (not used at present)

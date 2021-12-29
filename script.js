@@ -1,24 +1,32 @@
 ﻿module.exports = {
 	
     /* Put here a list of tests that can be requested from the server. The property
-    'frame' determined the html elements on the screen, which is stored
-    in a separate object with dedicted code. This property is inherited from all 
-    trials objects, but any trial instance can override it. The properties 'timout',
-    'timeRefractory', and 'randomOrder' should be specified to avoid default values.
+    'frame' determines the html elements on the screen. These elements are steered
+    in a separate object with dedicated code. Each test will usually make use of one
+    or more frames.
+    
+    Each test is defined by the fields of a JavaScript object. The field 'trials'
+    contains an array defining individual items to be presented in the test, in turn
+    defined as the fields of objects. Properties defined at test level can be
+    overridden in individual items. For example, individual items may specify a
+    frame that differs from that of the test to mix 
 
-    Each trial object must contain a unique 'itemID' field, a 'type' descriptor (to
-    be used in the statistical analysis), a 'data' field with the content of the 
-    question or trial, a 'polarity' field with values 1, -1 , or 0, and any
-    other custom fields. Fields that have the same value in all trials may be
-    specified at the test level.
+    Some properties must always be defined: 'frame' for tests, and unique 'itemID' 
+    field, a 'type' descriptor (to be used in the statistical analysis), a 'data' 
+    field with the content of the question or trial, a 'polarity' field with values 
+    1, -1 , or 0. Fields that have the same value in all trials may be specified
+    at the test level. Test or trials can have any additional property used to 
+    parametrize the test or the frame display.
 
-    The required test or tests may be specified in the browser, e.g.
-    http://safpsy186:61543/test:SSTDepr
-    Separate multiple tests with a comma.
+    The server listens at port 61543 and recognizes requests for tests when the 
+    url starts with 'test:'. The required test or tests may be specified in the url 
+    after this, e.g.
+    http://safpsy186.psychiatrie3.uni-ulm.de:61543/test:SSTDepr
+    Separate multiple tests with a comma. The tests are then given in order.
     */
 
-    /* This is an SST test with two frames. The continuation factory must create continuations
-        that understand the frames they have. */
+    /* This is an SST test with two frames in the items. The continuation factory 
+        must create continuations that understand the frames they have. */
 	SSTDepr : {			
         frame: "SST",
 		description: "SST socphob and depressed",	
@@ -109,7 +117,7 @@
 		]	
     },
     
-    
+    /* These are not implemented yet but would look like this */
     Beck : {
         frame: "mchoice",
         description: "Beck's depression scale",
