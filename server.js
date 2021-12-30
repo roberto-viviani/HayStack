@@ -317,7 +317,6 @@ function requestHandler(request, response) {
 					response.end();
 					return;
                 }
-                console.log(buff.slice(0,14));
 				serializeData(JSON.parse(buff), request.socket.remoteAddress);
 				response.statusCode = 200;
 				response.end();
