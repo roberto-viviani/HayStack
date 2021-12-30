@@ -39,12 +39,7 @@ hayStack.SST.view = {
         for (var i = 0; i < btns.length; ++i) {
             btns[i].onmousedown = function () { };
         }
-    } /*,
-
-    msg : function (message) {
-        var pp = document.getElementById("lblNext");
-        pp.innerHTML = message;
-    } */
+    }
 };
 
 hayStack.SST.computeResponse = function(resp, trial, rt) {
@@ -152,17 +147,6 @@ hayStack.SST.continuationFactory = function(test) {
             view.setHandlers(onClickFactory, trialobj);
         }
     }; 
-    // The following is a function generator for simple displays without response.
-    // It uses the infopage default template and sets its elements directly.
-    /*var simpleContinuationFactory = function (trialobj) {
-		return function () {
-            hayStack.view.setTemplate("infopage", "infopageStyle");
-            data = trialobj.data;
-            hayStack.view.set(data[0], "infotext");
-            hayStack.view.set(data[1], "infobtn");
-            document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
-        }
-    }; */
     
     // the trials
     for (var i = 0; i < test.trials.length; ++i) {

@@ -11,13 +11,13 @@
     overridden in individual items. For example, individual items may specify a
     frame that differs from that of the test to mix 
 
-    Some properties must always be defined: 'frame' for tests, and unique 'itemID' 
-    field, a 'type' descriptor (to be used in the statistical analysis), a 'data' 
-    field with the content of the question or trial, a 'polarity' field with values 
-    1, -1 , or 0 (defaults to 0), and 'skipOutput' (defaults to false). Fields that 
-    have the same value in all trials may be specified at the test level. Test or 
-    trials can have any additional property used to parametrize the test or the 
-    frame display.
+    Some properties must always be defined: 'frame' for tests, and for trials 
+    a unique 'itemID' field and a 'data' field with the content of the question or 
+    trial. Other fields if missing are set to default values: the 'polarity' field 
+    with values 1, -1 , or 0 (defaults to 0), and 'skipOutput' (defaults to false). 
+    Fields that have the same value in all trials may be specified at the test level. 
+    Test or trials can have any additional property used to parametrize the test or 
+    the frame display.
 
     The server listens at port 61543 and recognizes requests for tests when the 
     url starts with 'test:'. The required test or tests may be specified in the url 

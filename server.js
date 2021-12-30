@@ -21,20 +21,21 @@ function checkTests(tests) {
 
         //check required properties and if required set to default values
         if (undefined === test.frame) throw("Test " + testID + ": no frame specified in script.");
-        if (undefined === test.timeout) {
-            test.timeout = 20000;
-            console.log("Test " + testID + ", property timeout: set to default value 20000");
+        var noOutputFrames = new Set(["infopage"]);
+        if (undefined === test.timeout && noOutputFrames.has(testID)) {
+            test.timeout = 0;
+            console.log("Test " + testID + ", property timeout: set to default value none");
         }
-        if (undefined === test.timeRefractory) {
-            test.timeRefractory = 600;
-            console.log("Test " + testID + ", property timeRefractory: set to default value 600");
+        if (undefined === test.timeRefractory && noOutputFrames.has(testID)) {
+            test.timeRefractory = 0;
+            console.log("Test " + testID + ", property timeRefractory: set to default value none");
         }
-        if (undefined === test.skipOutput) {
+        if (undefined === test.skipOutput && noOutputFrames.has(testID)) {
             test.skipOutput = false;
             console.log("Test " + testID + ", property skipOutput: set to default value 'false'");
         }
-
         if (undefined === test.randomOrder) test.randomOrder = false;
+        
         if (undefined !== test.itemID) throw("Test " + testID + ": itemID property invalid here");
         if (undefined !== test.timestamp) throw("Test " + testID + ": timestamp property invalid here");
         if (undefined !== test.source) throw("Test " + testID + ": source property invalid here");
@@ -282,7 +283,7 @@ function requestHandler(request, response) {
                             respondError(405, logRequest(request, 
                                 "Invalid request: directory not allowed"));
                         else {
-                            //response.setHeader("content-type", getType(pathname));
+                            response.setHeader("content-type", getType(pathname));
                             response.setHeader("access-control-allow-origin", "*");
                             response.statusCode = 200;
                             try {
@@ -362,7 +363,19 @@ function requestHandler(request, response) {
       }
 
     function getType(path) {
-        return require("mime").lookup(path);
+        var ext = /\.\w+$/.exec(path);
+        switch (ext[0].toLowerCase()) {
+            case '.js' :
+                return 'text/javascript';
+            case '.html' :
+            case '.htm' :
+                return 'text/html';
+            case '.css' :
+                return 'text/css';
+            default:
+                console.log("Unrecognized type: " + ext[0]);
+                return 'text/plain';
+        }
     }
       
 }
