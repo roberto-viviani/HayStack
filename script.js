@@ -14,9 +14,10 @@
     Some properties must always be defined: 'frame' for tests, and unique 'itemID' 
     field, a 'type' descriptor (to be used in the statistical analysis), a 'data' 
     field with the content of the question or trial, a 'polarity' field with values 
-    1, -1 , or 0. Fields that have the same value in all trials may be specified
-    at the test level. Test or trials can have any additional property used to 
-    parametrize the test or the frame display.
+    1, -1 , or 0 (defaults to 0), and 'skipOutput' (defaults to false). Fields that 
+    have the same value in all trials may be specified at the test level. Test or 
+    trials can have any additional property used to parametrize the test or the 
+    frame display.
 
     The server listens at port 61543 and recognizes requests for tests when the 
     url starts with 'test:'. The required test or tests may be specified in the url 
@@ -39,11 +40,15 @@
 		trials: [
             //instruction
             { frame: "infopage", randomOrder: false, itemID: "startinstruct", type: "info", timeout: 0,
-                data: ["Mach den Satz im Kopf. Click auf das Wort, das am Ende kommt<br>Zuerst kommt eine kurze Übung.", "start"]},
+                data: ["Mach den Satz im Kopf. Click auf das Wort, das am Ende kommt.<br>Zuerst kommt eine kurze Übung.", "start"]},
             //practice trials. Override timeout and remove it. Override skipOutput.
             { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
                 data: ["practice", "practice", "glücklich", "practice", "practice", "practice"], polarity: -1, pos: 3, neg: 5 },
             { randomOrder: false, skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
+                data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
+            { frame: "infopage", randomOrder: false, itemID: "instructtimeout", type: "info", timeout: 0,
+                data: ["Man hat in dem Test 7.5 Sek. um zu antworten.<br>Ab jetzt auch in der Übung.", "weiter"]},
+            { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",
                 data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
             { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
                 data: ["Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
@@ -122,17 +127,21 @@
         frame: "mchoice",
         description: "Beck's depression scale",
         version: "1.0",
-        timeout: 15000, 
-        timeRefractory: 3000,
-        randomOrder: true,
+        timeout: 5000, 
+        timeRefractory: 1000,
+        randomOrder: false,
+        skipOutput: false,
 
         //common properties of all trials
         type: "BD",
         polarity: 1,
         trials: [
-            { itemID: "BD01", data: ["I felt low for most of last week", "very true", "somewhat true", "somewhat false", "false"]},
-            { itemID: "BD02", data: ["I have lost all appetite", "very true", "somewhat true", "somewhat false", "false"]},
-            { itemID: "BD03", data: ["I have a big burden to carry", "very true", "somewhat true", "somewhat false", "false"]}
+            { frame: "infopage", itemID: "infoBeck", type: "info", skipOutput: true,
+                timeout: 0, timeRefractory: 0,
+                data: ["Answer as best as you can", "start"]},
+            { itemID: "BD01", data: ["I felt low for most of last week", "false", "somewhat false", "somewhat true", "true"]},
+            { itemID: "BD02", data: ["I have lost all appetite", "false", "somewhat false", "somewhat true", "true"]},
+            { itemID: "BD03", data: ["I have a big burden to carry", "false", "somewhat false", "somewhat true", "true"]}
         ]
     },
 
@@ -142,7 +151,8 @@
         version: "1.0",
         timeout: 20000,
         timeRefractory: 2500,
-        randomOrder: false,
+        randomOrder: true,
+        skipOutput: false,
 
         //common property of all trials
         type: "GHQ",

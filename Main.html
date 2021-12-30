@@ -27,6 +27,18 @@
         </script>
         <script>
             hayStack.infopage = {};
+            //continuation factory for single trial (for external use)
+            hayStack.infopage.simpleContinuationFactory = function(trial) {
+                return function() {
+                    hayStack.view.setTemplate("infopage", "infopageStyle");
+                    var data = trial.data;
+                    if (data.length < 2) data.push("fortsetzen");
+                    hayStack.view.set(data[0], "infotext");
+                    hayStack.view.set(data[1], "infobtn");
+                    document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
+                }
+            }
+            //continuation factory for test object
             hayStack.infopage.continuationFactory = function(test) {
                 var conts = [];
                 conts.push(function() {
@@ -57,6 +69,19 @@
             }
             .infopage {
                 font-size: 2vw;
+            }
+        </script>
+
+        <!-- standard template: mchoice -->
+        <script type="text/template" id="mchoice">
+            <p id="question" class="mchoice"></p>
+            <div id="questionList" class=mchoice></div>
+        </script>
+        <script type="text/javascript" src="mchoice.js"></script>
+        <script type="text/template" id="mchoiceStyle">
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
             }
         </script>
 

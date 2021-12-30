@@ -17,9 +17,13 @@ if (undefined === window.hayStack) window.hayStack = {};
 //a view object to handle elements of the standard page, which
 //contains a div element named 'interface'.
 hayStack.view = {
-    //cear interface and display message
+    //clear interface and display message
     msg : function(txt) {
         elem = document.getElementById("interface");
+        if (undefined == elem) {
+            document.documentElement.innerHTML = "<p>" + txt + "</p>";
+            throw("Error on loading page: " + txt);
+        }
         elem.innerHTML = "<p id='msg'>" + txt + "</p>";
         elem.style.fontSize = "2vw";
         return elem;
@@ -106,7 +110,7 @@ hayStack.output = (function () {
         registerSid : function(sid, onTerminate) {
             subjectID = sid;
             trial = getEmptyTrial();
-            trial.timestamp = hayStack.output.getTimestamp();
+            trial.timestamp = hayStack.output.datestamp();
             trial.testID = "LOGON";
             trial.subjectID = sid;
             post([trial], onTerminate);
@@ -126,6 +130,7 @@ hayStack.output = (function () {
             post(data, onTerminate);
             data = [];
         },
+        //utilities to compose output
         emptyTrial : function() {
             trial = getEmptyTrial();
             trial.sessionID = sessionID;
@@ -133,10 +138,17 @@ hayStack.output = (function () {
             trial.trialID = ++trialCounter;
             return trial;
         },
-        getTimestamp : function(dat) {
-            if (undefined === dat) dat = new Date(Date.now());
-            return dat.toLocaleDateString() + ' ' + dat.getHours() + ':' + dat.getMinutes() + 
-                ' ' + /GMT\+\d+/.exec(dat.toString())[0];
+        datestamp : function(timedata) {
+            if (undefined === timedata) timedata = new Date(Date.now());
+            return timedata.toLocaleDateString() + ' ' + 
+                timedata.getHours() + ':' + timedata.getMinutes() + 
+                ' ' + /GMT\+\d+/.exec(timedata.toString())[0];
+        },
+        timestamp : function(timedata) {
+            if (undefined === timedata) timedata = new Date(Date.now());
+            else timedata = new Date(timedata);
+            return timedata.getHours() + ':' + timedata.getMinutes() + 
+                ':' + timedata.getSeconds();
         },
         getSubjectID : function() {
             return subjectID;
@@ -144,23 +156,51 @@ hayStack.output = (function () {
     };
 })();
 
-//the co-routine framework
+//the co-routine framework.
 hayStack.continuations = (function() {
     var continuations = [];
     var counter = -1;
+    var inputCheck = function(cont) {
+        if (typeof cont !== "function") {
+            continuations = [];
+            hayStack.view.msg("Non-function submitted as continuation");
+            throw("Non-function submitted as continuation");
+        }
+    };
     var coRoutine = {
+        //invoke next continuation
         next : function () {
             counter = counter + 1;
             if (counter >= continuations.length) return;
             (continuations[counter])();
         },
-        push : function(cont) { continuations.push(cont); },
-        insert : function (conts) {
-            if (undefined === conts.length)
-                continuations.splice(counter+1, 0, conts);
+        //add continuation
+        push : function(cont) { 
+            inputCheck(cont);
+            continuations.push(cont); 
+        },
+        //concatenate continuations at end
+        append : function(conts) {
+            if (Array.isArray(conts))
+                conts.forEach(function(value) {
+                    inputCheck(value);
+                    continuations.push(value);
+                });
             else
-                for (var i = conts.length - 1; i >= 0; i--)
-                    continuations.splice(counter+1, 0, conts[i]);
+                continuations.push(cont);
+        },
+        //insert continuation or array of continuations at position
+        insert : function (conts, position) {
+            if (undefined === position) position = counter + 1;
+            if (Array.isArray(conts))
+                for (var i = conts.length - 1; i >= 0; i--) {
+                    inputCheck(conts[i]);
+                    continuations.splice(position, 0, conts[i]);
+                }
+                else {
+                    inputCheck(conts);
+                    continuations.splice(position, 0, conts);
+                }
         },
         dump : function() {  //debug purposes
             console.log(continuations); 
@@ -230,6 +270,11 @@ hayStack.continuations.push(function () {
                     " is not defined: forgot to include in main.html?");
                 return;
             }
+            //last continuation sends over data to server
+            hayStack.continuations.insert(function () {
+                hayStack.output.postTrials();
+                hayStack.continuations.next();
+            });
             hayStack.continuations.insert(frame.continuationFactory(test));
         }
         hayStack.continuations.next();

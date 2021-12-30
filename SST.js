@@ -3,15 +3,15 @@
 if (undefined === window.hayStack) window.hayStack = {}; 
 
 //The sst frame object
-window.hayStack.SST = {};
+hayStack.SST = {};
 
 //the view object--------------------------------------------------------------------------
-window.hayStack.SST.view = {
+hayStack.SST.view = {
 
 // Interface with the HTML layout
     setData : function (data) {
         //data is a field of trialobject. displays scrambled words.
-        btns = document.getElementsByClassName("btn");
+        var btns = document.getElementsByClassName("btn");
         var maxLen = 0;
         for (var i = 0; i < btns.length; ++i) {
             if (data[i].length > maxLen) maxLen = data[i].length;
@@ -28,40 +28,23 @@ window.hayStack.SST.view = {
     }, 
 
     setHandlers : function (createHandler, trial) {
-        btns = document.getElementsByClassName("btn");
+        var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; ++i) {
             btns[i].onmousedown = createHandler(i, trial);
         }
     },
 
     resetHandlers : function () {
-        btns = document.getElementsByClassName("btn");
+        var btns = document.getElementsByClassName("btn");
         for (var i = 0; i < btns.length; ++i) {
             btns[i].onmousedown = function () { };
         }
-    },
+    } /*,
 
     msg : function (message) {
         var pp = document.getElementById("lblNext");
         pp.innerHTML = message;
-    },
-
-    setInput : function (boolFlag, text) {
-        btns = document.getElementsByClassName("btn");
-        for (var i = 0; i < btns.length; ++i) {
-            btns[i].style.visibility = boolFlag ? "hidden" : "visible";
-        }
-        var lbl = document.getElementById("lblInput");
-        lbl.style.visibility = boolFlag ? "visible" : "hidden";
-        lbl.innerHTML = boolFlag ? text : "Bitte tragen Sie Ihre Identifikationskode hier ein:";
-        var txt = document.getElementById("subjId");
-        txt.style.visibility = boolFlag ? "visible" : "hidden";
-        if (boolFlag) txt.value = ""; 
-        var btnNext = document.getElementById("btnNext");  //btnRecordID
-        btnNext.style.visibility = boolFlag ? "visible" : "hidden";
-        return btnNext;
-    }
-
+    } */
 };
 
 hayStack.SST.computeResponse = function(resp, trial, rt) {
@@ -94,16 +77,10 @@ hayStack.SST.computeResponse = function(resp, trial, rt) {
     }
 };
 
-hayStack.SST.timestamp = function(timedata) {
-    if (undefined === timedata) timedata = new Date(Date.now());
-    else timedata = new Date(timedata);
-    return timedata.getHours() + ':' + timedata.getMinutes() + ':' + timedata.getSeconds();
-}
-
 hayStack.SST.pushTrial = function(item, resp, rt) {
     var cf = function(data, deflt) { return (undefined === data) ? deflt : data; };
 
-    trial = hayStack.output.emptyTrial();
+    var trial = hayStack.output.emptyTrial();
     trial.testID = item.testID 
     trial.itemID = item.itemID;
     trial.type = item.type;
@@ -126,7 +103,10 @@ hayStack.SST.continuationFactory = function(test) {
     var conts = [];
     var view = hayStack.SST.view;
     var coRoutine = hayStack.continuations;
-    var output = {push : hayStack.SST.pushTrial };
+    var output = {
+        push : hayStack.SST.pushTrial, 
+        timestamp : hayStack.output.timestamp
+    };
 
     //definition of handlers here, to be available in the definition of the co-routine.
     //the handlers define an unfold acting on the output object as an accumulator
@@ -138,7 +118,7 @@ hayStack.SST.continuationFactory = function(test) {
             //we only process the first
             if (hTimeout === undefined) return;
             hTimeout = undefined;
-            trialobj.timestamp = hayStack.SST.timestamp(trialStart);
+            trialobj.timestamp = output.timestamp(trialStart);
             output.push(trialobj, 0, 0);
             //coRoutine.next(); create a small pause to alert to change
             hayStack.view.msg("");
@@ -148,7 +128,7 @@ hayStack.SST.continuationFactory = function(test) {
     var onClickFactory = function (numelem, trialobj) {
         return function (event) {
             var rt = Date.now() - trialStart;
-            trialobj.timestamp = hayStack.SST.timestamp(trialStart);
+            trialobj.timestamp = output.timestamp(trialStart);
             if (rt < test.timeRefractory) return;
             clearTimeout(hTimeout);
             hTimeout = undefined;
@@ -174,7 +154,7 @@ hayStack.SST.continuationFactory = function(test) {
     }; 
     // The following is a function generator for simple displays without response.
     // It uses the infopage default template and sets its elements directly.
-    var simpleContinuationFactory = function (trialobj) {
+    /*var simpleContinuationFactory = function (trialobj) {
 		return function () {
             hayStack.view.setTemplate("infopage", "infopageStyle");
             data = trialobj.data;
@@ -182,7 +162,7 @@ hayStack.SST.continuationFactory = function(test) {
             hayStack.view.set(data[1], "infobtn");
             document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
         }
-    };
+    }; */
     
     // the trials
     for (var i = 0; i < test.trials.length; ++i) {
@@ -195,25 +175,21 @@ hayStack.SST.continuationFactory = function(test) {
                 conts.push(loopContinuationFactory(trialobj));
         }
         else if ("infopage" === trialobj.frame) {
-            //one strategy is to use the default factory for infopage
-            //(it handles a whole test, but provides an array of only one cont)
-            //ccs = hayStack.infopage.continuationFactory({trials: [trialobj]});
-            //conts.push(ccs[0]);
-
-            //alternatively, use the factory that manipulates the template directly
-            conts.push(simpleContinuationFactory(trialobj))
+            //ask simpleFactory of infopage to provide continuation
+            conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
         }
         else {
-            coRoutine.clear();
+            conts.clear();
             hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
                 ", trial " + trialobj.itemID + ": " + trialobj.frame);
             return [];
         }
     }
-    //last continuation sends over data to server
-    conts.push(function () {
-        hayStack.output.postTrials();
-        coRoutine.next();
-    });
     return conts;
+}; //continuation factory
+
+//for export
+hayStack.SST.simpleContinuationFactory = function(trial) {
+    conts = hayStack.SST.continuationFactory({trials: trial});
+    return conts[0];
 }

@@ -29,6 +29,11 @@ function checkTests(tests) {
             test.timeRefractory = 600;
             console.log("Test " + testID + ", property timeRefractory: set to default value 600");
         }
+        if (undefined === test.skipOutput) {
+            test.skipOutput = false;
+            console.log("Test " + testID + ", property skipOutput: set to default value 'false'");
+        }
+
         if (undefined === test.randomOrder) test.randomOrder = false;
         if (undefined !== test.itemID) throw("Test " + testID + ": itemID property invalid here");
         if (undefined !== test.timestamp) throw("Test " + testID + ": timestamp property invalid here");
@@ -270,11 +275,12 @@ function requestHandler(request, response) {
                     //console.log("Request GET " + pathname);
                     fs.stat(pathname, function(error, stats) {
                         if (error && error.code == "ENOENT")
-                            respondError(404, "File not found");
+                            respondError(404, logRequest(request, "File not found"));
                         else if (error)
-                            respondError(500, error.toString());
+                            respondError(500, logRequest(request, error.toString()));
                         else if (stats.isDirectory())
-                            respondError(405, "Invalid request: directory not allowed");
+                            respondError(405, logRequest(request, 
+                                "Invalid request: directory not allowed"));
                         else {
                             //response.setHeader("content-type", getType(pathname));
                             response.setHeader("access-control-allow-origin", "*");
@@ -305,12 +311,13 @@ function requestHandler(request, response) {
 			});
 			request.on("end", function () {
 				//check we are not being sent something else
-				/*if (buff.slice(0,14) !== '[{"sessionID":') {
+				if (buff.slice(0,14) !== '[{"sessionID":') {
 					logRequest(request, "Invalid POST: " + buff);
 					response.statusCode = 405;
 					response.end();
 					return;
-                } */
+                }
+                console.log(buff.slice(0,14));
 				serializeData(JSON.parse(buff), request.socket.remoteAddress);
 				response.statusCode = 200;
 				response.end();
@@ -332,7 +339,9 @@ function requestHandler(request, response) {
 	}
 	
 	function logRequest(request, msg) {
-		console.log(msg + " (remote address: " + request.socket.remoteAddress + " - " + getTimestamp() + ")");
+		console.log(msg + " (remote address: " + 
+            request.socket.remoteAddress + " - " + getTimestamp() + ")");
+        return msg;
     }
     
     function urlToPath(url) {
