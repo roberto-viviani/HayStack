@@ -22,15 +22,15 @@ function checkTests(tests) {
         //check required properties and if required set to default values
         if (undefined === test.frame) throw("Test " + testID + ": no frame specified in script.");
         var noOutputFrames = new Set(["infopage"]);
-        if (undefined === test.timeout && noOutputFrames.has(testID)) {
+        if (undefined === test.timeout && !noOutputFrames.has(test.frame)) {
             test.timeout = 0;
             console.log("Test " + testID + ", property timeout: set to default value none");
         }
-        if (undefined === test.timeRefractory && noOutputFrames.has(testID)) {
+        if (undefined === test.timeRefractory && !noOutputFrames.has(test.frame)) {
             test.timeRefractory = 0;
             console.log("Test " + testID + ", property timeRefractory: set to default value none");
         }
-        if (undefined === test.skipOutput && noOutputFrames.has(testID)) {
+        if (undefined === test.skipOutput && !noOutputFrames.has(test.frame)) {
             test.skipOutput = false;
             console.log("Test " + testID + ", property skipOutput: set to default value 'false'");
         }

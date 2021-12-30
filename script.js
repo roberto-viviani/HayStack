@@ -149,8 +149,8 @@
         frame: "likert",
         description: "General Health Questionaire",
         version: "1.0",
-        timeout: 20000,
-        timeRefractory: 2500,
+        //timeout: 20000,
+        //timeRefractory: 2500,
         randomOrder: true,
         skipOutput: false,
 
