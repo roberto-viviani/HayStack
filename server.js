@@ -120,6 +120,16 @@ function serializeData(data, source) {
     let text = "";
 	for (let i = 0; i < data.length; ++i) {
         let trial = data[i];
+        if (trial.testID === "LOGOFF") {
+            console.log(trial.responseData);
+            let logoffData = JSON.parse(trial.responseData);
+            let logoffText = [logoffData.firstName, logoffData.secondName, 
+                logoffData.matriculationNo, logoffData.logonId, trial.timestamp];
+                fs.appendFile("./Credits.txt", logoffText.join("\t") + "\n", "utf8", 
+                 err => err ? console.log("error " + err) : 
+                 console.log("credits saved for " + logoffData.logonId));
+            continue;
+        }
         let trialtext = [trial.sessionID, trial.subjectID, trial.testID, trial.trialID, 
             trial.itemID, trial.type, trial.polarity, trial.response, trial.RT, trial.respKey, 
             trial.responseData, trial.trialData, trial.version, trial.timestamp, source];

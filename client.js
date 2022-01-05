@@ -283,7 +283,31 @@ hayStack.continuations.push(function () {
     xhr.send();
 });
 
-// the final continuation cleans up the interface and sends the data to server
+//this continuation loads the logoff page and collects data for credits
+hayStack.continuations.push(function () {
+    hayStack.view.setInterface("logoffPage");
+    var elem = document.getElementById("btnLogoff");
+    if (undefined === elem) console.log("Invalid coding of logoff page");
+    elem.onclick = function () {
+        var logoffData = {};
+        var txt = document.getElementById("firstName");
+        logoffData.firstName = txt.value;
+        txt = document.getElementById("secondName");
+        logoffData.secondName = txt.value;
+        txt = document.getElementById("matriculationNo");
+        logoffData.matriculationNo = txt.value;
+        txt = document.getElementById("logonId");
+        logoffData.logonId = txt.value;
+        var trial = hayStack.output.emptyTrial();
+        trial.testID = "LOGOFF";
+        trial.responseData = JSON.stringify(logoffData);
+        trial.timestamp = hayStack.output.datestamp();
+        hayStack.output.pushTrial(trial);
+        hayStack.continuations.next();
+    };
+});
+
+// this final continuation cleans up the interface.
 hayStack.continuations.push(function () {
     hayStack.view.msg("Danke! Sie sind am Ende der Testung angekommen.");
     hayStack.view.setStyle("defaultStyle");

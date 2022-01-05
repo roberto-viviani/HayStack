@@ -20,6 +20,21 @@
             }
         </script>
 
+        <!-- template for logoff page collecting data for experiment credits -->
+        <script type="text/template" id="logoffPage">
+            <!-- uses defaultStyle and code in client.js -->
+            <p style="font-size:1.4em" id="lblInput">Um Experimentstunden zu verteilen, brauchen wir diese Daten.<br>
+                Sie werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonimität zu bewahren<br>
+                Wenn keine Experimentstunden benötigt werden, blank lassen und direkt auf 'weiter>>' clicken.
+            </p>
+            <div>Vorname: <input class="logOff" type="text" name="firstName" id="firstName" value=""><br><br></div>
+            <div>Nachname: <input class="logOff" type="text" name="secondName" id="secondName" value=""><br><br></div>
+            <div>MatrikelNr: <input class="logOff" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
+            <div><p>Logon-ID (z.B., csa0123456):</p><input class="logOff" type="text" name="logonId" id="logonId" value=""><br><br></div>
+            <p class="logOff" style="font-size:1.4em" id="lblFinish">abschicken/beenden:</p>
+            <button class="logOff" id="btnLogoff">weiter >></button>      
+        </script>
+
         <!-- standard template: infopage -->
         <script type="text/template" id="infopage">
             <p id="infotext" class="infopage"></p>
