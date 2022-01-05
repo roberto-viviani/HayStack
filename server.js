@@ -4,7 +4,7 @@
  *  Roberto Viviani, December 2021
  */
 
-var PORT = 61543;  //Change this to set the port of your server
+const PORT = 61543;  //Change this to set the port of your server
 
 var http = require("http"), 
 	fs = require("fs");
@@ -15,13 +15,13 @@ var mainpage = fs.readFileSync("./Main.html", "utf8");
 /* Load tests from script.js, the file that contains all questions or items */
 var tests = require("./script");
 function checkTests(tests) {
-    for (var testID in tests) {
-        test = tests[testID];
+    for (let testID in tests) {
+        let test = tests[testID];
         test.testID = testID;
 
         //check required properties and if required set to default values
         if (undefined === test.frame) throw("Test " + testID + ": no frame specified in script.");
-        var noOutputFrames = new Set(["infopage"]);
+        let noOutputFrames = new Set(["infopage"]);
         if (undefined === test.timeout && !noOutputFrames.has(test.frame)) {
             test.timeout = 0;
             console.log("Test " + testID + ", property timeout: set to default value none");
@@ -44,11 +44,11 @@ function checkTests(tests) {
         if (undefined !== test.subjectID) throw("Test " + testID + ": subjectID property invalid here");
 
         //bequeth porperties to trials and check required properties
-        var fields = Object.keys(test);
-        for (var i in test.trials) {
-            var trial = test.trials[i];
-            for (var j in fields) {
-                var fname = fields[j];
+        let fields = Object.keys(test);
+        for (let i in test.trials) {
+            let trial = test.trials[i];
+            for (let j in fields) {
+                let fname = fields[j];
                 if ("trials" === fname) continue; 
                 if (undefined === trial[fname]) trial[fname] = test[fname];
             }
@@ -60,7 +60,7 @@ function checkTests(tests) {
         }
     }
     console.log("Available tests:");
-    for (var tt in tests) console.log(tt);
+    for (let tt in tests) console.log(tt);
     return tests;
 }
 tests = checkTests(tests);
@@ -90,7 +90,7 @@ function shuffleTrials(trials) {
         if (undefined === value.randomOrder) value.randomOrder = true;
     });
     //select trials to reorder
-    shTrials = trials.filter(function(value) {
+    let shTrials = trials.filter(function(value) {
         return value.randomOrder;
     });
     //reorder
@@ -114,13 +114,13 @@ dr.find((el) => el === "Database.txt") || fs.writeFileSync(
 //Halper function to save input data to disk
 function serializeData(data, source) {
 	if (undefined === data || 0 === data.length) {
-		console.log("No data recevied in serializer"); 
+		console.log("No data received in serializer"); 
 		return; 
 	}
-    var text = "";
-	for (var i = 0; i < data.length; ++i) {
-        trial = data[i];
-        trialtext = [trial.sessionID, trial.subjectID, trial.testID, trial.trialID, 
+    let text = "";
+	for (let i = 0; i < data.length; ++i) {
+        let trial = data[i];
+        let trialtext = [trial.sessionID, trial.subjectID, trial.testID, trial.trialID, 
             trial.itemID, trial.type, trial.polarity, trial.response, trial.RT, trial.respKey, 
             trial.responseData, trial.trialData, trial.version, trial.timestamp, source];
 		text += trialtext.join("\t");
@@ -140,7 +140,7 @@ function getTimestamp(dat) {
 /* HTTP protocol services */
 
 //The requests handler
-counter = 0;
+var counter = 0;
 function requestHandler(request, response) {
 	
 	request.on("error", function(e) {
@@ -158,18 +158,18 @@ function requestHandler(request, response) {
             //We first check that the requests conforms to a number of predefined
             //cases that encode reqeusting the test data. Below, if all these
             //checks fail, the server reverts to a file server.
-            var requrl = request.url;
-            var testNames = undefined;
-            var testData = undefined;
+            let requrl = request.url;
+            let testNames = undefined;
+            let testData = undefined;
 
             //request for html page for one or more tests
-            var reg = /^\/?test:([\w]+,)*([\w]+)$/;  //one or more tests
+            let reg = /^\/?test:([\w]+,)*([\w]+)$/;  //one or more tests
 			if (reg.test(requrl)) {
                 testNames = requrl.split(/[:,]/);
                 testNames.splice(0, 1); //drop the first element, 'test'
                 //check on testnames
-                for (var n = 0; n < testNames.length; ++n) {
-                    var value = testNames[n];
+                for (let n = 0; n < testNames.length; ++n) {
+                    let value = testNames[n];
                     if (undefined === tests[value]) {
                         console.log("Invalid request: " + value + " not found in test cache");
                         respondError(404, "Invalid request: test " + value + " is not known.");
@@ -178,23 +178,23 @@ function requestHandler(request, response) {
                 }
                 requrl = "mainpage";  //internal name for switch code below
 			}
-            var reg = /^\/?test:?$/;  //all available tests in script
+            reg = /^\/?test:?$/;  //all available tests in script
             if (reg.test(requrl)) {
                 requrl = "mainpage";
                 testNames = Object.keys(tests);
             }
 
             //request for test data
-			var reg = /^\/?trials:.+:([\w]+,)*([\w]+)$/;   //one or more tests
+			reg = /^\/?trials:.+:([\w]+,)*([\w]+)$/;   //one or more tests
 			if (reg.test(requrl)) {
                 testNames = requrl.split(/[:,]/);
                 testNames.splice(0, 1); //drop the first element, 'trials'...
-                subjectID = testNames.splice(0, 1); //...the subjectID (not used at present)
+                let subjectID = testNames.splice(0, 1); //...the subjectID (not used at present)
                 console.log("Subject ID: " + subjectID);
                 //check on testname (unnlikely, tested previously)
                 testData = [];
-                for (var n = 0; n < testNames.length; ++n) {
-                    var value = testNames[n];
+                for (let n = 0; n < testNames.length; ++n) {
+                    let value = testNames[n];
                     if (undefined === tests[value]) {
                         console.log("Invalid request: " + value + " not found in test cache");
                         respondError(404, "Invalid request: test " + value + " is not known.");
@@ -203,7 +203,7 @@ function requestHandler(request, response) {
                         testData.push(tests[value]);
                     }
                 }
-				if (testData === undefined) {
+				if (testData === undefined || 0 === testData.length) {
 					console.log("Invalid request: no test found in test cache");
 					respondError(404, "Invalid request: no test found in test cache");
 					return;
@@ -221,7 +221,7 @@ function requestHandler(request, response) {
 					response.setHeader("Content-Type", "text/html");
                     response.setHeader("access-control-allow-origin", "*");
 					response.statusCode = 200;
-                    var page = mainpage.replace("{{TESTREQUEST}}", 
+                    let page = mainpage.replace("{{TESTREQUEST}}", 
                         "hayStack.testRequest = " + JSON.stringify(testNames) + ";hayStack.sessionID = " + counter + ";");
                     response.end(page);
                     break;
@@ -271,7 +271,7 @@ function requestHandler(request, response) {
                 
             default:
                     //here, we service all other requests by reverting to a file server.
-                    var pathname = urlToPath(request.url);
+                    let pathname = urlToPath(request.url);
                     if (!pathname) {respondError(405, "Invalid request: invalid url"); return; }
                     //console.log("Request GET " + pathname);
                     fs.stat(pathname, function(error, stats) {
@@ -281,13 +281,13 @@ function requestHandler(request, response) {
                             respondError(500, logRequest(request, error.toString()));
                         else if (stats.isDirectory())
                             respondError(405, logRequest(request, 
-                                "Invalid request: directory not allowed"));
+                                "Invalid request: directory inquiry"));
                         else {
                             response.setHeader("content-type", getType(pathname));
                             response.setHeader("access-control-allow-origin", "*");
                             response.statusCode = 200;
                             try {
-                                var body = fs.createReadStream(pathname);
+                                let body = fs.createReadStream(pathname);
                                 if (body && body.pipe)
                                     body.pipe(response);
                                 else if (body)
@@ -295,7 +295,8 @@ function requestHandler(request, response) {
                                 else
                                     respondError(500, "Could not read file");
                             } catch(e) {
-                                respondError(500, "Could not read file: " + e);
+                                respondError(500, "Could not read file: " + pathname + 
+                                    ": " + e);
                             }
                         }
                     });
@@ -305,7 +306,7 @@ function requestHandler(request, response) {
 			
 		case "POST" :
 			console.log("receiving POSTed data...");
-			var buff = "";
+			let buff = "";
 			request.setEncoding("utf-8");
 			request.on("data", function (chunk) {
 				buff += chunk;
@@ -346,7 +347,7 @@ function requestHandler(request, response) {
     
     function urlToPath(url) {
         //this checks that request is legit by detecting crawling
-        var path = require("url").parse(url).pathname;
+        let path = require("url").parse(url).pathname;
         if (/[\.]+[\\\/]/.test(path)) {
             console.log("Attempted path crawling:");
             console.log(path);
@@ -363,7 +364,7 @@ function requestHandler(request, response) {
       }
 
     function getType(path) {
-        var ext = /\.\w+$/.exec(path);
+        let ext = /\.\w+$/.exec(path);
         switch (ext[0].toLowerCase()) {
             case '.js' :
                 return 'text/javascript';
