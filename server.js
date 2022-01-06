@@ -121,7 +121,6 @@ function serializeData(data, source) {
 	for (let i = 0; i < data.length; ++i) {
         let trial = data[i];
         if (trial.testID === "LOGOFF") {
-            console.log(trial.responseData);
             let logoffData = JSON.parse(trial.responseData);
             let logoffText = [logoffData.firstName, logoffData.secondName, 
                 logoffData.matriculationNo, logoffData.logonId, trial.timestamp];

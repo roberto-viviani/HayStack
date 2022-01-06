@@ -233,8 +233,8 @@ hayStack.continuations.push(
         var btnNext = document.getElementById("btnNext");  //btnRecordID
         btnNext.style.visibility = "visible";
         var regID = /^\d\d\D\D\D$/;
+        var subjInput = document.getElementById("subjId");
         btnNext.onclick = function () {
-            var subjInput = document.getElementById("subjId");
             var sid = subjInput.value;
             //validate, if invalid, just return w/o calling next
             if (false === regID.test(sid)) {
@@ -243,7 +243,10 @@ hayStack.continuations.push(
             }
             document.getElementById("interface").innerHTML = "";
             hayStack.output.registerSid(sid, hayStack.continuations.next);
-        }
+        };
+        subjInput.onkeyup = function (event) {
+            if (13 === event.keyCode) btnNext.onclick();
+        };
     }
 );
 
@@ -289,20 +292,23 @@ hayStack.continuations.push(function () {
     var elem = document.getElementById("btnLogoff");
     if (undefined === elem) console.log("Invalid coding of logoff page");
     elem.onclick = function () {
-        var logoffData = {};
+        var lgfData = {};
         var txt = document.getElementById("firstName");
-        logoffData.firstName = txt.value;
+        lgfData.firstName = txt.value;
         txt = document.getElementById("secondName");
-        logoffData.secondName = txt.value;
+        lgfData.secondName = txt.value;
         txt = document.getElementById("matriculationNo");
-        logoffData.matriculationNo = txt.value;
+        lgfData.matriculationNo = txt.value;
         txt = document.getElementById("logonId");
-        logoffData.logonId = txt.value;
-        var trial = hayStack.output.emptyTrial();
-        trial.testID = "LOGOFF";
-        trial.responseData = JSON.stringify(logoffData);
-        trial.timestamp = hayStack.output.datestamp();
-        hayStack.output.pushTrial(trial);
+        lgfData.logonId = txt.value;
+        //check if there are any data before pushing on stack
+        if (Object.values(lgfData).join("").length > 0) {
+            var trial = hayStack.output.emptyTrial();
+            trial.testID = "LOGOFF";
+            trial.responseData = JSON.stringify(lgfData);
+            trial.timestamp = hayStack.output.datestamp();
+            hayStack.output.pushTrial(trial);
+        }
         hayStack.continuations.next();
     };
 });
