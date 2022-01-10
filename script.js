@@ -122,6 +122,25 @@
 		]	
     },
     
+    Ultimatum : {
+        frame : "ultimatum",
+        description : "ultimatum game, Stefanie Bernardin Jan 2022",
+        version : "1.0",
+
+        trials: [
+            { frame : "infopage", itemID: "infoBeck", type: "info", skipOutput: true,
+                timeout: 0, timeRefractory: 0,
+                data: ["Answer as best as you can", "start"]},
+            { itemID: "ultRound1", type: "ultimatum", data : 3},
+            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { itemID: "ultRound1", type: "ultimatum", data : 3},
+            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
+        ]
+
+    },
+
     /* These are not implemented yet but would look like this */
     Beck : {
         frame: "mchoice",
