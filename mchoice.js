@@ -13,17 +13,14 @@ hayStack.mchoice.view = {
         //data is a field of trialobject. displays scrambled words.
         var question = document.getElementById("question");
         question.innerHTML = data[0];
-        var elemList = document.getElementById("questionList");
-        var innerHTML = "";
-        for (var i = 1; i < data.length; ++i)
-            innerHTML += "<div id='response" + i + 
-                "' class='response mchoice'>" + data[i] + "</div>";
-        //add onclick handlers here?
-        elemList.innerHTML = innerHTML;
+        for (let i = 1; i < data.length; ++i) {
+            let elem = document.getElementById("response" + i);
+            elem.innerHTML = data[i];
+        }
     }, 
 
     setHandlers : function (createHandler, trial) {
-        btns = document.getElementsByClassName("response", "mchoice");
+        btns = document.getElementsByClassName("responseMchoice");
         for (var i = 0; i < btns.length; ++i) {
             //in the data array, the first element is the question.
             btns[i].onclick = createHandler(i, trial);
@@ -31,7 +28,7 @@ hayStack.mchoice.view = {
     },
 
     resetHandlers : function () {
-        btns = document.getElementsByClassName("response", "mchoice");
+        btns = document.getElementsByClassName("responseMchoice");
         for (var i = 0; i < btns.length; ++i) {
             btns[i].onclick = function () { };
         }

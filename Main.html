@@ -89,14 +89,54 @@
 
         <!-- standard template: mchoice -->
         <script type="text/template" id="mchoice">
-            <p id="question" class="mchoice"></p>
-            <div id="questionList" class=mchoice></div>
+            <div id= "question" class="mchoice"></div>
+            <div id="responseList" class="mchoice">
+                <div id="response1" class="responseMchoice">selten</div>
+                <div id="response2" class="responseMchoice">manchmal</div>
+                <div id="response3" class="responseMchoice">öfters</div>
+                <div id="response4" class="responseMchoice">meistens</div>
+                <div id ="response5" class="responseMchoice"> </div>
+            <div id="timeOut" class = "mchoice"> <p> Wenn du diese Frage nicht beanworten möchtest, klicke hier >> </p></div>
+            </div>
         </script>
         <script type="text/javascript" src="mchoice.js"></script>
         <script type="text/template" id="mchoiceStyle">
-            #interface {
-                margin-top: 30vh;
+            .responseMchoice {
+                color: white;
+                background-color: RGB(90, 90, 120);
+                border: none;
+                width: 30vw;
+                height:5vh;
+                font-size: 2.5vw;
+                margin-top: 1vw;
+                margin-left: auto;
+                margin-right: auto;
                 text-align: center;
+            }
+            
+            
+            #interface {
+                margin-top: 5px;
+                text-align: center;
+                font-size: 2.5vw;;
+            }
+            
+            #instruction {
+                text-align: justify;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            #responseList {
+                margin-top: 4vw;
+            }
+            
+            #response5{
+                display: none;
+            }
+            
+            #timeOut {
+                display: none;
             }
         </script>
 
