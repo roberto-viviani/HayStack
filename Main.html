@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="utf-8">
         <title>HayStack</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- define namespace and housekeeping script -->
         <script type="text/javascript">if (undefined === window.hayStack) window.hayStack = {};</script>
@@ -89,6 +90,7 @@
 
         <!-- standard template: mchoice -->
         <script type="text/template" id="mchoice">
+            <meta name="description" content="Neuroökonomisches Ultimatum-Spiel nach Xiang et al., 2013">
             <div id= "question" class="mchoice"></div>
             <div id="responseList" class="mchoice">
                 <div id="response1" class="responseMchoice">selten</div>
@@ -139,6 +141,185 @@
                 display: none;
             }
         </script>
+
+        <!--- Template ultimatum game -->
+        <script type="text/template" id="ultimatum">
+            <!-- Top bar for information on rounds -->
+            <div class="info" id="display_rounds">
+                Runde <span id="round_no">0</span> von <span id="rounds_total">0</span>
+            </div>
+            
+
+            <!-- ########################################### -->
+            <!-- Blank Screen for Intertrial Interval (show for 2-4 s) -->
+            <div class="screen" id="intertrial_screen"></div>
+            
+            
+            <!-- ########################################### -->
+            <!-- Partner Screen (show for 4s) -->
+            <div class="screen" id="partner_screen">
+
+                <div class="box_vertical">
+                    <p class="player_box" id="playerone">Spieler 1</p>
+                </div>
+
+                <div class="box_vertical">
+                    <p class="player_box" id="playertwo">Spieler 2</p>
+                </div>
+
+                <div class="no_float"><p id="new_partner">Neuer Partner wurde gefunden. <br>Spieler 2 überlegt sich ein Angebot.</p></div>
+            </div>
+
+
+            <!-- ########################################### -->
+            <!-- Offer & Response Screen (show for 4s without buttons / then self-paced)-->
+            <div class="screen" id="offer_screen">
+                
+                <div class="box_vertical">
+                    <span class="player_txt">Sie bekommen:</span>
+                    <div class="player_box" id="playerone">
+                        <p>€ <span id="offer_playerone">12</span></p>
+                    </div>  
+                </div>
+
+                <div class="box_vertical"> 
+                    <span class="player_txt">Spieler 2 bekommt: </span>
+                    <div class="player_box" id = "playertwo">                  
+                        <p>€ <span id="offer_playertwo">8</span></p>
+                    </div>
+                </div>
+
+                <div class="no_float"></div>
+
+                <div id="buttons_ar">
+                    <p>
+                    Angebot
+                    <button class="button" id="accept">Akzeptieren</button>
+                    oder
+                    <button class="button" id="reject">Ablehnen</button>?</p>
+                </div>
+
+            </div>
+
+            <!-- ########################################### -->
+            <!-- Bottom bar for information on budget -->
+            <div class="info" id="display_budget">
+                <div class="box_vertical">
+                    Ihr Budget: <span id="budget_playerone">0</span> €
+                </div>
+                <div class="box_vertical">
+                    Budget Spieler 2: <span id="budget_playertwo">0</span> €
+                </div>
+
+            </div>
+        </script>
+        <script type="text/template" id="ultimatumStyle">
+            .screen {
+                background-color: rgb(0,43,54);
+                color: white;
+                font-size: clamp(16px, 8vw, 200%);
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                text-align:center;
+                min-height: 400px;
+                height: auto;
+                width:70%;
+                max-width:800px;
+                margin: 2px auto;
+                padding: 50px;
+            }
+            
+            .info {
+                font-size: 100%;
+                font-family: monospace, Arial, sans-serif;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                width:70%;
+                max-width:804px;
+            }
+            
+            .box_vertical {
+                width:50%;
+                min-width:150px;
+                float:left;
+            }
+            
+            .button {
+                font-size: clamp(12px, 5vw, 100%);
+                font-family:Georgia, 'Times New Roman', Times, serif;
+                background-color: rgba(0,0,0,0);
+                color: white;
+                border: 2px solid white;
+                border-radius: 5px;
+                margin-top:5px;
+            }
+            
+            .button:hover {
+                background-color: white;
+                color: black;
+            }
+            
+            .rating_pic {
+                width:50px;
+                height:50px;
+                max-width:100%;
+                max-height:100%;
+                padding:10px;
+            }
+            
+            .player_txt{
+                width: 90%;
+                max-width: 180px;
+            }
+            
+            .player_box {
+                height:10%;
+                width:90%;
+                max-height: 150px;
+                max-width: 150px;
+                text-align: center;
+                line-height: 100px;
+                margin-left:auto;
+                margin-right: auto;
+                border-radius: 10px;
+            }
+            
+            #playerone {
+                background-color: rgb(38,139,210);
+            }
+            
+            #playertwo {
+                background-color: rgb(203,75,22);
+            }
+            
+            .no_float {
+                clear: left;
+            }
+            
+            #buttons_ar {
+                text-align: center;
+            }
+            
+            
+            /* 
+            //++++++++++++++++++++++++++++++++++++++
+            // Screen Specifics
+            // ++++++++++++++++++++++++++++++++++++++ 
+            */
+            
+            #offer_screen {
+                display: none;
+            }
+            
+            #partner_screen {
+                display:none;
+            }
+            
+            #intertrial_screen {
+                display: none;
+            }            
+        </script>
+        <script type="text/javascript" src="ultimatum_game.js"></script>
 
         <!--- SST -->
         <script type="text/template" id="SST">
