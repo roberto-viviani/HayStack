@@ -23,17 +23,52 @@
 
         <!-- template for logoff page collecting data for experiment credits -->
         <script type="text/template" id="logoffPage">
-            <!-- uses defaultStyle and code in client.js -->
-            <p style="font-size:1.4em" id="lblInput">Um Experimentstunden zu verteilen, brauchen wir diese Daten.<br>
-                Sie werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonimität zu bewahren<br>
-                Wenn keine Experimentstunden benötigt werden, blank lassen und direkt auf 'weiter>>' clicken.
+            <p  id="lblInput">Um Probandenstunden zu verteilen, brauchen wir die folgenden Daten.</br> </br>
+                Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
+                Wenn keine Experimentstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
             </p>
-            <div>Vorname: <input class="logOff" type="text" name="firstName" id="firstName" value=""><br><br></div>
-            <div>Nachname: <input class="logOff" type="text" name="secondName" id="secondName" value=""><br><br></div>
-            <div>MatrikelNr: <input class="logOff" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
-            <div><p>Logon-ID (z.B., csa0123456):</p><input class="logOff" type="text" name="logonId" id="logonId" value=""><br><br></div>
-            <p class="logOff" style="font-size:1.4em" id="lblFinish">abschicken/beenden:</p>
-            <button class="logOff" id="btnLogoff">weiter >></button>      
+            <div id ="logOffPage">
+            <div class="Daten">Vorname: <input class="input" type="text" name="firstName" id="firstName" value=""><br><br></div>
+            <div class ="Daten">Nachname: <input class="input" type="text" name="secondName" id="secondName" value=""><br><br></div>
+            <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
+            <div class="Daten">Login-ID (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
+            <p class="input"id="lblFinish">Um die Daten abzuschicken oder die Umfrage zu beenden, klicken Sie bitte hier:
+            <button class="input" id="btnLogoff">weiter >></button> </p>
+            </div>   
+        </script>
+        <script type="text/template" id=logoffPageStyle>
+            #lblInput {
+                font-size: 1.5vw;
+                margin-top: 7vw;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            
+            #logOffPage {
+                font-size: 1.5vw;
+                margin-top: 1vw;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            
+            .input{
+                font-size: 1.5vw;
+                margin-top: 0.5vw;
+            
+            }
+            
+            .Daten{
+                margin-left: auto;
+                margin-right: auto;
+                border: none;
+                color: white;
+                background-color: RGB(90, 90, 120);
+                width: 40vw;
+                height: 4vw;
+                
+            }        
         </script>
 
         <!-- standard template: infopage -->

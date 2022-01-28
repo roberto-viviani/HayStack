@@ -288,7 +288,7 @@ hayStack.continuations.push(function () {
 
 //this continuation loads the logoff page and collects data for credits
 hayStack.continuations.push(function () {
-    hayStack.view.setInterface("logoffPage");
+    hayStack.view.setTemplate("logoffPage", "logoffPageStyle");
     var elem = document.getElementById("btnLogoff");
     if (undefined === elem) console.log("Invalid coding of logoff page");
     elem.onclick = function () {
