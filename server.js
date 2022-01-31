@@ -35,6 +35,7 @@ function checkTests(tests) {
             console.log("Test " + testID + ", property skipOutput: set to default value 'false'");
         }
         if (undefined === test.randomOrder) test.randomOrder = false;
+        if (undefined === test.randomBlock) test.randomBlock = []; else test.randomBlock.length;
         
         if (undefined !== test.itemID) throw("Test " + testID + ": itemID property invalid here");
         if (undefined !== test.timestamp) throw("Test " + testID + ": timestamp property invalid here");
@@ -163,7 +164,6 @@ function requestHandler(request, response) {
 	switch (request.method) {
 		
 		case "GET" :
-            console.log("get request: " + request.url);
             //We first check that the requests conforms to a number of predefined
             //cases that encode reqeusting the test data. Below, if all these
             //checks fail, the server reverts to a file server.
@@ -209,7 +209,7 @@ function requestHandler(request, response) {
                         respondError(404, "Invalid request: test " + value + " is not known.");
                         return;
                     } else {
-                        testData.push(tests[value]);
+                        testData.push(Object.assign({}, tests[value]));
                     }
                 }
 				if (testData === undefined || 0 === testData.length) {
@@ -217,6 +217,24 @@ function requestHandler(request, response) {
 					respondError(404, "Invalid request: no test found in test cache");
 					return;
 				}
+                //initialize or refine the tests in testData
+                testData.forEach(function(value) {
+                    //if there are subsets of trials to randomize, do it here.
+                    if (value.randomBlock.length > 0) {
+                        let block = value.randomBlock[Math.floor(Math.random() * value.randomBlock.length)];
+                        console.log("Selected block: " + block);
+                        let trials = [];
+                        for (let t = 0; t < value.trials.length; t++) 
+                            if (value.trials[t].block === undefined || value.trials[t].block === block) 
+                                trials.push(value.trials[t]);
+                        value.trials = trials;
+                    }
+                    //here random shuffle of sents.trials
+                    if (value.randomOrder)
+                        value.trials = shuffleTrials(value.trials);
+                    value.sessionID = undefined; //sent over in html page, not here
+                    value.timestamp = getTimestamp();
+                });
 				requrl = "trials";  //internal name for switch code below
 			}
 			switch (requrl) {
@@ -241,13 +259,6 @@ function requestHandler(request, response) {
 					response.setHeader("Content-Type", "text/html");
                     response.setHeader("access-control-allow-origin", "*");
                     response.statusCode = 200;
-                    testData.forEach(function(value){
-                        //here random shuffle of sents.trials
-                        if (value.randomOrder)
-                            value.trials = shuffleTrials(value.trials);
-                        value.sessionID = undefined; //was sent over in html page, not here
-                        value.timestamp = getTimestamp();
-                    });
                     //send over data
                     response.end(JSON.stringify(testData));
                     break;
@@ -281,16 +292,16 @@ function requestHandler(request, response) {
             default:
                     //here, we service all other requests by reverting to a file server.
                     let pathname = urlToPath(request.url);
-                    if (!pathname) {respondError(405, "Invalid request: invalid url"); return; }
+                    if (!pathname) {respondError(405, "Invalid request: invalid url: " + pathname); return; }
                     //console.log("Request GET " + pathname);
                     fs.stat(pathname, function(error, stats) {
                         if (error && error.code == "ENOENT")
-                            respondError(404, logRequest(request, "File not found"));
+                            respondError(404, logRequest(request, "File not found: " + pathname));
                         else if (error)
                             respondError(500, logRequest(request, error.toString()));
                         else if (stats.isDirectory())
                             respondError(405, logRequest(request, 
-                                "Invalid request: directory inquiry"));
+                                "Invalid request: directory inquiry: " + pathname));
                         else {
                             response.setHeader("content-type", getType(pathname));
                             response.setHeader("access-control-allow-origin", "*");

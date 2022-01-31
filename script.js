@@ -1,6 +1,6 @@
 ﻿module.exports = {
 	
-    /* Put here a list of tests that can be requested from the server. The property
+    /* Put here the tests that can be requested from the server. The property
     'frame' determines the html elements on the screen. These elements are steered
     in a separate object with dedicated code. Each test will usually make use of one
     or more frames.
@@ -19,6 +19,13 @@
     Test or trials can have any additional property used to parametrize the test or 
     the frame display.
 
+    A special property 'block' of trials allows to define blocks that are selected
+    randomly. For this, include the property 'randomBlock' in the header of the test,
+    specifying an array of the block numbers to be icluded in the test. For example,
+    if there are three blocks to be randomly selected, set randomBlock = [1, 2, 3].
+    You then specify a 'block' property in the trial set to the block number. Trials
+    without 'block' property will be included irrespective of the selected block.
+
     The server listens at port 61543 and recognizes requests for tests when the 
     url starts with 'test:'. The required test or tests may be specified in the url 
     after this, e.g.
@@ -34,8 +41,9 @@
         version: "1.0",	
         timeout: 7500,
         timeRefractory: 400,
-        randomOrder: true,  //randomize order of presentation (defaults to false if missing)
-        skipOutput: false,  //record response to server (defaults to false if missing)
+        randomOrder: true,   //randomize order of presentation (defaults to false if missing)
+        randomBlock: [1, 2], //define blocks 1 and 2 to select at random
+        skipOutput: false,   //record response to server (defaults to false if missing)
 
 		trials: [
             //instruction
@@ -53,10 +61,10 @@
             { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
                 data: ["Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
             //actual test
-			{ itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-			{ itemID: "O2p7", type: "OP", data: ["verfehlen", "werde", "meine", "Ziele", "ich", "erreichen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p8", type: "OP", data: ["versagen", "werde", "mal", "ich", "wieder", "bestehen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p9", type: "OI", data: ["düster", "wird", "Zukunft", "eher", "rosig", "die"], polarity: 1, pos: 5, neg: 1 }
+			{ itemID: "O2p13", block: 1, type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+			{ itemID: "O2p7",  block: 1, type: "OP", data: ["verfehlen", "werde", "meine", "Ziele", "ich", "erreichen"], polarity: 1, pos: 6, neg: 1 },
+			{ itemID: "O2p8",  block: 2, type: "OP", data: ["versagen", "werde", "mal", "ich", "wieder", "bestehen"], polarity: 1, pos: 6, neg: 1 },
+			{ itemID: "O2p9",  block: 2, type: "OI", data: ["düster", "wird", "Zukunft", "eher", "rosig", "die"], polarity: 1, pos: 5, neg: 1 }
 		]	
     },
 
