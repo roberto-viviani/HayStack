@@ -250,7 +250,13 @@ hayStack.continuations.push(
     }
 );
 
-//We now fetch from the server the data of the test.
+//The second continuation collects the anagraphic information from the 
+//participant.
+
+//The next continuation fetches from the server the data of the test.
+//When the data are fetched, continuations are added at the current point.
+//This dynamic loading of trials/continuations allows for customizing
+//the trials sent over by the server based on the id of the subect.
 hayStack.continuations.push(function () {
     var xhr = new XMLHttpRequest();
     //try and identify server, on fail use sapfsy186
@@ -267,6 +273,10 @@ hayStack.continuations.push(function () {
         //onto the continuation queue at current position
         for (var i = tests.length - 1; i >= 0; i--) {
             var test = tests[i];
+            if (undefined === test.frame) {
+                hayStack.view.msg("Invalid definition or script/server error in test " + test);
+                return;
+            }
             var frame = hayStack[test.frame]; 
             if (undefined === frame) {
                 hayStack.view.msg(test.frame + 
@@ -278,8 +288,10 @@ hayStack.continuations.push(function () {
                 hayStack.output.postTrials();
                 hayStack.continuations.next();
             });
+            //call the continuation factory on the frame to insert the trials
             hayStack.continuations.insert(frame.continuationFactory(test));
         }
+        //this calls the continuation for the first trial.
         hayStack.continuations.next();
     });
     xhr.open("GET", url);
@@ -322,6 +334,6 @@ hayStack.continuations.push(function () {
 });
 
 /*  The co.routine is kicked off after all custom modules have loaded.
-    The script line is at the end of the html file:
+    The script line that does this is at the end of the html file:
     hayStack.coRoutine.next();
 */

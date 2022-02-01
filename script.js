@@ -133,6 +133,7 @@
     Ultimatum : {
         frame : "ultimatum",
         description : "ultimatum game, Stefanie Bernardin Jan 2022",
+        timeout : 12000,
         version : "1.0",
 
         trials: [
@@ -140,12 +141,12 @@
                 timeout: 0, timeRefractory: 0,
                 data: ["Answer as best as you can", "start"]},
             { itemID: "ultRound1", type: "goodOffer", data : [12, 8]},
-            { itemID: "ultRound2", type: "badOffer", data : [2, 18]},
-            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { itemID: "ultRound1", type: "ultimatum", data : 3},
-            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
+            { itemID: "ultRound2", type: "badOffer",  data : [2, 18]},
+            //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { itemID: "ultRound1", type: "ultimatum", data : [10, 10]},
+            //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
         ]
 
     },

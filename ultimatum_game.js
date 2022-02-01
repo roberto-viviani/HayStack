@@ -67,12 +67,13 @@ hayStack.ultimatum.state = {
     data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}
 };
 
-hayStack.ultimatum.intializeGame = function() {
+hayStack.ultimatum.initializeGame = function() {
     var state = hayStack.ultimatum.state;
     state.total_rounds = 60;
     state.current_round = 0;
-    document.getElementById("rounds_total").innerHTML = state.total_rounds;
-    hayStack.ultimatum.intertrial();
+    //document.getElementById("rounds_total").innerHTML = state.total_rounds;
+    //hayStack.ultimatum.intertrial();
+    console.log("Game initialized");
 };
 
 hayStack.ultimatum.intertrial = function() {
@@ -93,7 +94,7 @@ hayStack.ultimatum.intertrial = function() {
     state.current_round += 1;
     document.getElementById("round_no").innerHTML = state.current_round;
 
-    setTimeout(hayStack.ultimatum.start_game, view.rand_int(2000, 4000));
+    setTimeout(hayStack.continuations.next, view.rand_int(2000, 4000));
 };
 
 hayStack.ultimatum.get_new_offer = function(data) {
@@ -107,14 +108,19 @@ hayStack.ultimatum.get_new_offer = function(data) {
     var view = hayStack.ultimatum.view;
     var state = hayStack.ultimatum.state;
 
-    state.v_offer_playerone = view.rand_int(0, 20); //TODO: real algorithm
-    state.v_offer_playertwo = state.max_budget - state.v_offer_playerone;
+    //set offers
+    state.v_offer_playerone = data[0];
+    state.v_offer_playertwo = data[1];
+
+    //old code for random offers (maybe useful at some point)
+    //state.v_offer_playerone = view.rand_int(0, 20);
+    //state.v_offer_playertwo = state.max_budget - state.v_offer_playerone;
 
     document.getElementById("offer_playerone").innerHTML = state.v_offer_playerone;
     document.getElementById("offer_playertwo").innerHTML = state.v_offer_playertwo;
 };
 
-hayStack.ultimatum.start_game = function() {
+hayStack.ultimatum.start_trial = function(data) {
     /*
     screen-management: show partner-screen, the others vanish mysteriously.
     as the screen says "player 2 is thinking about the offer", the computer
@@ -125,13 +131,16 @@ hayStack.ultimatum.start_game = function() {
 
     var view = hayStack.ultimatum.view;
     var ctl = hayStack.ultimatum;
+    var state = hayStack.ultimatum.state;
 
+    document.getElementById("rounds_total").innerHTML = state.total_rounds;
+    console.log("rounds_total updated to " + state.total_rounds);
     view.hide_screen(intertrial_screen);
     view.show_screen(partner_screen);
     view.hide_screen(offer_screen);
 
     //to be replaced interactively
-    ctl.get_new_offer(ctl.state.data);
+    ctl.get_new_offer(data);
     setTimeout(ctl.proposal, 4000);
     setTimeout(ctl.response, 8000);
 };
@@ -173,6 +182,9 @@ hayStack.ultimatum.response = function() {
         state.v_budget_playertwo += state.v_offer_playertwo;
         document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
         document.getElementById("budget_playertwo").innerHTML = state.v_budget_playertwo;
+
+        //terminate trial
+        hayStack.ultimatum.intertrial();
     };
     
     document.getElementById("reject").onclick = function() {
@@ -182,6 +194,9 @@ hayStack.ultimatum.response = function() {
         */
     
         state.responses.push("reject");
+
+        //terminate trial
+        hayStack.ultimatum.intertrial();
     };
 };
 
@@ -199,3 +214,47 @@ function test() {
         console.log(responses);
     }
 } */
+
+//given a test from the script, create an array of continuations.
+hayStack.ultimatum.continuationFactory = function(test) {
+
+    var conts = [];
+
+    // the trials
+    for (var i = 0; i < test.trials.length; ++i) {
+        var trialobj = test.trials[i];
+        //we have trials of two frames, so you need the right 
+        //continuation factory. loop factories take one trial,
+        //the other factories a test.
+        if ("SST" === trialobj.frame) {
+            trialobj.trialID = i + 1;
+            conts.push(hayStack.SST.simpleContinuationFactory(trialobj));
+        }
+        else if ("infopage" === trialobj.frame) {
+            //ask simpleFactory of infopage to provide continuation
+            conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
+        }
+        else if ("ultimatum" === trialobj.frame) {
+            //the continuations of ultimatum itself
+            trialobj.trialID = i + 1;
+            conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
+        } 
+        else {
+            conts.clear();
+            hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
+                ", trial " + trialobj.itemID + ": " + trialobj.frame);
+            return [];
+        }
+    }
+    return conts;
+}; //continuation factory
+
+//for export
+hayStack.ultimatum.simpleContinuationFactory = function(trial) {
+    return function() {
+        hayStack.view.setTemplate("ultimatum", "ultimatumStyle");
+        
+        lib = hayStack.ultimatum;
+        lib.start_trial(trial.data);
+    }
+}
