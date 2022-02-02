@@ -137,14 +137,14 @@
         version : "1.0",
 
         trials: [
-            { frame : "infopage", itemID: "infoBeck", type: "info", skipOutput: true,
+            { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
                 data: ["Erkärtext zum Ultimatumgame", "Start"]},
-            { itemID: "ultRound1", type: "goodOffer", data : [12, 8]},
-            { itemID: "ultRound2", type: "badOffer",  data : [2, 18]},
+            { itemID: "ultRound1", type: "goodOffer", data : [12]},
+            { itemID: "ultRound2", type: "badOffer",  data : [2]},
             //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
             //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { itemID: "ultRound1", type: "ultimatum", data : [10, 10]},
+            { itemID: "ultRound3", type: "midOffer", data : [10]},
             //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
             //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
         ]
