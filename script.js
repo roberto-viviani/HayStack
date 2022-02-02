@@ -139,7 +139,7 @@
         trials: [
             { frame : "infopage", itemID: "infoBeck", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
-                data: ["Answer as best as you can", "start"]},
+                data: ["Erkärtext zum Ultimatumgame", "Start"]},
             { itemID: "ultRound1", type: "goodOffer", data : [12, 8]},
             { itemID: "ultRound2", type: "badOffer",  data : [2, 18]},
             //{ frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
