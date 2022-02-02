@@ -31,7 +31,7 @@ hayStack.ultimatum.view = {
 
 // controller
 hayStack.ultimatum.state = {
-    total_rounds : 60,
+    total_rounds : 60, //TODO
     current_round : 0,
 
     max_budget : 20,
@@ -41,7 +41,7 @@ hayStack.ultimatum.state = {
     v_budget_playertwo : 0,
 
     responses : [],
-    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]} // TODO: delete?
+    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]} //TODO: delete?
 };
 
 
@@ -53,7 +53,6 @@ hayStack.ultimatum.handle_information = function() {
 
     // display correct budget
     document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
-    //document.getElementById("budget_playertwo").innerHTML = state.v_budget_playertwo;
     
     // display correct round information
     document.getElementById("rounds_total").innerHTML = state.total_rounds;
@@ -77,7 +76,7 @@ hayStack.ultimatum.start_trial = function(data) {
 
     // set offers
     state.v_offer_playerone = data[0];
-    state.v_offer_playertwo = data[1]; // TODO: max_budget - offer p1 ? --> security +1
+    state.v_offer_playertwo = state.max_budget - data[0];
     document.getElementById("offer_playerone").innerHTML = state.v_offer_playerone;
     document.getElementById("offer_playertwo").innerHTML = state.v_offer_playertwo;
 
