@@ -182,7 +182,7 @@
 
             <!-- Top bar for information on rounds -->
             <div class="info" id="display_rounds">
-                Runde <span id="round_no">0</span> von <span id="rounds_total">0</span>
+                Runde <span id="round_no"></span> von <span id="rounds_total"></span>
             </div>
             
             <!-- Blank Screen for Intertrial Interval (show for 2-4 s) -->
@@ -233,14 +233,19 @@
 
             <!-- Bottom bar for information on budget -->
             <div class="info" id="display_budget">
+                Ihr Budget: <span id="budget_playerone"></span> €
+            </div>
+
+            <!-- Bottom bar for information on budget
+            <div class="info" id="display_budget">
                 <div class="box_vertical">
                     Ihr Budget: <span id="budget_playerone">0</span> €
                 </div>
-                <div class="box_vertical">
+                <div class="box_vertical" id="box_budget_playertwo">
                     Budget Spieler 2: <span id="budget_playertwo">0</span> €
                 </div>
 
-            </div>
+            </div> -->
         </script>
 
         <script type="text/template" id="ultimatumStyle">
@@ -340,7 +345,7 @@
             
             #intertrial_screen {
                 display: none;
-            }            
+            }
         </script>
         <script type="text/javascript" src="ultimatum_game.js"></script>
 

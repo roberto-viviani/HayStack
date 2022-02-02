@@ -32,7 +32,7 @@ hayStack.ultimatum.view = {
 // controller
 hayStack.ultimatum.state = {
     total_rounds : 60,
-    current_round : 1,
+    current_round : 0,
 
     max_budget : 20,
     v_offer_playerone : 0,
@@ -45,22 +45,37 @@ hayStack.ultimatum.state = {
 };
 
 
+hayStack.ultimatum.handle_information = function() {
+    var state = hayStack.ultimatum.state;
+
+    // increment round
+    state.current_round += 1;
+
+    // display correct budget
+    document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
+    //document.getElementById("budget_playertwo").innerHTML = state.v_budget_playertwo;
+    
+    // display correct round information
+    document.getElementById("rounds_total").innerHTML = state.total_rounds;
+    document.getElementById("round_no").innerHTML = state.current_round;
+}
+
+
 
 hayStack.ultimatum.start_trial = function(data) {
     var view = hayStack.ultimatum.view;
     var ctl = hayStack.ultimatum;
     var state = hayStack.ultimatum.state;
 
-    // update display of rounds
-    document.getElementById("rounds_total").innerHTML = state.total_rounds;
-    document.getElementById("round_no").innerHTML = state.current_round;
-
     // show correct screen: partner screen
     view.hide_screen(intertrial_screen);
     view.show_screen(partner_screen);
     view.hide_screen(offer_screen);
 
-    //set offers
+    // set top and bottom bar to correct information on round and budget
+    ctl.handle_information();
+
+    // set offers
     state.v_offer_playerone = data[0];
     state.v_offer_playertwo = data[1]; // TODO: max_budget - offer p1 ? --> security +1
     document.getElementById("offer_playerone").innerHTML = state.v_offer_playerone;
@@ -96,11 +111,9 @@ hayStack.ultimatum.response = function() {
     document.getElementById("accept").onclick = function() {
         state.responses.push("accept"); // TODO: Save to server?
 
-        // update budget of p1 and p2 and display changes
+        // update budget of p1 and p2
         state.v_budget_playerone += state.v_offer_playerone;
         state.v_budget_playertwo += state.v_offer_playertwo;
-        document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
-        document.getElementById("budget_playertwo").innerHTML = state.v_budget_playertwo;
 
         // goto intertrial
         hayStack.ultimatum.intertrial();
@@ -126,10 +139,6 @@ hayStack.ultimatum.intertrial = function() {
     view.show_screen(intertrial_screen);
     view.hide_screen(partner_screen);
     view.hide_screen(offer_screen);
-
-    // increment current round and display changes
-    state.current_round += 1;
-    document.getElementById("round_no").innerHTML = state.current_round;
 
     // after intertrial continue with next trial
     setTimeout(hayStack.continuations.next, view.rand_int(2000, 4000));
@@ -170,7 +179,6 @@ hayStack.ultimatum.continuationFactory = function(test) {
     }
     return conts;
 };
-
 
 
 //for export
