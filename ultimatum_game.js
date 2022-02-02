@@ -41,10 +41,15 @@ hayStack.ultimatum.state = {
     v_budget_playertwo : 0,
 
     responses : [],
-    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]} //TODO: delete?
+    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}, //TODO: delete?
+
+    clickedTime : new Date(),
+    startTime : new Date(),
+    reactionTime : new Date(),
 };
 
 
+// function for top and bottom bar information
 hayStack.ultimatum.handle_information = function() {
     var state = hayStack.ultimatum.state;
 
@@ -106,8 +111,15 @@ hayStack.ultimatum.response = function() {
     // show buttons for responding
     document.getElementById("buttons_ar").style.visibility = "visible";
 
+    // set starttime for reaction time
+    state.startTime = new Date();
+
     // if clicked "accept"
     document.getElementById("accept").onclick = function() {
+        // set clickedtime for reaction time
+        state.clickedTime = new Date();
+
+        // save reaction
         state.responses.push("accept"); // TODO: Save to server?
 
         // update budget of p1 and p2
@@ -120,6 +132,10 @@ hayStack.ultimatum.response = function() {
     
     // if clicked "reject"
     document.getElementById("reject").onclick = function() {
+        // set clickedtime for reaction time
+        state.clickedTime = new Date();
+
+        // save reaction
         state.responses.push("reject"); // TODO: Save to server?
 
         // goto intertrial
@@ -133,6 +149,9 @@ hayStack.ultimatum.intertrial = function() {
     // TODO: if intertrial after every trial there is no intertrial before first trial?
     var view = hayStack.ultimatum.view;
     var state = hayStack.ultimatum.state;
+
+    // compute reaction time
+    state.reactionTime = state.clickedTime.getTime() - state.startTime.getTime(); // TODO save? convert to sec?
 
     // show correct screen: intertrial screen
     view.show_screen(intertrial_screen);
