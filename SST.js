@@ -92,35 +92,7 @@ hayStack.SST.pushTrial = function(item, resp, rt) {
     hayStack.output.pushTrial(trial);
 };
 
-//given a test from the script, create an array of continuations.
-hayStack.SST.continuationFactory = function(test) {
-    var conts = [];
-
-    // the trials
-    for (var i = 0; i < test.trials.length; ++i) {
-        var trialobj = test.trials[i];
-        //we have trials of two frames, so you need the right 
-        //continuation factory. loop factories take one trial,
-        //the other factories a test.
-        if ("SST" === trialobj.frame) {
-                trialobj.trialID = i + 1;
-                conts.push(hayStack.SST.simpleContinuationFactory(trialobj));
-        }
-        else if ("infopage" === trialobj.frame) {
-            //ask simpleFactory of infopage to provide continuation
-            conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
-        }
-        else {
-            conts.clear();
-            hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
-                ", trial " + trialobj.itemID + ": " + trialobj.frame);
-            return [];
-        }
-    }
-    return conts;
-}; //continuation factory
-
-//for export
+//the simple continuation factory
 hayStack.SST.simpleContinuationFactory = function(trialobj) {
     var view = hayStack.SST.view;
     var coRoutine = hayStack.continuations;
@@ -133,8 +105,7 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
     //the handlers define an unfold acting on the output object as an accumulator
     var trialStart = undefined;
     var hTimeout = undefined;
-    var onTimeoutFactory = function (trialobj) {
-        return function () {
+    var timeoutCallback = function() {
             //in case both a timeout and an onclick were in the queue, 
             //we only process the first
             if (hTimeout === undefined) return;
@@ -144,8 +115,10 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
             //coRoutine.next(); create a small pause to alert to change
             hayStack.view.msg("");
             setTimeout(coRoutine.next, 600);
-        }
     };
+
+    //a factory to get he click handler, as the view uses this function to set
+    //the handlers to all word elements by numelem
     var onClickFactory = function (numelem, trialobj) {
         return function (event) {
             var rt = Date.now() - trialStart;
@@ -161,14 +134,15 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
             setTimeout(coRoutine.next, 300);
         }
     };
-    // The following is a function generator to get the right closure in the for loop below
+    // The continuation
     return function () {
         hayStack.view.setTemplate("SST", "SSTStyle");
         view.resetHandlers();
         view.setData(trialobj.data);
         trialStart = Date.now();
         if (trialobj.timeout > 0)
-            hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
+            //hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
+            hTimeout = setTimeout(timeoutCallback, trialobj.timeout);
         view.setHandlers(onClickFactory, trialobj);
     };
 }

@@ -104,6 +104,14 @@ hayStack.output = (function () {
         trial.source = "";
         return trial;
     };
+
+    //a utility function to formate time numbers
+    var fmatTime = function(timedata) {
+        if (undefined === timedata) timedata = new Date(Date.now());
+        else timedata = new Date(timedata);
+        return timedata.getHours() + ':' + timedata.getMinutes() + 
+            ':' + timedata.getSeconds();
+    };
         
     return {
         //call this to register a new logon. Flushes data to server
@@ -117,6 +125,8 @@ hayStack.output = (function () {
         },
         //cumulates data into buffer.
         pushTrial : function(trial) {
+            if (undefined === trial.timestamp)
+                trial.timestamp = fmatTime();
             trial.subjectID = subjectID;
             data.push(trial);
         },
@@ -138,18 +148,13 @@ hayStack.output = (function () {
             trial.trialID = ++trialCounter;
             return trial;
         },
-        datestamp : function(timedata) {
+        datestamp : function(timedata) {  //fmat date objects
             if (undefined === timedata) timedata = new Date(Date.now());
             return timedata.toLocaleDateString() + ' ' + 
                 timedata.getHours() + ':' + timedata.getMinutes() + 
                 ' ' + /GMT\+\d+/.exec(timedata.toString())[0];
         },
-        timestamp : function(timedata) {
-            if (undefined === timedata) timedata = new Date(Date.now());
-            else timedata = new Date(timedata);
-            return timedata.getHours() + ':' + timedata.getMinutes() + 
-                ':' + timedata.getSeconds();
-        },
+        timestamp : fmatTime,             //fmat time number
         getSubjectID : function() {
             return subjectID;
         }
@@ -297,8 +302,14 @@ hayStack.continuations.push(function () {
                 hayStack.continuations.next();
             });
             //call the continuation factory on the frame to insert the trials
-            //TO DO: check what kind of factories are supported.
-            hayStack.continuations.insert(frame.continuationFactory(test));
+            if (undefined !== frame.continuationFactory)
+                hayStack.continuations.insert(frame.continuationFactory(test));
+            else {
+                for (var h = test.trials.length - 1; h >= 0; h--) {
+                    var trial = test.trials[h];
+                    hayStack.continuations.insert(hayStack[trial.frame].simpleContinuationFactory(trial));
+                }
+            }
         }
         //this calls the continuation for the first trial, as this will be
         //the next continuation at the time the text is parsed.
