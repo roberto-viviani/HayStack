@@ -94,8 +94,34 @@ hayStack.SST.pushTrial = function(item, resp, rt) {
 
 //given a test from the script, create an array of continuations.
 hayStack.SST.continuationFactory = function(test) {
-
     var conts = [];
+
+    // the trials
+    for (var i = 0; i < test.trials.length; ++i) {
+        var trialobj = test.trials[i];
+        //we have trials of two frames, so you need the right 
+        //continuation factory. loop factories take one trial,
+        //the other factories a test.
+        if ("SST" === trialobj.frame) {
+                trialobj.trialID = i + 1;
+                conts.push(hayStack.SST.simpleContinuationFactory(trialobj));
+        }
+        else if ("infopage" === trialobj.frame) {
+            //ask simpleFactory of infopage to provide continuation
+            conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
+        }
+        else {
+            conts.clear();
+            hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
+                ", trial " + trialobj.itemID + ": " + trialobj.frame);
+            return [];
+        }
+    }
+    return conts;
+}; //continuation factory
+
+//for export
+hayStack.SST.simpleContinuationFactory = function(trialobj) {
     var view = hayStack.SST.view;
     var coRoutine = hayStack.continuations;
     var output = {
@@ -124,7 +150,7 @@ hayStack.SST.continuationFactory = function(test) {
         return function (event) {
             var rt = Date.now() - trialStart;
             trialobj.timestamp = output.timestamp(trialStart);
-            if (rt < test.timeRefractory) return;
+            if (rt < trialobj.timeRefractory) return;
             clearTimeout(hTimeout);
             hTimeout = undefined;
             //record response
@@ -136,44 +162,13 @@ hayStack.SST.continuationFactory = function(test) {
         }
     };
     // The following is a function generator to get the right closure in the for loop below
-    var loopContinuationFactory = function (trialobj) {
-        return function () {
-            hayStack.view.setTemplate("SST", "SSTStyle");
-            view.resetHandlers();
-            view.setData(trialobj.data);
-            trialStart = Date.now();
-            if (trialobj.timeout > 0)
-                hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
-            view.setHandlers(onClickFactory, trialobj);
-        }
-    }; 
-    
-    // the trials
-    for (var i = 0; i < test.trials.length; ++i) {
-        var trialobj = test.trials[i];
-        //we have trials of two frames, so you need the right 
-        //continuation factory. loop factories take one trial,
-        //the other factories a test.
-        if ("SST" === trialobj.frame) {
-                trialobj.trialID = i + 1;
-                conts.push(loopContinuationFactory(trialobj));
-        }
-        else if ("infopage" === trialobj.frame) {
-            //ask simpleFactory of infopage to provide continuation
-            conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
-        }
-        else {
-            conts.clear();
-            hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
-                ", trial " + trialobj.itemID + ": " + trialobj.frame);
-            return [];
-        }
-    }
-    return conts;
-}; //continuation factory
-
-//for export
-hayStack.SST.simpleContinuationFactory = function(trial) {
-    conts = hayStack.SST.continuationFactory({trials: trial});
-    return conts[0];
+    return function () {
+        hayStack.view.setTemplate("SST", "SSTStyle");
+        view.resetHandlers();
+        view.setData(trialobj.data);
+        trialStart = Date.now();
+        if (trialobj.timeout > 0)
+            hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
+        view.setHandlers(onClickFactory, trialobj);
+    };
 }

@@ -215,9 +215,12 @@ hayStack.continuations = (function() {
     return coRoutine;
 })();
 
-/* This is where the main flow is specified by stacking the 
+/* This is where the main flow is specified by serially stacking the 
     continuations. This results is a mapping from the list of
-    trials to the list of continuations to the list of results. */
+    trials to the list of continuations to the list of results. 
+    The continuations are stacked by calling hayStack.continuations.push
+    and passing the continuation. Each continuation must end with 
+    a call to continuations.next()  */
 
 //The first continuation collects the ID of the participant.
 hayStack.continuations.push(
@@ -250,13 +253,18 @@ hayStack.continuations.push(
     }
 );
 
-//The second continuation collects the anagraphic information from the 
-//participant.
+//The second continuation should collect the anagraphic information from the 
+//participant. (TO DO)
 
-//The next continuation fetches from the server the data of the test.
-//When the data are fetched, continuations are added at the current point.
+//The next continuation fetches from the server the data of the test before
+//calling next().
+//When the data are fetched, continuations are inserted at the current point,
+//dynamically expanding the continuation list, by asking the frame of the
+//test to provide the list of the continuations.
 //This dynamic loading of trials/continuations allows for customizing
 //the trials sent over by the server based on the id of the subect.
+//After inserting the continuations as defined by the test definition,
+//the first trial of the test is called by calling next()
 hayStack.continuations.push(function () {
     var xhr = new XMLHttpRequest();
     //try and identify server, on fail use sapfsy186
@@ -289,9 +297,11 @@ hayStack.continuations.push(function () {
                 hayStack.continuations.next();
             });
             //call the continuation factory on the frame to insert the trials
+            //TO DO: check what kind of factories are supported.
             hayStack.continuations.insert(frame.continuationFactory(test));
         }
-        //this calls the continuation for the first trial.
+        //this calls the continuation for the first trial, as this will be
+        //the next continuation at the time the text is parsed.
         hayStack.continuations.next();
     });
     xhr.open("GET", url);
