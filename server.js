@@ -13,7 +13,7 @@ var mainpage = fs.readFileSync("./Main.html", "utf8");
 //var clientjs = fs.readFileSync("./client.js");  //decomment here and below after development
 
 /* Load tests from script.js, the file that contains all questions or items */
-var tests = require("./script");
+var tests = process.argv.length > 2 ? require("./" + process.argv[2]) : require("./script");
 function checkTests(tests) {
     for (let testID in tests) {
         let test = tests[testID];
@@ -37,12 +37,13 @@ function checkTests(tests) {
         if (undefined === test.randomOrder) test.randomOrder = false;
         if (undefined === test.randomBlock) test.randomBlock = []; else test.randomBlock.length;
         
-        if (undefined !== test.itemID) throw("Test " + testID + ": itemID property invalid here");
+        if (undefined !== test.itemID)    throw("Test " + testID + ": itemID property invalid here");
         if (undefined !== test.timestamp) throw("Test " + testID + ": timestamp property invalid here");
-        if (undefined !== test.source) throw("Test " + testID + ": source property invalid here");
+        if (undefined !== test.source)    throw("Test " + testID + ": source property invalid here");
         if (undefined !== test.sessionID) throw("Test " + testID + ": sessionID property invalid here");
-        if (undefined !== test.trialID) throw("Test " + testID + ": trialID property invalid here");
+        if (undefined !== test.trialID)   throw("Test " + testID + ": trialID property invalid here");
         if (undefined !== test.subjectID) throw("Test " + testID + ": subjectID property invalid here");
+        if (undefined !== test.block)     throw("Test " + testID + ": block property invalid here");
 
         //bequeth porperties to trials and check required properties
         let fields = Object.keys(test);
@@ -111,6 +112,11 @@ dr.find((el) => el === "Database.txt") || fs.writeFileSync(
 	"sessionID\tsubjectID\ttestID\ttrialID\titemID\ttype\tpolarity\tresponse\tRT\trespKey\tresponseData\ttrialData\tversion\ttimestamp\tsource\n",
 	"utf-8"
 );
+dr.find((el) => el === "SocioDemographcs.txt") || fs.writeFileSync(
+	"./SocioDemographics.txt", 
+	"sessionID\tsubjectID\tAge\tSex\tEdu\tOccupation\tRiskAttitude\ttimestamp\tsource\n",
+	"utf-8"
+);
 
 //Halper function to save input data to disk
 function serializeData(data, source) {
@@ -118,6 +124,9 @@ function serializeData(data, source) {
 		console.log("No data received in serializer"); 
 		return; 
 	}
+    //reformat source
+    let src = /\d+\.\d+\.\d+\.\d+/.exec(source);
+    if (null !== src) source = src[0]; 
     let text = "";
 	for (let i = 0; i < data.length; ++i) {
         let trial = data[i];
@@ -125,9 +134,19 @@ function serializeData(data, source) {
             let logoffData = JSON.parse(trial.responseData);
             let logoffText = [logoffData.firstName, logoffData.secondName, 
                 logoffData.matriculationNo, logoffData.logonId, trial.timestamp];
-                fs.appendFile("./Credits.txt", logoffText.join("\t") + "\n", "utf8", 
+            fs.appendFile("./Credits.txt", logoffText.join("\t") + "\n", "utf8", 
                  err => err ? console.log("error " + err) : 
                  console.log("credits saved for " + logoffData.logonId));
+            continue;
+        }
+        if (trial.testID === "SOCDEM") {
+            let socdemData = JSON.parse(trial.responseData);
+            let socdemText = [trial.sessionID, trial.subjectID, socdemData.age, 
+                socdemData.sex, socdemData.edu, socdemData.occ, socdemData.rsk,
+                trial.timestamp, source];
+            fs.appendFile("./SocioDemographics.txt", socdemText.join("\t") + "\n", "utf8", 
+                 err => err ? console.log("error " + err) : 
+                 console.log("credits saved for " + trial.subjectID));
             continue;
         }
         let trialtext = [trial.sessionID, trial.subjectID, trial.testID, trial.trialID, 

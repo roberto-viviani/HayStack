@@ -88,7 +88,7 @@ hayStack.output = (function () {
     var getEmptyTrial = function() {
         trial = {};
         trial.sessionID = sessionID;
-        trial.subjectID = ""; 
+        trial.subjectID = subjectID === undefined ? '' : subjectID;  
         trial.testID = ""; 
         trial.trialID = 0; 
         trial.itemID = "";
@@ -143,8 +143,6 @@ hayStack.output = (function () {
         //utilities to compose output
         emptyTrial : function() {
             trial = getEmptyTrial();
-            trial.sessionID = sessionID;
-            trial.subjectID = subjectID;
             trial.trialID = ++trialCounter;
             return trial;
         },
@@ -241,6 +239,7 @@ hayStack.continuations.push(
         txt.style.visibility = "visible";
         txt.value = "";
         txt.focus();
+
         var btnNext = document.getElementById("btnNext");  //btnRecordID
         btnNext.style.visibility = "visible";
         var regID = /^\d\d\D\D\D$/;
@@ -252,6 +251,7 @@ hayStack.continuations.push(
                 alert("Ungültiges ID. Ein ID soll z.B. so aussehen: 18ATH");
                 return;
             }
+            //clean up interface and push data on output stack for sid
             document.getElementById("interface").innerHTML = "";
             hayStack.output.registerSid(sid, hayStack.continuations.next);
         };
@@ -262,7 +262,46 @@ hayStack.continuations.push(
 );
 
 //The second continuation should collect the anagraphic information from the 
-//participant. (TO DO)
+//participant.
+hayStack.continuations.push(
+    function () {
+        hayStack.view.setTemplate("SocDemo", "SocDemoStyle");
+
+        var ageInput = document.getElementById("age");
+        var sexInput = document.getElementById("sex");
+        var eduInput = document.getElementById("edu");
+        var occInput = document.getElementById("profession");
+        var rskInput = document.getElementById("risky");
+
+        var btnNext = document.getElementById("btnNext");  //btnRecordID
+        btnNext.onclick = function () {
+            var age = ageInput.value;
+            var sex = sexInput.value;
+            var edu = eduInput.value;
+            var occ = occInput.value;
+            var rsk = rskInput.value;
+            //TO DO: validate, if invalid, just return w/o calling next
+
+            //get empty trial and fill
+            var output = hayStack.output;
+            trial = output.emptyTrial();
+            trial.testID = "SOCDEM";
+            trial.timestamp = output.datestamp();
+            trial.responseData = JSON.stringify({
+                age: age,
+                sex: sex,
+                edu: edu,
+                occ: occ,
+                rsk: rsk
+            });
+
+            //send over data and reset interface.
+            document.getElementById("interface").innerHTML = "";
+            output.pushTrial(trial);
+            output.postTrials(hayStack.continuations.next);
+        };
+    }
+)
 
 //The next continuation fetches from the server the data of the test before
 //calling next().
@@ -315,7 +354,7 @@ hayStack.continuations.push(function () {
             }
         }
         //this calls the continuation for the first trial, as this will be
-        //the next continuation at the time the text is parsed.
+        //the next continuation at the time the line is executed.
         hayStack.continuations.next();
     });
     xhr.open("GET", url);
@@ -353,11 +392,10 @@ hayStack.continuations.push(function () {
 hayStack.continuations.push(function () {
     hayStack.view.msg("Danke! Sie sind am Ende der Testung angekommen.");
     hayStack.view.setStyle("defaultStyle");
-    hayStack.output.postTrials();
-    hayStack.continuations.next();
+    hayStack.output.postTrials(hayStack.continuations.next);
 });
 
-/*  The co.routine is kicked off after all custom modules have loaded.
-    The script line that does this is at the end of the html file:
+/*  The co-routine is kicked off after all modules have loaded.
+    The script line that does this is at the end of Main.html:
     hayStack.coRoutine.next();
 */

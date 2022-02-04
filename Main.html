@@ -420,6 +420,92 @@
             }
         </script>
 
+        <!-- Inbuilt module sociodemographics-->
+        <script type="text/template" id="SocDemo">
+            <body>
+                <div id = "interface">
+                    <h1 id="headline"> Soziodemografische Daten </h1>
+                    <p id="lblInput">Zu Beginn ein paar Fragen zu Ihrer Person:</p> <br>
+                    <div id="responses">
+                        <div class="demographics">Wie alt sind Sie (in ganzen Jahren)?:<br> <input class="input" type="text" name="age" id="age" value=""></div>
+                        <div class="demographics" class ="input"><label for="sex"> Welches Geschlecht haben Sie?:<br></label>
+                            <select name="sex" id="sex" class ="input">
+                                <option value ="female">weiblich</option>
+                                <option value ="male">männlich</option>
+                                <option value ="divers">divers</option>
+                            </select>
+                        </div>
+                        <div class="demographics"><label for="education">Welchen Abschluss haben Sie?:<br></label>
+                            <select name="education" id="edu" class="input">
+                            <option value="keiner">kein Abschluss</option>
+                            <option value="hauptschule">Hauptschule</option>
+                            <option value="realschule">Realschule</option>
+                            <option value="abitur">Abitur/Matura</option>
+                            <option value="ausbildung">Ausbildung</option>
+                            <option value="bacheloer">Bachelor</option>
+                            <option value="master">Master/Diplom</option>
+                            </select> 
+                        </div>
+        
+                        <div class="demographics">Bitte geben Sie ein, welchen Beruf Sie ausüben. <br> Wenn Sie studieren, geben Sie bitte ihr Studienfach ein:<br> <input class="input" type="text" name="profession" id="profession" value=""></div>
+        
+                        <div class="demographics"><label for="risky">Bitte bewerten Sie auf einer Skala von 1 bis 7 ein, wie Sie Ihr Risikoverhalten einschätzen würden.<br> Hierbei bedeutet 1, dass sie kein Risiko eingehen und 7 bedeutet, dass Ihr Verhalten hochrisikoreich ist<br></label>
+                            <select name ="risky" id ="risky" class="input">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                            </select>
+                        </div>
+                    </div>    
+                        <br><br>
+                    <p id="lblNext"></p>
+                    <button class="next" id="btnNext">weiter >></button>
+                </div>
+                <div id = "footer"></div>        
+            </body>
+        </script>
+        <script type="text/template" id="SocDemoStyle">
+            #interface{
+                font-size: 1.5vw;
+                margin-top: 1.5vw;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            
+            #lblInput {
+                font-weight: bold;
+            }
+            
+            #age{
+                width: 3vw;
+            }
+            .input{
+                font-size: 1.3vw;
+            }
+            
+            #headline{
+                font-size: 2.2vw;
+                margin-top: 1vw;
+                margin-left: auto;
+                margin-right: auto;
+                color: rgb(255, 153, 0);
+                font-weight: bold;
+            }
+            
+            #responses{
+                text-align: center;
+            }
+            
+            .demographics{
+                margin-top: 1.5vw;
+            }            
+        </script>
+
         <!-- This is the active style spec, dynamically modified by code -->
         <style id = "styleSpec">
             #interface{
