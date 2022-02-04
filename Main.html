@@ -23,18 +23,24 @@
 
         <!-- template for logoff page collecting data for experiment credits -->
         <script type="text/template" id="logoffPage">
-            <p  id="lblInput">Um Probandenstunden zu verteilen, brauchen wir die folgenden Daten.</br> </br>
-                Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
-                Wenn keine Experimentstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
-            </p>
-            <div id ="logOffPage">
-            <div class="Daten">Vorname: <input class="input" type="text" name="firstName" id="firstName" value=""><br><br></div>
-            <div class ="Daten">Nachname: <input class="input" type="text" name="secondName" id="secondName" value=""><br><br></div>
-            <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
-            <div class="Daten">Login-ID (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
-            <p class="input"id="lblFinish">Um die Daten abzuschicken oder die Umfrage zu beenden, klicken Sie bitte hier:
-            <button class="input" id="btnLogoff">weiter >></button> </p>
-            </div>   
+            <body>
+                <h1 id="headline"> Probandenstunden</h1>
+                <p  id="lblInput">Um Probandenstunden an Studierende der Universtität Innsbruck zu verteilen, brauchen wir die folgenden Daten.</br> </br>
+                        Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
+                        Wenn keine Experimentenstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
+                </p>
+                <div id ="logOffPage">
+                    <div class="dataInput">
+                        <div class="Daten">Vorname: <input class="input" type="text" name="firstName" id="firstName" value=""><br><br></div>
+                        <div class ="Daten">Nachname: <input class="input" type="text" name="secondName" id="secondName" value=""><br><br></div>
+                        <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
+                        <div class="Daten">Login-ID (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
+                    </div>   
+                    <p class="input"id="lblFinish">Um die Daten abzuschicken oder die Umfrage zu beenden, klicken Sie bitte hier:
+                    <button class="input" id="btnLogoff">weiter >></button> </p>
+                </div>
+                
+            </body>
         </script>
         <script type="text/template" id=logoffPageStyle>
             #lblInput {
@@ -53,22 +59,32 @@
                 text-align: center;
             }
             
-            .input{
-                font-size: 1.5vw;
-                margin-top: 0.5vw;
-            
-            }
-            
-            .Daten{
+            .dataInput{
                 margin-left: auto;
                 margin-right: auto;
-                border: none;
                 color: white;
                 background-color: RGB(90, 90, 120);
                 width: 40vw;
-                height: 4vw;
-                
-            }        
+                height: 18vmax;
+            }
+            
+            .Daten{
+                border: none;
+            }
+            
+            .input{
+                font-size: 1.5vw;
+                margin-top: 0.5vw;
+                margin-right: 10px;
+            }
+            
+            #headline{
+                font-size: 2.2vw;
+                margin-top: 1vw;
+                color: rgb(255, 153, 0);
+                font-weight: bold;
+                text-align: center;
+            }
         </script>
 
         <!-- standard template: infopage -->
@@ -142,9 +158,9 @@
                 color: white;
                 background-color: RGB(90, 90, 120);
                 border: none;
-                width: 30vw;
-                height:5vh;
-                font-size: 2.5vw;
+                width: 20vmax;
+                height:2.4vmax;
+                font-size: 2.2vw;
                 margin-top: 1vw;
                 margin-left: auto;
                 margin-right: auto;

@@ -1,0 +1,18 @@
+/* Hierarchie: Tag < .Klasse < #ID */
+
+#interface{
+    font-size: 2.2vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#headline{
+    font-size: 2.2vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(255, 153, 0);
+    font-weight: bold;
+}
