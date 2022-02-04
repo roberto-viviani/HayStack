@@ -48,12 +48,13 @@
 		trials: [
             //instruction
             { frame: "infopage", randomOrder: false, itemID: "startinstruct", type: "info", timeout: 0,
-                data: ["Mach den Satz im Kopf. Click auf das Wort, das am Ende kommt.<br>Zuerst kommt eine kurze Übung.", "start"]},
+                data: ["Bitte bilden Sie gedanklich aus den folgenden Wörtern<br>einen grammatikalisch " + 
+                "korrekten Satz.<br>Klicken Sie dann auf das letzte Wort im Satz.<br><br>Zuerst kommt eine kurze Übung.<br>", "start"]},
             //practice trials. Override timeout and remove it. Override skipOutput.
             { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
-                data: ["practice", "practice", "glücklich", "practice", "practice", "practice"], polarity: -1, pos: 3, neg: 5 },
+                data: ["Kinder ", "die", "Sand", "im", "Schnee", "spielen"], polarity: -1, pos: 3, neg: 5 },
             { randomOrder: false, skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
-                data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
+                data: ["ist", "Juni", "August", "mein", "Geburstag", "im"], polarity: -1, pos: 2, neg: 3 },
             { frame: "infopage", randomOrder: false, itemID: "instructtimeout", type: "info", timeout: 0,
                 data: ["Man hat in dem Test 7.5 Sek. um zu antworten.<br>Ab jetzt auch in der Übung.", "weiter"]},
             { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",

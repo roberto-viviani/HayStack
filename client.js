@@ -231,6 +231,9 @@ hayStack.continuations = (function() {
 hayStack.continuations.push(
     function () {
         //setup interface to query id from user
+        var hln = document.getElementById("lblHeadline")
+        hln.style.visibility = "visible";
+        hln.innerHTML = "Anonyme Identifikation"
         var lbl = document.getElementById("lblInput");
         lbl.style.visibility = "visible";
         lbl.innerHTML = "Bitte tragen Sie Ihre Identifikationskode hier ein:";
