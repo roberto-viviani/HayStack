@@ -1,219 +1,168 @@
 /*
 stefanie bernardin, innsbruck, 2020-01
-complementing javascript  for ultimatum_game.html 
-containing bare necessities for running the ultimatum game
-
-part 1, general functions, stores  general articulated
-functions used by the program specific functions below
-
-part 2, stores every variable used and associated descriptions
-
-part 3, game, stores game-specific functions and onclick-events
+complementing script for running the ultimatum game
 */
-
-/* mchoice module for HayStack */
 
 if (undefined === window.hayStack) window.hayStack = {}; 
 
-//the ultimatum frame object
+// the ultimatum frame object
 hayStack.ultimatum = {};
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
-// VIEW OBJECT
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
-
+// view object
 hayStack.ultimatum.view = {
+
+    // show a html-defined "screen"
     show_screen : function(screen) {
-        // displays a certain screen
         screen.style.display="block";
     },
 
+    // hide a html-defined "screen"
     hide_screen : function(screen) {
-        // hides a certain screen
         screen.style.display="none";
     },
 
-    //utility function
+    // utility function
     rand_int : function(min, max) {
-        // returns a random number between (including) the 
-        // parameters min and max
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 };
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
-// CONTROLLER
-// ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+// controller
 hayStack.ultimatum.state = {
-    // round-management: store here how many rounds the user completes
-    // in total and write the value instantly into the html document
-    // count the rounds in "current_round"
-    total_rounds : 60,
+    total_rounds : 60, //TODO
     current_round : 0,
 
-    // budget-management: store here the max budget, player 2 is able to
-    // distribute among the players. have here variables for the offer and 
-    // total budget for player 1 and player 2, initalized every refresh 
-    // with zero
     max_budget : 20,
     v_offer_playerone : 0,
     v_offer_playertwo : 0,
     v_budget_playerone : 0,
     v_budget_playertwo : 0,
 
-    // this array stores the responses, i.e. if the user accepted or
-    // rejected the offer given by player 2
     responses : [],
-    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}
+    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}, //TODO: delete?
+
+    clickedTime : new Date(),
+    startTime : new Date(),
+    reactionTime : new Date(),
 };
 
-hayStack.ultimatum.initializeGame = function() {
-    var state = hayStack.ultimatum.state;
-    state.total_rounds = 60;
-    state.current_round = 0;
-    //document.getElementById("rounds_total").innerHTML = state.total_rounds;
-    //hayStack.ultimatum.intertrial();
-    console.log("Game initialized");
-};
 
-hayStack.ultimatum.intertrial = function() {
-    /*
-    screen-management: just show the intertrial-screen, which is blank.
-    as this is the starting point for every new round, increment counter
-    for rounds and refresh the value in the html file. 
-    after a random time between 2 and 4 sec, start the "real" game.
-    */
-
-    var view = hayStack.ultimatum.view;
+// function for top and bottom bar information
+hayStack.ultimatum.handle_information = function() {
     var state = hayStack.ultimatum.state;
 
-    view.show_screen(intertrial_screen);
-    view.hide_screen(partner_screen);
-    view.hide_screen(offer_screen);
-
+    // increment round
     state.current_round += 1;
+
+    // display correct budget
+    document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
+    
+    // display correct round information
+    document.getElementById("rounds_total").innerHTML = state.total_rounds;
     document.getElementById("round_no").innerHTML = state.current_round;
+}
 
-    setTimeout(hayStack.continuations.next, view.rand_int(2000, 4000));
-};
 
-hayStack.ultimatum.get_new_offer = function(data) {
-    /*
-    for now, the offer for player 1 is computed randomly as a number between 
-    zero and the above defined maximum to distribute.
-    player 2 simply gets offered what is left between the maximum to distribute
-    and what is already offered to player 1.
-    finally, both values get written to the html file.
-    */
-    var view = hayStack.ultimatum.view;
-    var state = hayStack.ultimatum.state;
-
-    //set offers
-    state.v_offer_playerone = data[0];
-    state.v_offer_playertwo = data[1];
-
-    //old code for random offers (maybe useful at some point)
-    //state.v_offer_playerone = view.rand_int(0, 20);
-    //state.v_offer_playertwo = state.max_budget - state.v_offer_playerone;
-
-    document.getElementById("offer_playerone").innerHTML = state.v_offer_playerone;
-    document.getElementById("offer_playertwo").innerHTML = state.v_offer_playertwo;
-};
 
 hayStack.ultimatum.start_trial = function(data) {
-    /*
-    screen-management: show partner-screen, the others vanish mysteriously.
-    as the screen says "player 2 is thinking about the offer", the computer
-    computes a new offer for the players. 
-    it will be displayed after 4 sec and after another 4 sec the user will see
-    buttons to decide, wheter to accept or reject the offer
-    */
-
     var view = hayStack.ultimatum.view;
     var ctl = hayStack.ultimatum;
     var state = hayStack.ultimatum.state;
 
-    document.getElementById("rounds_total").innerHTML = state.total_rounds;
-    console.log("rounds_total updated to " + state.total_rounds);
+    // show correct screen: partner screen
     view.hide_screen(intertrial_screen);
     view.show_screen(partner_screen);
     view.hide_screen(offer_screen);
 
-    //to be replaced interactively
-    ctl.get_new_offer(data);
+    // set top and bottom bar to correct information on round and budget
+    ctl.handle_information();
+
+    // set offers
+    state.v_offer_playerone = data[0];
+    state.v_offer_playertwo = state.max_budget - data[0];
+    document.getElementById("offer_playerone").innerHTML = state.v_offer_playerone;
+    document.getElementById("offer_playertwo").innerHTML = state.v_offer_playertwo;
+
+    // timeout for displaying proposal and respond-buttons
     setTimeout(ctl.proposal, 4000);
     setTimeout(ctl.response, 8000);
 };
 
+
+
 hayStack.ultimatum.proposal = function() {
-    /*
-    with the first use of this function, the display will not show anymore that "it found a new partner"
-    screen-management: show only the offer screen, but without the possiblity to answer the 
-    offer yet.
-    */
-
-    document.getElementById("new_partner").innerHTML = "Spieler 2 überlegt sich ein Angebot.";
-
     var view = hayStack.ultimatum.view;
+
+    // show correct screen: offer screen
     view.hide_screen(partner_screen);
     view.show_screen(offer_screen);
+
+    // hide buttons for responding
     document.getElementById("buttons_ar").style.visibility = "hidden";
 };
 
+
+
 hayStack.ultimatum.response = function() {
-    /*
-    show the possiblity to answer the offer by player 2
-    */ 
+    var state = hayStack.ultimatum.state;
+
+    // show buttons for responding
     document.getElementById("buttons_ar").style.visibility = "visible";
 
-    var state = hayStack.ultimatum.state;
+    // set starttime for reaction time
+    state.startTime = new Date();
+
+    // if clicked "accept"
     document.getElementById("accept").onclick = function() {
-        /*
-        if user accepts the offer, write to the responses-array "accept"
-        and add the offers to the respective budgets
-        refresh the current budget in the html file.
-        start new round with intertrial
-        */
-    
-        //TO DO: to replace with call to frame
-        state.responses.push("accept");
-    
+        // set clickedtime for reaction time
+        state.clickedTime = new Date();
+
+        // save reaction
+        state.responses.push("accept"); // TODO: Save to server?
+
+        // update budget of p1 and p2
         state.v_budget_playerone += state.v_offer_playerone;
         state.v_budget_playertwo += state.v_offer_playertwo;
-        document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
-        document.getElementById("budget_playertwo").innerHTML = state.v_budget_playertwo;
 
-        //terminate trial
+        // goto intertrial
         hayStack.ultimatum.intertrial();
     };
     
+    // if clicked "reject"
     document.getElementById("reject").onclick = function() {
-        /*
-        if user rejects the offer, write to the responses-array "reject"
-        start new round with intertrial
-        */
-    
-        state.responses.push("reject");
+        // set clickedtime for reaction time
+        state.clickedTime = new Date();
 
-        //terminate trial
+        // save reaction
+        state.responses.push("reject"); // TODO: Save to server?
+
+        // goto intertrial
         hayStack.ultimatum.intertrial();
     };
 };
 
-/*
 
-function test() {
-    // escape function for testing
-    show_screen(intertrial_screen);
-    hide_screen(partner_screen);
-    hide_screen(offer_screen);
-    if (confirm("current rounds = " + current_round + "\nanother round?") == 1) {
-        intertrial();
-    } else {
-        alert("ok bye")
-        console.log(responses);
-    }
-} */
+
+hayStack.ultimatum.intertrial = function() {
+    // TODO: if intertrial after every trial there is no intertrial before first trial?
+    var view = hayStack.ultimatum.view;
+    var state = hayStack.ultimatum.state;
+
+    // compute reaction time
+    state.reactionTime = state.clickedTime.getTime() - state.startTime.getTime(); // TODO save? convert to sec?
+
+    // show correct screen: intertrial screen
+    view.show_screen(intertrial_screen);
+    view.hide_screen(partner_screen);
+    view.hide_screen(offer_screen);
+
+    // after intertrial continue with next trial
+    setTimeout(hayStack.continuations.next, view.rand_int(2000, 4000));
+};
+
+
 
 //given a test from the script, create an array of continuations.
 hayStack.ultimatum.continuationFactory = function(test) {
@@ -247,7 +196,8 @@ hayStack.ultimatum.continuationFactory = function(test) {
         }
     }
     return conts;
-}; //continuation factory
+};
+
 
 //for export
 hayStack.ultimatum.simpleContinuationFactory = function(trial) {

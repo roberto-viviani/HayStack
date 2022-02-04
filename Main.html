@@ -197,18 +197,15 @@
 
         <!--- Template ultimatum game -->
         <script type="text/template" id="ultimatum">
+
             <!-- Top bar for information on rounds -->
             <div class="info" id="display_rounds">
-                Runde <span id="round_no">0</span> von <span id="rounds_total">0</span>
+                Runde <span id="round_no"></span> von <span id="rounds_total"></span>
             </div>
             
-
-            <!-- ########################################### -->
             <!-- Blank Screen for Intertrial Interval (show for 2-4 s) -->
             <div class="screen" id="intertrial_screen"></div>
             
-            
-            <!-- ########################################### -->
             <!-- Partner Screen (show for 4s) -->
             <div class="screen" id="partner_screen">
 
@@ -223,8 +220,6 @@
                 <div class="no_float"><p id="new_partner">Neuer Partner wurde gefunden. <br>Spieler 2 überlegt sich ein Angebot.</p></div>
             </div>
 
-
-            <!-- ########################################### -->
             <!-- Offer & Response Screen (show for 4s without buttons / then self-paced)-->
             <div class="screen" id="offer_screen">
                 
@@ -254,18 +249,23 @@
 
             </div>
 
-            <!-- ########################################### -->
             <!-- Bottom bar for information on budget -->
+            <div class="info" id="display_budget">
+                Ihr Budget: <span id="budget_playerone"></span> €
+            </div>
+
+            <!-- Bottom bar for information on budget
             <div class="info" id="display_budget">
                 <div class="box_vertical">
                     Ihr Budget: <span id="budget_playerone">0</span> €
                 </div>
-                <div class="box_vertical">
+                <div class="box_vertical" id="box_budget_playertwo">
                     Budget Spieler 2: <span id="budget_playertwo">0</span> €
                 </div>
 
-            </div>
+            </div> -->
         </script>
+
         <script type="text/template" id="ultimatumStyle">
             .screen {
                 background-color: rgb(0,43,54);
@@ -353,13 +353,6 @@
                 text-align: center;
             }
             
-            
-            /* 
-            //++++++++++++++++++++++++++++++++++++++
-            // Screen Specifics
-            // ++++++++++++++++++++++++++++++++++++++ 
-            */
-            
             #offer_screen {
                 display: none;
             }
@@ -370,7 +363,7 @@
             
             #intertrial_screen {
                 display: none;
-            }            
+            }
         </script>
         <script type="text/javascript" src="ultimatum_game.js"></script>
 
