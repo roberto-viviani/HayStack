@@ -112,7 +112,7 @@ dr.find((el) => el === "Database.txt") || fs.writeFileSync(
 	"sessionID\tsubjectID\ttestID\ttrialID\titemID\ttype\tpolarity\tresponse\tRT\trespKey\tresponseData\ttrialData\tversion\ttimestamp\tsource\n",
 	"utf-8"
 );
-dr.find((el) => el === "SocioDemographcs.txt") || fs.writeFileSync(
+dr.find((el) => el === "SocioDemographics.txt") || fs.writeFileSync(
 	"./SocioDemographics.txt", 
 	"sessionID\tsubjectID\tAge\tSex\tEdu\tOccupation\tRiskAttitude\ttimestamp\tsource\n",
 	"utf-8"

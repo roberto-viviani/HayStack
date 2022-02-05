@@ -354,19 +354,22 @@ hayStack.continuations.push(function () {
 //this continuation loads the logoff page and collects data for credits
 hayStack.continuations.push(function () {
     hayStack.view.setTemplate("logoffPage", "logoffPageStyle");
+
+    var firstNameInp       = document.getElementById("firstName");
+    var secondNameInp      = document.getElementById("secondName");
+    var matriculationNoInp = document.getElementById("matriculationNo");
+    var logonIdInpt        = document.getElementById("logonId");
+
     var elem = document.getElementById("btnLogoff");
     if (undefined === elem) console.log("Invalid coding of logoff page");
     elem.onclick = function () {
-        var lgfData = {};
-        var txt = document.getElementById("firstName");
-        lgfData.firstName = txt.value;
-        txt = document.getElementById("secondName");
-        lgfData.secondName = txt.value;
-        txt = document.getElementById("matriculationNo");
-        lgfData.matriculationNo = txt.value;
-        txt = document.getElementById("logonId");
-        lgfData.logonId = txt.value;
-        //check if there are any data before pushing on stack
+        var lgfData = {
+            firstName : firstNameInp.value,
+            secondName : secondNameInp.value,
+            matriculationNo : matriculationNoInp.value,
+            logonId : logonIdInpt.value
+        };
+        //check if there are any data from page before pushing on stack
         if (Object.values(lgfData).join("").length > 0) {
             var trial = hayStack.output.emptyTrial();
             trial.testID = "LOGOFF";
