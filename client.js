@@ -222,33 +222,23 @@ hayStack.continuations = (function() {
     continuations. This results is a mapping from the list of
     trials to the list of continuations to the list of results. 
     The continuations are stacked by calling hayStack.continuations.push
-    and passing the continuation. Each continuation must end with 
+    with the continuation as argument. Each continuation must end with 
     a call to continuations.next()  */
 
 //The first continuation collects the ID of the participant.
 hayStack.continuations.push(
     function () {
-        //setup interface to query id from user
-        var hln = document.getElementById("lblHeadline")
-        hln.style.visibility = "visible";
-        hln.innerHTML = "Anonyme Identifikation"
-        var lbl = document.getElementById("lblInput");
-        lbl.style.visibility = "visible";
-        lbl.innerHTML = "Bitte tragen Sie Ihre Identifikationskode hier ein:";
         var txt = document.getElementById("subjId");
-        txt.style.visibility = "visible";
         txt.value = "";
         txt.focus();
 
-        var btnNext = document.getElementById("btnNext");  //btnRecordID
-        btnNext.style.visibility = "visible";
-        var regID = /^\d\d\D\D\D$/;
         var subjInput = document.getElementById("subjId");
+        var regID = /^\d\d\D\D\D$/;
         btnNext.onclick = function () {
             var sid = subjInput.value;
             //validate, if invalid, just return w/o calling next
             if (false === regID.test(sid)) {
-                alert("Ungültiges ID. Ein ID soll z.B. so aussehen: 18ATH");
+                alert("Ungültiges ID. Ein ID soll z.B. so aussehen: O5IMR");
                 return;
             }
             //clean up interface and push data on output stack for sid

@@ -509,20 +509,21 @@
         <!-- This is the active style spec, dynamically modified by code -->
         <style id = "styleSpec">
             #interface{
-                font-size: 2.2vw;
+                font-size: 2.0vw;
                 margin-top: 1vw;
                 margin-left: auto;
                 margin-right: auto;
-                text-align: center;
+                text-align: left;
             }
 
             #lblHeadline{
-                font-size: 2.2vw;
+                font-size: 2.6vw;
                 margin-top: 1vw;
                 margin-left: auto;
                 margin-right: auto;
                 color: rgb(255, 153, 0);
                 font-weight: bold;
+                text-align: center;
             }
         </style>
         
@@ -534,11 +535,28 @@
         <div id = "header"></div>
         <div id = "interface">
             <!-- at startup, the interface is the logon -->
-            <h1 id="lblHeadline"> Headline here </h1>
-            <p style="font-size:1.4em" id="lblInput">instruction here</p>
-            <input type="text" name="subjId" id="subjId" value=""><br><br>
-            <p style="font-size:1.4em" id="lblNext"></p>
-            <button class="next" id="btnNext">weiter >></button>
+            <h1 id="lblHeadline">Logon mit persönlichem Code</h1>
+            <!-- <p style="font-size:1.4em" id="lblInput">Bevor es losgeht, erstellen Sie bitte<br> -->
+            <p id="lblInput">Bevor es losgeht, erstellen Sie bitte Ihren ganz persönlicher ID Code.<br>
+                Mit diesem Code bleiben Sie anonym.<br>
+                <br> Hierfür verwenden Sie bitte:<br>
+                1. den Tag ihres Geburtsdatums für die erste zwei Zeichen<br>
+                2. Den ersten Buchstaben Ihres Geburtsortes als drittes Zeichen<br>
+                3. Den ersten Buchstaben des Vornamens Ihrer Mutter als viertes Zeichen<br>
+                4. Den ersten Buchstaben des Vornamens ihres Vaters als fünftes Zeichen<br>
+            <br>
+            <b>Beispiel:</b> Sabrina Schmidt wurde am 05.04.19967 in Innsbruck geboren.<br>
+            Ihre Mutter heißt Michaela und ihr Vater heißt Reinhard.<br>
+            Ihr Code lautet also: <b>05IMR</b><br>
+            <br>Wenn Sie ein Feld nicht ausfüllen können, tragen Sie bitte ein „X“ ein.<br>
+            Bitte notieren Sie sich Ihren Code falls Sie fragen zu ihren Daten haben,<br>
+            bevor Sie auf weiter klicken.<br>
+            <br>
+            Ihr persönlicher ID Code: 
+            </p>
+            <input type="text" style="font-size:2.2vw" name="subjId" id="subjId" value=""><br><br>
+            <p style="font-size:2.2vw" id="lblNext"></p>
+            <button class="next" style="font-size:2.2vw" id="btnNext">weiter >></button>
         </div>
         <div id = "footer"></div>
 
