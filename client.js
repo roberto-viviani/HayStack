@@ -383,7 +383,9 @@ hayStack.continuations.push(function () {
 
 // this final continuation cleans up the interface.
 hayStack.continuations.push(function () {
-    hayStack.view.msg("Danke! Sie sind am Ende der Testung angekommen.");
+    hayStack.view.msg("Sie sind am Ende der Testung angekommen.<br>" + 
+        "Vielen herzlichen Dank, dass Sie an dieser Studie teilgenommen haben!<br><br>" + 
+        "Bei Fragen können Sie sich gerne bei uns melden.");
     hayStack.view.setStyle("defaultStyle");
     hayStack.output.postTrials(hayStack.continuations.next);
 });
