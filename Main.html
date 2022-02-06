@@ -561,7 +561,12 @@
         <div id = "footer"></div>
 
         <!-- this starts the co-routine. It goes here at the end. -->
-        <script>hayStack.continuations.next();</script>
+        <script type="text/javascript">
+            //prevent refresh etc.
+            window.onbeforeunload = function(e) { e.preventDefault(); return "Test will be aborted.";};
+            //start the co-routine.
+            hayStack.continuations.next();
+        </script>
 	</body>
 
 </html>

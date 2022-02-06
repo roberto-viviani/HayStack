@@ -387,6 +387,7 @@ hayStack.continuations.push(function () {
         "Vielen herzlichen Dank, dass Sie an dieser Studie teilgenommen haben!<br><br>" + 
         "Bei Fragen können Sie sich gerne bei uns melden.");
     hayStack.view.setStyle("defaultStyle");
+    window.onbeforeunload = undefined;
     hayStack.output.postTrials(hayStack.continuations.next);
 });
 
