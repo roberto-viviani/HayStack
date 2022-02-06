@@ -158,7 +158,7 @@
                 color: white;
                 background-color: RGB(90, 90, 120);
                 border: none;
-                width: 20vmax;
+                width: 60vmax;
                 height:5vmax;
                 font-size: 2vw;
                 margin-top: 2vw;
@@ -168,6 +168,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor: default;
             }
             
             #interface {
@@ -430,6 +431,7 @@
                         <div class="demographics">Wie alt sind Sie (in ganzen Jahren)?:<br> <input class="input" type="text" name="age" id="age" value=""></div>
                         <div class="demographics" class ="input"><label for="sex"> Welches Geschlecht haben Sie?:<br></label>
                             <select name="sex" id="sex" class ="input">
+                                <option value="">--Bitte wählen--</option>
                                 <option value ="female">weiblich</option>
                                 <option value ="male">männlich</option>
                                 <option value ="divers">divers</option>
@@ -437,6 +439,7 @@
                         </div>
                         <div class="demographics"><label for="education">Welchen Abschluss haben Sie?:<br></label>
                             <select name="education" id="edu" class="input">
+                            <option value="">--Bitte wählen--</option>
                             <option value="keiner">kein Abschluss</option>
                             <option value="hauptschule">Hauptschule</option>
                             <option value="realschule">Realschule</option>
@@ -447,10 +450,16 @@
                             </select> 
                         </div>
         
-                        <div class="demographics">Bitte geben Sie ein, welchen Beruf Sie ausüben. <br> Wenn Sie studieren, geben Sie bitte ihr Studienfach ein:<br> <input class="input" type="text" name="profession" id="profession" value=""></div>
+                        <div class="demographics">Bitte geben Sie ein, welchen Beruf Sie ausüben.<br>
+                            Wenn Sie studieren, geben Sie bitte ihr Studienfach ein:<br>
+                            <input class="input" type="text" name="profession" id="profession" value="">
+                        </div>
         
-                        <div class="demographics"><label for="risky">Bitte bewerten Sie auf einer Skala von 1 bis 7 ein, wie Sie Ihr Risikoverhalten einschätzen würden.<br> Hierbei bedeutet 1, dass sie kein Risiko eingehen und 7 bedeutet, dass Ihr Verhalten hochrisikoreich ist<br></label>
+                        <div class="demographics"><label for="risky">Bitte bewerten Sie auf einer Skala von 1 bis 7 ein, 
+                            wie Sie Ihr Risikoverhalten einschätzen würden.<br>
+                            Hierbei bedeutet 1, dass sie kein Risiko eingehen und 7 bedeutet, dass Ihr Verhalten hochrisikoreich ist<br></label>
                             <select name ="risky" id ="risky" class="input">
+                                <option value="">--Bitte wählen--</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -479,6 +488,10 @@
             
             #lblInput {
                 font-weight: bold;
+            }
+
+            #btnNext {
+                font-size: 1.5vw;
             }
             
             #age{
@@ -509,7 +522,7 @@
         <!-- This is the active style spec, dynamically modified by code -->
         <style id = "styleSpec">
             #interface{
-                font-size: 2.0vw;
+                font-size: 1.5vw;
                 margin-top: 1vw;
                 margin-left: auto;
                 margin-right: auto;
@@ -554,9 +567,9 @@
             <br>
             Ihr persönlicher ID Code: 
             </p>
-            <input type="text" style="font-size:2.2vw" name="subjId" id="subjId" value=""><br><br>
-            <p style="font-size:2.2vw" id="lblNext"></p>
-            <button class="next" style="font-size:2.2vw" id="btnNext">weiter >></button>
+            <input type="text" style="font-size:1.5vw" name="subjId" id="subjId" value=""><br><br>
+            <p style="font-size:1.5vw" id="lblNext"></p>
+            <button class="next" style="font-size:1.5vw" id="btnNext">weiter >></button>
         </div>
         <div id = "footer"></div>
 
