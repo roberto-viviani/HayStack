@@ -66,10 +66,11 @@ hayStack.ultimatum.handle_information = function() {
 
 
 
-hayStack.ultimatum.start_trial = function(data) {
+hayStack.ultimatum.start_trial = function(trial) {
     var view = hayStack.ultimatum.view;
     var ctl = hayStack.ultimatum;
     var state = hayStack.ultimatum.state;
+    var data = trial.data;
 
     // show correct screen: partner screen
     view.hide_screen(intertrial_screen);
@@ -87,7 +88,7 @@ hayStack.ultimatum.start_trial = function(data) {
 
     // timeout for displaying proposal and respond-buttons
     setTimeout(ctl.proposal, 4000);
-    setTimeout(ctl.response, 8000);
+    setTimeout(ctl.response, 8000, trial);
 };
 
 
@@ -105,22 +106,36 @@ hayStack.ultimatum.proposal = function() {
 
 
 
-hayStack.ultimatum.response = function() {
+hayStack.ultimatum.response = function(trialsrc) {
     var state = hayStack.ultimatum.state;
+    var output = hayStack.output;
 
     // show buttons for responding
     document.getElementById("buttons_ar").style.visibility = "visible";
 
     // set starttime for reaction time
-    state.startTime = new Date();
+    var startTime = new Date();
+
+    var trial = output.emptyTrial();
+    trial.testID = "ultimatum";
+    trial.itemID = trialsrc.itemID;
+    trial.type = trialsrc.type;
+    trial.response = [];
+    //trial.respKey = resp; 
+    //trial.responseData = "pos:"  + item.pos + ",neg:" + item.neg;
+    trial.trialData = trialsrc.data;
+    trial.version = trialsrc.version | "";
+    trial.timestamp = output.timestamp(startTime);
+    trial.source = trialsrc.source | "";
 
     // if clicked "accept"
     document.getElementById("accept").onclick = function() {
-        // set clickedtime for reaction time
-        state.clickedTime = new Date();
+        // compute reaction time
+        trial.RT = new Date() - startTime;
 
         // save reaction
-        state.responses.push("accept"); // TODO: Save to server?
+        trial.response = "accept";
+        output.pushTrial(trial);
 
         // update budget of p1 and p2
         state.v_budget_playerone += state.v_offer_playerone;
@@ -132,11 +147,12 @@ hayStack.ultimatum.response = function() {
     
     // if clicked "reject"
     document.getElementById("reject").onclick = function() {
-        // set clickedtime for reaction time
-        state.clickedTime = new Date();
+        // compute reaction time
+        trial.RT = new Date() - startTime;
 
         // save reaction
-        state.responses.push("reject"); // TODO: Save to server?
+        trial.response = "reject";
+        output.pushTrial(trial);
 
         // goto intertrial
         hayStack.ultimatum.intertrial();
@@ -149,9 +165,6 @@ hayStack.ultimatum.intertrial = function() {
     // TODO: if intertrial after every trial there is no intertrial before first trial?
     var view = hayStack.ultimatum.view;
     var state = hayStack.ultimatum.state;
-
-    // compute reaction time
-    state.reactionTime = state.clickedTime.getTime() - state.startTime.getTime(); // TODO save? convert to sec?
 
     // show correct screen: intertrial screen
     view.show_screen(intertrial_screen);
@@ -168,6 +181,17 @@ hayStack.ultimatum.intertrial = function() {
 hayStack.ultimatum.continuationFactory = function(test) {
 
     var conts = [];
+
+    //get the offers from test
+    var trialType = '';
+    var sessionID = hayStack.output.emptyTrial().sessionID;
+    if (sessionID % 2  === 0) {
+        offers = test.options.xiang;
+        trialType = "xiang";
+    } else {
+        offers = test.options.series;
+        trialType = "series";
+    }
 
     // the trials
     for (var i = 0; i < test.trials.length; ++i) {
@@ -186,6 +210,8 @@ hayStack.ultimatum.continuationFactory = function(test) {
         else if ("ultimatum" === trialobj.frame) {
             //the continuations of ultimatum itself
             trialobj.trialID = i + 1;
+            trialobj.data[0] = offers[i];
+            trialobj.type = trialType;
             conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
         } 
         else {
@@ -205,6 +231,6 @@ hayStack.ultimatum.simpleContinuationFactory = function(trial) {
         hayStack.view.setTemplate("ultimatum", "ultimatumStyle");
         
         lib = hayStack.ultimatum;
-        lib.start_trial(trial.data);
+        lib.start_trial(trial);
     }
 }

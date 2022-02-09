@@ -52,6 +52,7 @@ function checkTests(tests) {
             for (let j in fields) {
                 let fname = fields[j];
                 if ("trials" === fname) continue; 
+                if ("options" === fname) continue;
                 if (undefined === trial[fname]) trial[fname] = test[fname];
             }
             if (undefined === trial.itemID) throw("Test " + testID + ": item at position " + i + " has no itemID field.");
