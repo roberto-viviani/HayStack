@@ -135,7 +135,7 @@
     Ultimatum : {
         frame : "ultimatum",
         description : "ultimatum game, Stefanie Bernardin Jan 2022",
-        timeout : 12000,
+        timeout : 0,  //no timeout
         version : "1.0",
 
         //the offers
@@ -205,7 +205,7 @@
         frame: "mchoice",//bleibt
         description: "Allgemeine Depressionsskala",
         version: "1.0",//bleibt
-        timeout: 5000, //bleibt
+        timeout: 0, //no timeout
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
@@ -248,7 +248,7 @@
         frame: "mchoice",//bleibt
         description: "Posttraumatische Verbitterungsstörung",
         version: "1.0",//bleibt
-        timeout: 5000, //bleibt
+        timeout: 0, //no timeout
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
@@ -288,7 +288,7 @@
         frame: "mchoice",//bleibt
         description: "PersönlichkeitsinventarfürDSM5",
         version: "1.0",//bleibt
-        timeout: 5000, //bleibt
+        timeout: 0, //No timeout
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
@@ -337,7 +337,7 @@
         frame: "mchoice",//bleibt
         description: "LevelofPersonalityFunctioningScaleBriefForm",
         version: "1.0",//bleibt
-        timeout: 5000, //bleibt
+        timeout: 0, //no timeout
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt

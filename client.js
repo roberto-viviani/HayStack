@@ -225,15 +225,37 @@ hayStack.continuations = (function() {
     with the continuation as argument. Each continuation must end with 
     a call to continuations.next()  */
 
-//The first continuation collects the ID of the participant.
+//The first continuation shows information about the test. This information
+//is displayed in main.html when it is loaded. We only need to move on when
+//the user starts the test/scale. 
 hayStack.continuations.push(
     function () {
+        var btnNext = document.getElementById("btnNext");
+        btnNext.onclick = function () {
+            //clean up interface and push data on output stack for sid
+            document.getElementById("interface").innerHTML = "";
+            document.getElementById("footer").innerHTML = "";
+            hayStack.continuations.next();
+        };
+    }
+)
+
+//The second continuation collects the ID of the participant.
+hayStack.continuations.push(
+    function () {
+        hayStack.view.setTemplate("logon", "logonStyle");
+
+        //prevent refresh etc. Acts from now on.
+        window.onbeforeunload = function(e) { e.preventDefault(); return "Test will be aborted.";};
+
+
         var txt = document.getElementById("subjId");
         txt.value = "";
         txt.focus();
 
         var subjInput = document.getElementById("subjId");
         var regID = /^\d\d\D\D\D$/;
+        var btnNext = document.getElementById("btnNext");
         btnNext.onclick = function () {
             var sid = subjInput.value;
             //validate, if invalid, just return w/o calling next
