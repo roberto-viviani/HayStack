@@ -22,6 +22,8 @@ hayStack.SST.view = {
         //console.log("Max len word: " + maxLen + "; font size: " + fontSize);
         for (var i = 0; i < btns.length; ++i) {
             if (data[i] == "Gutenachtgeschichte") btns[i].style.fontSize = "1.42vw";
+            else if (data[i] == "vielversprechend") btns[i].style.fontSize = "1.45vw";
+            else if (data[i] == "Benachrichtigung") btns[i].style.fontSize = "1.45vw";
             else btns[i].style.fontSize = fontSize + "vw";
             btns[i].innerHTML = data[i];
         }
