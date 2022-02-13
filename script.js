@@ -209,6 +209,7 @@
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
+        baselineScore: 0,
 
         //common properties of all trials
         type: "ADS",
@@ -252,6 +253,7 @@
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
+        baselineScore: 0,
 
         //common properties of all trials
         type: "PTED",
@@ -292,6 +294,7 @@
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
+        baselineScore: 0,
 
         //common properties of all trials
         type: "PID5BF",
@@ -341,6 +344,7 @@
         timeRefractory: 1000,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
+        baselineScore: 1,
 
         //common properties of all trials
         type: "LPFSBF",

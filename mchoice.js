@@ -38,12 +38,13 @@ hayStack.mchoice.view = {
 hayStack.mchoice.computeResponse = function(resp, trial, rt) {
     //response encoding. Needs streamlining/revision.
     if (rt <= 0) return "NA";  //miss trial
+    var baselineScore = trial.baselineScore | 0;
     var score = resp;
     if (-1 === trial.polarity)
         //trial.data.length is number of responses + question
         //so the coding would be
         //score = (trial.data.length - 1) - (score + 1);
-        score = trial.data.length - score;
+        score = trial.data.length - score + baselineScore;
     return score;
 };
 
