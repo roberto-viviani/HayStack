@@ -89,8 +89,10 @@
 
         <!-- standard template: infopage -->
         <script type="text/template" id="infopage">
-            <p id="infotext" class="infopage"></p>
-            <button class="infopage btn" id="infobtn">FORTSETZEN</button>
+            <div style="text-align:center" id="infodiv">
+                <p id="infotext" class="infopage"></p>
+                <button class="infopage btn" id="infobtn">FORTSETZEN</button>
+            </div>
         </script>
         <script>
             hayStack.infopage = {};
@@ -142,7 +144,7 @@
         <!-- standard template: mchoice -->
         <script type="text/template" id="mchoice">
             <meta name="description" content="Mulitple choice frame">
-            <div id= "question" class="mchoice"></div>
+            <div id= "question" style="text-align:center" class="mchoice"></div>
             <div id="responseList" class="mchoice">
                 <div id="response1" class="responseMchoice">selten</div>
                 <div id="response2" class="responseMchoice">manchmal</div>
@@ -574,7 +576,7 @@
                 margin-top: 1vw;
                 margin-left: auto;
                 margin-right: auto;
-                text-align: left;
+                text-align: center;
             }
 
             #lblHeadline{
@@ -594,10 +596,10 @@
 	<body>
         <!-- define divisions to be modified dynamically by code -->
         <div id = "header"></div>
-        <div id = "interface" style="text-align: left">
+        <div id = "interface">
             <!-- at startup, the interface shows basic information about the test -->
             <h1 id="lblHeadline">Entscheidungsfindung und Schemata Aktivierung</h1>
-            <p id="lblInput">Liebe Teilnehmerin, lieber Teilnehmer,<br><br>
+            <p id="lblInput" style="text-align:left">Liebe Teilnehmerin, lieber Teilnehmer,<br><br>
                 vielen Dank, dass Sie Interesse an der Studie „Entscheidungsfindung und Schemata Aktivierung“ haben und teilnehmen möchten!<br><br>
                 In der folgenden Studie bitten wir Sie, zunächst ein paar Fragen zu beantworten bevor Sie anschließend an 
                 einem interaktiven Spiel teilnehmen. Vor jeder Aufgabe erhalten Sie eine kurze Einführung was zu tun ist. 
@@ -615,8 +617,6 @@
 
         <!-- this starts the co-routine. It goes here at the end. -->
         <script type="text/javascript">
-            //prevent refresh etc.
-            window.onbeforeunload = function(e) { e.preventDefault(); return "Test will be aborted.";};
             //start the co-routine.
             hayStack.continuations.next();
         </script>

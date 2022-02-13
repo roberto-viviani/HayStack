@@ -265,25 +265,44 @@
                 "Feststellungen und kreuzen Sie die für Sie zutreffende Spalte an. " + 
                 "Bitte lassen Sie keine Zeile aus!<br><br>In den vergangenen Jahren " + 
                 "hatte ich ein einschneidendes Lebensereignis zu verkraften,...", "start"]},
-            { itemID: "PTED01", data: ["das mich äußerst gekränkt oder verbittert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED02", data: ["wodurch sich meine psychische Befindlichkeit deutlich und bis heute negativ verändert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED03", data: ["das aus meiner Sicht äußerst ungerecht oder nicht fair war", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED04", data: ["an das ich immer wieder denken muss", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED05", data: ["das mich heftig aufregt, wenn ich daran erinnert werde", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED06", data: ["das in mir Gedanken an Rache auslöst", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED07", data: ["wegen dem ich mir Vorwürfe mache und ärgerlich auf mich selbst bin", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED08", data: ["weswegen ich häufiger das Gefühl habe, dass es keinen Sinn macht, Dinge anzupacken und sich anzustrengen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED09", data: ["durch das meine Stimmung häufig niedergeschlagen und gedrückt ist", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED10", data: ["das dazu geführt hat, dass ich mich in allgemein schlechter körperlicher Verfassung fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED11", data: ["weswegen ich bestimmte Orte oder Personen meide, um nicht daran erinnert zu werden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED12", data: ["dem gegenüber ich mich ohnmächtig und hilflos ausgeliefert fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED13", data: ["das in mir Geühle der Genugtuung auslöst, beim Gedanken, der Verursacher würde einmal Ähnliches erleiden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED14", data: ["das dazu geführt hat, dass meine Kraft und mein Antrieb reduziert und nich mehr wie früher sind", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED15", data: ["das dazu geführt hat, dass ich gereizter bin als früher", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED16", data: ["weshalb ich mich ablenken muss, wenn ich vorübergehend eine normale und ausgeglichene Stimmung erleben will", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED17", data: ["das dazu geführt hat, dass ich meinen beruflichen und/oder familiären Aktivitäten nicht mehr wie früher nachgehe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED18", data: ["das dazu geführt hat, dass ich mich von Freunden und geselligen Aktiviäten zurückgezogen habe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
-            { itemID: "PTED19", data: ["zu dem sich mir immer wieder belastende Erinnerungen aufdrängen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]}
+            { itemID: "PTED01", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                    "...das mich äußerst gekränkt oder verbittert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED02", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...wodurch sich meine psychische Befindlichkeit deutlich und bis heute negativ verändert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED03", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das aus meiner Sicht äußerst ungerecht oder nicht fair war", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED04", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...an das ich immer wieder denken muss", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED05", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das mich heftig aufregt, wenn ich daran erinnert werde", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED06", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das in mir Gedanken an Rache auslöst", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED07", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...wegen dem ich mir Vorwürfe mache und ärgerlich auf mich selbst bin", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED08", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...weswegen ich häufiger das Gefühl habe, dass es keinen Sinn macht, Dinge anzupacken und sich anzustrengen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED09", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...durch das meine Stimmung häufig niedergeschlagen und gedrückt ist", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED10", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das dazu geführt hat, dass ich mich in allgemein schlechter körperlicher Verfassung fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED11", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...weswegen ich bestimmte Orte oder Personen meide, um nicht daran erinnert zu werden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED12", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...dem gegenüber ich mich ohnmächtig und hilflos ausgeliefert fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED13", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das in mir Geühle der Genugtuung auslöst, beim Gedanken, der Verursacher würde einmal Ähnliches erleiden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED14", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das dazu geführt hat, dass meine Kraft und mein Antrieb reduziert und nich mehr wie früher sind", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED15", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das dazu geführt hat, dass ich gereizter bin als früher", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED16", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...weshalb ich mich ablenken muss, wenn ich vorübergehend eine normale und ausgeglichene Stimmung erleben will", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED17", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das dazu geführt hat, dass ich meinen beruflichen und/oder familiären Aktivitäten nicht mehr wie früher nachgehe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED18", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...das dazu geführt hat, dass ich mich von Freunden und geselligen Aktiviäten zurückgezogen habe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+            { itemID: "PTED19", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
+                "...zu dem sich mir immer wieder belastende Erinnerungen aufdrängen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]}
         ]
     },
     PID5BF : {
