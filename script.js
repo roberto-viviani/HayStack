@@ -667,6 +667,32 @@
             { itemID: "E12_V2_9PN", block: 3, type: "PN", data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6 }, 
             { itemID: "E7_V2_10NU", block: 3, type: "NU", data: ["verloren", "viel", "verwaltet", "ich", "Geld", "habe"], polarity: -1, pos: 3, neg: 1 }                        
         ]
+    },
+
+    SSTValidationV2Test : {			
+        frame: "SST",
+		description: "SST depression, validation set, individual runs",	
+        version: "2.0",	
+        timeout: 0,
+        timeRefractory: 0,
+        randomOrder: false,  
+        skipOutput: false,  
+
+		trials: [
+            { itemID: "E22_V2_6NU", type: "NU", data: ["noch", "wir", "Strafe", "bekommen", "Benachrichtigung", "eine"], polarity: 1, pos: 5, neg: 3 },
+            { itemID: "O11_V2_7UN", type: "NU", data: ["meine", "angekommen", "sind", "Bewerbungen", "bestimmt", "aussichtlos"], polarity: -1, pos: 2, neg: 6 },
+            { itemID: "E11_V2_8PN", type: "PN", data: ["hoffnungslos", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1 },
+            { itemID: "E8_V2_5NP", type: "PN", data: ["meine", "verpuffen", "Anstrengungen", "geschätzt", "sicher", "werden"], polarity: 1, pos: 4, neg: 2 },
+            { itemID: "E21_V2_6UN", type: "NU", data: ["jetzt", "ist", "anders", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5 }, 
+            { itemID: "E14_V2_3NP", type: "PN", data: ["Zukunft", "in", "alles", "wird", "angenehmer", "schwerer"], polarity: 1, pos: 5, neg: 6 },
+            { itemID: "E22_V2_6UP", type: "PU", data: ["noch", "wir", "Benachrichtigung", "bekommen", "Auszeichnung", "eine"], polarity: 1, pos: 5, neg: 3 },
+            { itemID: "E11_V2_8UN", type: "NU", data: ["hoffnungslos", "aktuelle", "Situation", "ist", "unverändert", "meine"], polarity: 1, pos: 5, neg: 1 },
+            { itemID: "E8_V2_5NU", type: "NU", data: ["meine", "verpuffen", "Anstrengungen", "weitergehen", "sicher", "werden"], polarity: 1, pos: 4, neg: 2 },
+            { itemID: "E21_V2_6PU", type: "PU", data: ["jetzt", "ist", "vielversprechend", "Lage", "anders", "meine"], polarity: -1, pos: 3, neg: 5 },
+            { itemID: "E22_V2_6NP", type: "PN", data: ["noch", "wir", "Strafe", "bekommen", "Auszeichnung", "eine"], polarity: 1, pos: 5, neg: 3 },
+            { itemID: "E11_V2_8PU", type: "PU", data: ["unverändert", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1 },
+            { itemID: "E21_V2_6PN", type: "PN", data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5 }                     
+        ]
     }
 
 };
