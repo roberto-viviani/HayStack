@@ -452,14 +452,25 @@
                             </select> 
                         </div>
         
-                        <div class="demographics">Bitte geben Sie ein, welchen Beruf Sie ausüben.<br>
+                        <!-- <div class="demographics">Bitte geben Sie ein, welchen Beruf Sie ausüben.<br>
                             Wenn Sie studieren, geben Sie bitte ihr Studienfach ein:<br>
-                            <input class="input" type="text" name="profession" id="profession" value="">
+                            <input class="input" type="text" name="profession" id="profession" value=""> -->
+                        <div class="demographics">Über wie viel Bruttoeinkommen verfügen Sie pro Monat?<br>
+                            <select name="profession" id="profession" class="input">
+                                <option value="">--Bitte wählen--</option>
+                                <option value="500">Student/bis 500Euro</option>
+                                <option value="1000">bis 1000Euro</option>
+                                <option value="1700">bis 1700Euro</option>
+                                <option value="2300">bis 2300Euro</option>
+                                <option value="3000">bis 3000Euro</option>
+                                <option value="4500">bis 4500Euro</option>
+                                <option value="rich">über 4500Euro</option>
+                            </select>
                         </div>
         
-                        <div class="demographics"><label for="risky">Bitte bewerten Sie auf einer Skala von 1 bis 7 ein, 
+                        <div class="demographics"><label for="risky">Bitte bewerten Sie auf einer Skala von 1 bis 7, 
                             wie Sie Ihr Risikoverhalten einschätzen würden.<br>
-                            Hierbei bedeutet 1, dass sie kein Risiko eingehen und 7 bedeutet, dass Ihr Verhalten hochrisikoreich ist<br></label>
+                            Hierbei bedeutet 1, dass Sie kein Risiko eingehen und 7 bedeutet, dass Ihr Verhalten sehr risikoreich ist<br></label>
                             <select name ="risky" id ="risky" class="input">
                                 <option value="">--Bitte wählen--</option>
                                 <option value="1">1</option>
