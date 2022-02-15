@@ -262,12 +262,13 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoPTED", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte beantworten Sie die folgenden Aussagen und " + 
-                "Feststellungen und kreuzen Sie die für Sie zutreffende Option an. " + 
-                "<br><br>In den vergangenen Jahren " + 
-                "hatte ich ein einschneidendes Lebensereignis zu verkraften,..." + 
-                "<br><br>Hinweis: Bevor sie mit der nächsten " + 
-                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
-                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
+                    "Feststellungen und kreuzen Sie die für Sie zutreffende Option an. " + 
+                    "<br><br>In den vergangenen Jahren " + 
+                    "hatte ich ein einschneidendes Lebensereignis zu verkraften,...", "start"],
+                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                    "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                    "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
+            },
             { itemID: "PTED01", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
                     "...das mich äußerst gekränkt oder verbittert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED02", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
@@ -325,15 +326,16 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoPID5BF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Im Folgenden finden Sie eine Liste von Aussagen, mit denen " + 
-                "sich Menschen selbst beschreiben können. Wir interessieren uns " + 
-                "dafür, wie Sie sich selbst beschreiben würden. Es gibt keine richtigen " + 
-                "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
-                "möglich - wir werden Ihre Antworten vertraulich behandeln.<br>" + 
-                "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
-                "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt." + 
-                "<br><br>Hinweis: Bevor sie mit der nächsten " + 
-                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
-                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
+                    "sich Menschen selbst beschreiben können. Wir interessieren uns " + 
+                    "dafür, wie Sie sich selbst beschreiben würden. Es gibt keine richtigen " + 
+                    "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
+                    "möglich - wir werden Ihre Antworten vertraulich behandeln.<br>" + 
+                    "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
+                    "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt.", "start"],
+                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                    "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                    "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
+            },
             { itemID: "PID5BF01", data: ["Andere würden mich als leichtsinnig beschreiben", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF02", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF03", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer weider unterstützte Entscheidungen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
@@ -378,9 +380,11 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoLPFSBF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte geben Sie für die folgenden Aussagen an,<br>inwieweit " + 
-                "diese für Sie zutreffend sind.<br><br>Hinweis: Bevor sie mit der nächsten " + 
-                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
-                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
+                    "diese für Sie zutreffend sind.", "start"],
+                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                    "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                    "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
+            },
             { itemID: "LPFSBF01", data: ["Ich weiß oft nicht wer ich wirklich bin","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "LPFSBF02", data: ["Ich denke oft sehr schlecht über mich selbst", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "LPFSBF03", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},

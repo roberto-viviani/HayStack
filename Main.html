@@ -111,11 +111,15 @@
                     if (data.length < 2) data.push("fortsetzen");
                     hayStack.view.set(data[0], "infotext");
                     hayStack.view.set(data[1], "infobtn");
+                    if (undefined !== trial.headerText) 
+                        hayStack.view.set(trial.headerText, "header");
+                    if (undefined !== trial.footerText) 
+                        hayStack.view.set(trial.footerText, "footer");
                     document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
                 }
             }
             //continuation factory for test object
-            hayStack.infopage.continuationFactory = function(test) {
+            /*hayStack.infopage.continuationFactory = function(test) {
                 var conts = [];
                 conts.push(function() {
                     hayStack.view.setTemplate("infopage", "infopageStyle");
@@ -124,10 +128,14 @@
                     if (data.length < 2) data.push("fortsetzen");
                     hayStack.view.set(data[0], "infotext");
                     hayStack.view.set(data[1], "infobtn");
+                    var hdr = trial.headerText | "";
+                    if (hdr.length > 0) hayStack.view.set(hdr, "header");
+                    var ftr = trial.footerTex | "";
+                    if (ftr.length > 0) hayStack.view.set(ftr, "footer");
                     document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
                 });
                 return conts;
-            }
+            } */
         </script>
         <script type="text/template" id="infopageStyle">
             #interface {

@@ -19,14 +19,23 @@ if (undefined === window.hayStack) window.hayStack = {};
 hayStack.view = {
     //clear interface and display message
     msg : function(txt) {
-        elem = document.getElementById("interface");
+        var elem = document.getElementById("interface");
         if (undefined == elem) {
             document.documentElement.innerHTML = "<p>" + txt + "</p>";
             throw("Error on loading page: " + txt);
         }
         elem.innerHTML = "<p id='msg'>" + txt + "</p>";
         elem.style.fontSize = "2vw";
+        document.getElementById("header").innerHTML ="";
+        document.getElementById("footer").innerHTML ="";
         return elem;
+    },
+
+    //clear interface
+    clear : function() {
+        document.getElementById("interface").innerHTML = "";
+        document.getElementById("header").innerHTML ="";
+        document.getElementById("footer").innerHTML ="";
     },
 
     //set any id-ed element of interface
@@ -39,6 +48,8 @@ hayStack.view = {
 
     //set a frame template or style
     setInterface : function(templateName) {
+        document.getElementById("header").innerHTML ="";
+        document.getElementById("footer").innerHTML ="";
         elem = document.getElementById("interface");
         templ = document.getElementById(templateName);
         if (undefined === templ) 
