@@ -223,26 +223,26 @@
                 "hat. Die möglichen Antworten sind hierbei:<br><br>0 selten oder überhaupt nicht " + 
                 "(weniger als 1 Tag)<br>1 manchmal (1 bis 2 Tage lang)<br>2 öfters (3 bis 4 Tage " + 
                 "lang)<br>3 meistens, die ganze Zeit (5 bis 7 Tage lang)", "start"]}, //anpassen Instruktionen
-            { itemID: "ADS01", data: ["...haben mich Dinge beunruhigt die mir sonst nichts ausmachen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS02", data: ["...hatte ich kaum Appetiet", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS03", data: ["...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS04", data: ["...kam ich mir genauso gut vor wie andere", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS05", data: ["...hatte ich Mühe, mich zu konzentrieren", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS06", data: ["...war ich deprimiert/ niedergeschlagen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS07", data: ["...war alles anstrengend für mich", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS08", data: ["...dachte ich voller Hoffnung an die Zukunft", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS09", data: ["...dachte ich, mein Leben ist ein einziger Fehlschlag", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS10", data: ["...hatte ich Angst", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS11", data: ["...habe ich schlecht geschlafen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS12", data: ["...war ich fröhlich gestimmt", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS13", data: ["...habe ich weniger als sonst geredet", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS14", data: ["...fühlte ich mich einsam", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS15", data: ["...waren die Leute unfreundlich zu mir", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS16", data: ["...habe ich das Leben genossen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS17", data: ["...musste ich weinen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS18", data: ["...war ich traurig", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS19", data: ["...hatte ich das Gefühl, dass mich die Leute nicht leiden können", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS20", data: ["...konnte ich mich zu nichts aufraffen", "selten", "manchmal", "öfters", "meistens"]}
+            { itemID: "ADS01", data: ["Während der letzten Wochen...<br><br>...haben mich Dinge beunruhigt die mir sonst nichts ausmachen", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS02", data: ["Während der letzten Wochen...<br><br>...hatte ich kaum Appetiet", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS03", data: ["Während der letzten Wochen...<br><br>...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS04", data: ["Während der letzten Wochen...<br><br>...kam ich mir genauso gut vor wie andere", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS05", data: ["Während der letzten Wochen...<br><br>...hatte ich Mühe, mich zu konzentrieren", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS06", data: ["Während der letzten Wochen...<br><br>...war ich deprimiert/ niedergeschlagen", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS07", data: ["Während der letzten Wochen...<br><br>...war alles anstrengend für mich", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS08", data: ["Während der letzten Wochen...<br><br>...dachte ich voller Hoffnung an die Zukunft", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS09", data: ["Während der letzten Wochen...<br><br>...dachte ich, mein Leben ist ein einziger Fehlschlag", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS10", data: ["Während der letzten Wochen...<br><br>...hatte ich Angst", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS11", data: ["Während der letzten Wochen...<br><br>...habe ich schlecht geschlafen", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS12", data: ["Während der letzten Wochen...<br><br>...war ich fröhlich gestimmt", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS13", data: ["Während der letzten Wochen...<br><br>...habe ich weniger als sonst geredet", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS14", data: ["Während der letzten Wochen...<br><br>...fühlte ich mich einsam", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS15", data: ["Während der letzten Wochen...<br><br>...waren die Leute unfreundlich zu mir", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS16", data: ["Während der letzten Wochen...<br><br>...habe ich das Leben genossen", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS17", data: ["Während der letzten Wochen...<br><br>...musste ich weinen", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS18", data: ["Während der letzten Wochen...<br><br>...war ich traurig", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS19", data: ["Während der letzten Wochen...<br><br>...hatte ich das Gefühl, dass mich die Leute nicht leiden können", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS20", data: ["Während der letzten Wochen...<br><br>...konnte ich mich zu nichts aufraffen", "selten", "manchmal", "öfters", "meistens"]}
         ]
     },
     PTED : {
@@ -262,9 +262,12 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoPTED", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte beantworten Sie die folgenden Aussagen und " + 
-                "Feststellungen und kreuzen Sie die für Sie zutreffende Spalte an. " + 
-                "Bitte lassen Sie keine Zeile aus!<br><br>In den vergangenen Jahren " + 
-                "hatte ich ein einschneidendes Lebensereignis zu verkraften,...", "start"]},
+                "Feststellungen und kreuzen Sie die für Sie zutreffende Option an. " + 
+                "<br><br>In den vergangenen Jahren " + 
+                "hatte ich ein einschneidendes Lebensereignis zu verkraften,..." + 
+                "<br><br>Hinweis: Bevor sie mit der nächsten " + 
+                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
             { itemID: "PTED01", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
                     "...das mich äußerst gekränkt oder verbittert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED02", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
@@ -327,7 +330,10 @@
                 "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
                 "möglich - wir werden Ihre Antworten vertraulich behandeln.<br>" + 
                 "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
-                "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt.", "start"]},
+                "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt." + 
+                "<br><br>Hinweis: Bevor sie mit der nächsten " + 
+                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
             { itemID: "PID5BF01", data: ["Andere würden mich als leichtsinnig beschreiben", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF02", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF03", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer weider unterstützte Entscheidungen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
@@ -372,7 +378,9 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoLPFSBF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte geben Sie für die folgenden Aussagen an,<br>inwieweit " + 
-                "diese für Sie zutreffend sind", "start"]},
+                "diese für Sie zutreffend sind.<br><br>Hinweis: Bevor sie mit der nächsten " + 
+                "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
+                "machen. Klicken Sie auf Start, wenn Sie bereit sind.", "start"]},
             { itemID: "LPFSBF01", data: ["Ich weiß oft nicht wer ich wirklich bin","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "LPFSBF02", data: ["Ich denke oft sehr schlecht über mich selbst", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "LPFSBF03", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
@@ -401,8 +409,19 @@
 		trials: [
             //instruction
             { frame: "infopage", randomOrder: false, itemID: "startinstruct", type: "info", timeout: 0,
-                data: ["Bitte bilden Sie gedanklich aus den folgenden Wörtern<br>einen grammatikalisch " + 
-                "korrekten Satz.<br>Klicken Sie dann auf das letzte Wort im Satz.<br><br>Zuerst kommt eine kurze Übung.<br>", "start"]},
+                data: ["Ihnen werden in der nächsten Aufgabe immer sechs Kästchen nebeneinander präsentiert. Diese " +
+                "Kästchen beinhalten Wörter in einer durcheinandergewürfelten Reihenfolge. Aus diesen " + 
+                "Wörtern können Sie verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie " +
+                "nicht alle Wörter.<br>" +
+                "Bilden Sie  im Kopf aus den Wörtern einen Satz und klicken Sie auf " +
+                "das eine Wort, das Sie an das Ende des Satzes setzen würden. " +
+                "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz. " + 
+                "Versuchen Sie bitte so intuitive wie möglich zu entscheiden.<br><br>" + 
+                "Wenn Sie bei diese Studie Ihren Smartphone verwenden, legen Sie ihn am besten quer.<br><br>" + 
+                "Sie bekommen nun eine Sequenz von Sätzen präsentiert, diese dienen zur Übung. Anschließend " + 
+                "folgt die Sequenz, welche dann zur Auswertung der Daten verwendet wird.<br><br>" + 
+                "Nehmen Sie sich bei der Übung so viel Zeit wie Sie brauchen. Nach der Übungsphase " + 
+                "haben Sie 7.5 Sekunden Zeit, um eine Alternative zu wählen."]},
             //practice trials. Override timeout and remove it. Override skipOutput.
             { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
                 data: ["Kinder ", "die", "Sand", "im", "Schnee", "spielen"], polarity: -1, pos: 3, neg: 5 },

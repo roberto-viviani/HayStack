@@ -134,7 +134,8 @@ function serializeData(data, source) {
         if (trial.testID === "LOGOFF") {
             let logoffData = JSON.parse(trial.responseData);
             let logoffText = [logoffData.firstName, logoffData.secondName, 
-                logoffData.matriculationNo, logoffData.logonId, trial.timestamp];
+                logoffData.matriculationNo, logoffData.logonId, logoffData.email, trial.timestamp];
+            console.log(logoffText);
             fs.appendFile("./Credits.txt", logoffText.join("\t") + "\n", "utf8", 
                  err => err ? console.log("error " + err) : 
                  console.log("credits saved for " + logoffData.logonId));
