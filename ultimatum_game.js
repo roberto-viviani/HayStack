@@ -194,6 +194,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
     }
 
     // the trials
+    var j=0;
     for (var i = 0; i < test.trials.length; ++i) {
         var trialobj = test.trials[i];
         //we have trials of two frames, so you need the right 
@@ -210,7 +211,8 @@ hayStack.ultimatum.continuationFactory = function(test) {
         else if ("ultimatum" === trialobj.frame) {
             //the continuations of ultimatum itself
             trialobj.trialID = i + 1;
-            trialobj.data[0] = offers[i];
+            trialobj.data[0] = offers[j];
+            j++;
             trialobj.type = trialType;
             conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
         } 
