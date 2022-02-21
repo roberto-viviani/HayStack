@@ -14,9 +14,61 @@
 
         <!-- defined standard templates and styles -->
         <script type="text/template" id="defaultStyle">
-            #interface {
-                margin-top: 30vh;
+            #interface{
+                margin-top: 1vw;
+                margin-left: 2.5vw;
+                margin-right: 2.5vw;
                 text-align: center;
+                font-size: calc(0.5em + 1.25vw);
+            }
+        </script>
+
+        <!-- Inbuilt module logon -->
+        <script type=text/template  id=logon>
+            <!-- at startup, the interface is the logon -->
+            <h1 id="lblHeadline" class="logon">Login mit persönlichem Code</h1>
+            <p id="lblInput" class="logon">Bevor es losgeht, erstellen Sie bitte Ihren ganz persönlicher ID Code. 
+                Mit diesem Code bleiben Sie anonym.<br>
+            </p>
+            <p id="explanation" class="logon">
+                <br> Hierfür verwenden Sie bitte:<br>
+                1. Den Tag ihres Geburtsdatums für die erste zwei Zeichen<br>
+                2. Den ersten Buchstaben Ihres Geburtsortes als drittes Zeichen<br>
+                3. Den ersten Buchstaben des Vornamens Ihrer Mutter als viertes Zeichen<br>
+                4. Den ersten Buchstaben des Vornamens ihres Vaters als fünftes Zeichen<br>
+            <br>
+            <b>Beispiel:</b> Sabrina Schmidt wurde am 05.04.19967 in Innsbruck geboren.<br>
+            Ihre Mutter heißt Michaela und ihr Vater heißt Reinhard.<br>
+            Ihr Code lautet also: <b>05IMR</b><br>
+            <br>Wenn Sie ein Zeichen nicht bestimmen können, tragen Sie bitte ein „X“ ein.<br>
+            Bitte notieren Sie sich Ihren Code falls Sie fragen zu ihren Daten haben,<br>
+            bevor Sie auf weiter klicken.<br>
+            <br>
+            Ihr persönlicher ID Code: 
+            </p>
+            <div id="code" class="logon">
+                <input type="text" name="subjId" id="subjId" value=""><br><br>
+                <button class="next" id="btnNext">weiter >></button>
+            </div>
+        </script>
+        <script type=text/template id=logonStyle>
+            #interface{
+                margin-top: 1vw;
+                margin-left: 2.5vw;
+                margin-right: 2.5vw;
+            }
+            .logon {
+                text-align: center;
+                font-size: calc(0.5em + 1.25vw);
+            }
+            #lblHeadline{
+                font-size: calc(0.5em + 2.2vw);
+                margin-top: 1vw;
+                color: rgb(255, 153, 0);
+                font-weight: bold;
+            }
+            .next {
+                font-size: calc(1em + 0.25vw);
             }
         </script>
 
@@ -550,74 +602,22 @@
             }            
         </script>
 
-        <!-- Inbuilt module logon -->
-        <script type=text/template  id=logon>
-            <!-- at startup, the interface is the logon -->
-            <h1 id="lblHeadline" style="text-align: center">Login mit persönlichem Code</h1>
-            <!-- <p style="font-size:1.4em" id="lblInput">Bevor es losgeht, erstellen Sie bitte<br> -->
-            <p id="lblInput" style="text-align: center">Bevor es losgeht, erstellen Sie bitte Ihren ganz persönlicher ID Code.<br>
-                Mit diesem Code bleiben Sie anonym.<br><br>
-            </p>
-            <p id="explanation" style="text-align: left">
-                <br> Hierfür verwenden Sie bitte:<br>
-                1. Den Tag ihres Geburtsdatums für die erste zwei Zeichen<br>
-                2. Den ersten Buchstaben Ihres Geburtsortes als drittes Zeichen<br>
-                3. Den ersten Buchstaben des Vornamens Ihrer Mutter als viertes Zeichen<br>
-                4. Den ersten Buchstaben des Vornamens ihres Vaters als fünftes Zeichen<br>
-            <br>
-            <b>Beispiel:</b> Sabrina Schmidt wurde am 05.04.19967 in Innsbruck geboren.<br>
-            Ihre Mutter heißt Michaela und ihr Vater heißt Reinhard.<br>
-            Ihr Code lautet also: <b>05IMR</b><br>
-            <br>Wenn Sie ein Zeichen nicht bestimmen können, tragen Sie bitte ein „X“ ein.<br>
-            Bitte notieren Sie sich Ihren Code falls Sie fragen zu ihren Daten haben,<br>
-            bevor Sie auf weiter klicken.<br>
-            <br>
-            Ihr persönlicher ID Code: 
-            </p>
-            <div style="text-align:center;">
-                <input type="text" style="font-size:1.5vw" name="subjId" id="subjId" value=""><br><br>
-                <p style="font-size:1.5vw" id="lblNext"></p>
-                <button class="next" style="font-size:1.5vw" id="btnNext">weiter >></button>
-            </div>
-        </script>
-        <script type=text/template id=logonStyle>
-            #interface{
-                font-size: 1.5vw;
-                margin-top: 1vw;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
-
-            #lblHeadline{
-                font-size: 2.6vw;
-                margin-top: 1vw;
-                margin-left: auto;
-                margin-right: auto;
-                color: rgb(255, 153, 0);
-                font-weight: bold;
-                text-align: center;
-            }
-        </script>
-
         <!-- This is the active style spec, dynamically modified by code -->
         <style id = "styleSpec">
-            #interface{
-                font-size: 1.5vw;
-                margin-top: 1vw;
-                margin-left: auto;
-                margin-right: auto;
+            #interface {
+                margin-top: 2vw;
+                margin-left: 2.5vw;
+                margin-right: 2.5vw;
                 text-align: center;
+                font-size: calc(0.5em + 1.25vw);
             }
-
-            #lblHeadline{
-                font-size: 2.6vw;
-                margin-top: 1vw;
-                margin-left: auto;
-                margin-right: auto;
+            #lblHeadline {
+                font-size: calc(0.5em + 2.2vw);
                 color: rgb(255, 153, 0);
                 font-weight: bold;
-                text-align: center;
+            }
+            .next {
+                font-size: calc(1em + 0.25vw);
             }
         </style>
         
@@ -630,7 +630,7 @@
         <div id = "interface">
             <!-- at startup, the interface shows basic information about the test -->
             <h1 id="lblHeadline">Entscheidungsfindung und Schemata Aktivierung</h1>
-            <p id="welcome" style="text-align: left">Herzlich Willkommen zur Studie.<br><br></p>
+            <p id="welcome" style="text-align: left">Herzlich Willkommen zur Studie!<br><br></p>
             <p id="lblInput" style="text-align:left">Liebe Teilnehmerin, lieber Teilnehmer,<br><br>
                 vielen Dank, dass Sie Interesse an der Studie „Entscheidungsfindung und Schemata Aktivierung“ haben und teilnehmen möchten!
                 In der folgenden Studie bitten wir Sie, zunächst ein paar Fragen zu beantworten bevor Sie anschließend an 
@@ -644,8 +644,9 @@
                 <b>UNS</b>
             </p>
             <br><br>
+            <button class="next" id="btnNext">weiter >></button>
         </div>
-        <div id = "footer" style="text-align: center"><button class="next" style="font-size:1.5vw" id="btnNext">weiter >></button></div>
+        <div id = "footer"></div>
 
         <!-- this starts the co-routine. It goes here at the end. -->
         <script type="text/javascript">
