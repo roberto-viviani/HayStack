@@ -171,7 +171,7 @@
         <!-- standard template: mchoice -->
         <script type="text/template" id="mchoice">
             <meta name="description" content="Mulitple choice frame">
-            <div id= "question" style="text-align:center" class="mchoice"></div>
+            <div id= "question" class="mchoice"></div>
             <div id="responseList" class="mchoice">
                 <div id="response1" class="responseMchoice">selten</div>
                 <div id="response2" class="responseMchoice">manchmal</div>
@@ -189,7 +189,6 @@
                 border: none;
                 width: 60vmax;
                 height:5vmax;
-                font-size: 2vw;
                 margin-top: 2vw;
                 margin-left: auto;
                 margin-right: auto;
@@ -199,21 +198,20 @@
                 justify-content: center;
                 cursor: default;
             }
-            
+
             #interface {
-                margin-top: 5px;
+                margin-top: 5vh;
                 text-align: center;
-                font-size: 2.5vw;;
+                font-size: calc(0.5em + 1.25vw);
             }
-            
-            #instruction {
-                text-align: justify;
-                margin-left: auto;
-                margin-right: auto;
+            #question {
+                text-align: center;
+                margin-left: 7.5vw;
+                margin-right: 7.5vw;
             }
-            
             #responseList {
                 margin-top: 4vw;
+                font-size: calc(0.5em + 1.25vw);
             }
             
             #response5{

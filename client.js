@@ -25,7 +25,6 @@ hayStack.view = {
             throw("Error on loading page: " + txt);
         }
         elem.innerHTML = "<p id='msg'>" + txt + "</p>";
-        elem.style.fontSize = "2vw";
         document.getElementById("header").innerHTML ="";
         document.getElementById("footer").innerHTML ="";
         return elem;
