@@ -262,9 +262,7 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoPTED", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte beantworten Sie die folgenden Aussagen und " + 
-                    "Feststellungen und kreuzen Sie die für Sie zutreffende Option an. " + 
-                    "<br><br>In den vergangenen Jahren " + 
-                    "hatte ich ein einschneidendes Lebensereignis zu verkraften,...", "start"],
+                    "Feststellungen und kreuzen Sie die für Sie zutreffende Option an.<br>", "start"],
                 footerText: "Hinweis: Bevor sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
@@ -329,7 +327,7 @@
                     "sich Menschen selbst beschreiben können. Wir interessieren uns " + 
                     "dafür, wie Sie sich selbst beschreiben würden. Es gibt keine richtigen " + 
                     "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
-                    "möglich - wir werden Ihre Antworten vertraulich behandeln.<br>" + 
+                    "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
                     "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt.", "start"],
                 footerText: "Hinweis: Bevor sie mit der nächsten " + 
@@ -416,7 +414,7 @@
                 data: ["Ihnen werden in der nächsten Aufgabe immer sechs Kästchen nebeneinander präsentiert. Diese " +
                 "Kästchen beinhalten Wörter in einer durcheinandergewürfelten Reihenfolge. Aus diesen " + 
                 "Wörtern können Sie verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie " +
-                "nicht alle Wörter.<br>" +
+                "nicht alle Wörter.<br><br>" +
                 "Bilden Sie  im Kopf aus den Wörtern einen Satz und klicken Sie auf " +
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden. " +
                 "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz. " + 
