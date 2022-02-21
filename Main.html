@@ -95,7 +95,7 @@
 
         <!-- standard template: infopage -->
         <script type="text/template" id="infopage">
-            <div style="text-align:center" id="infodiv">
+            <div id="infodiv">
                 <p id="infotext" class="infopage"></p>
                 <button class="infopage btn" id="infobtn">FORTSETZEN</button>
             </div>
@@ -137,21 +137,34 @@
             } */
         </script>
         <script type="text/template" id="infopageStyle">
+            :root {
+                font-size: calc(0.5em + 1vw);
+            }
             #interface {
-                margin-top: 30vh;
+                margin-top: 10vh;
+                margin-left: 10vw;
+                margin-right: 10vw;
+                text-align: center;
+            }
+            #infodiv {
                 text-align: center;
             }
             #infobtn {
                 width: 22.3vw;
                 height: 15vh;
-                font-size: 2vw;
+                font-size: calc(0.5em + 1.5vw);
                 text-align: center;
                 user-select: none;
                 visibility: visible;
                 position: relative;
             }
             .infopage {
-                font-size: 2vw;
+                font-size: calc(0.5em + 1.25vw);
+            }
+            #footer {
+                margin-top: 2em;
+                margin-left: 15vw;
+                margin-right: 15vw;
             }
         </script>
 
