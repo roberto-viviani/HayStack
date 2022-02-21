@@ -135,31 +135,17 @@
             .next {
                 font-size: calc(1em + 0.05vw);
             }
-            <!---
-            .input{
-                font-size: 1.5vw;
-                margin-top: 0.5vw;
-                margin-right: 10px;
-            }
-            
-            #headline{
-                font-size: 2.2vw;
-                margin-top: 1vw;
-                color: rgb(255, 153, 0);
-                font-weight: bold;
-                text-align: center;
-            } --->
         </script>
 
         <!-- Inbuilt module sociodemographics-->
         <script type="text/template" id="SocDemo">
             <body>
                 <div id = "interface">
-                    <h1 id="headline"> Soziodemografische Daten </h1>
-                    <p id="lblInput">Zu Beginn ein paar Fragen zu Ihrer Person:</p> <br>
+                    <h1 id="lblHeadline"> Soziodemografische Daten </h1>
+                    <p id="lblInput">Zu Beginn ein paar Fragen zu Ihrer Person:</p>
                     <div id="responses">
-                        <div class="demographics">Wie alt sind Sie (in ganzen Jahren)?:<br> <input class="input" type="text" name="age" id="age" value=""></div>
-                        <div class="demographics" class ="input"><label for="sex"> Welches Geschlecht haben Sie?:<br></label>
+                        <div class="demographics">Wie alt sind Sie (in ganzen Jahren)?<br> <input class="input" type="text" name="age" id="age" value=""></div>
+                        <div class="demographics" class ="input"><label for="sex"> Welches Geschlecht haben Sie?<br></label>
                             <select name="sex" id="sex" class ="input">
                                 <option value="">--Bitte wählen--</option>
                                 <option value ="female">weiblich</option>
@@ -167,7 +153,7 @@
                                 <option value ="divers">divers</option>
                             </select>
                         </div>
-                        <div class="demographics"><label for="education">Welchen Abschluss haben Sie?:<br></label>
+                        <div class="demographics"><label for="education">Welchen Abschluss haben Sie?<br></label>
                             <select name="education" id="edu" class="input">
                             <option value="">--Bitte wählen--</option>
                             <option value="keiner">kein Abschluss</option>
@@ -221,44 +207,33 @@
         </script>
         <script type="text/template" id="SocDemoStyle">
             #interface{
-                font-size: 2vw;
-                margin-top: 1.5vw;
-                margin-left: auto;
-                margin-right: auto;
                 text-align: center;
+                font-size: calc(0.5em + 1.25vw);
+                margin-top: 1vw;
+                margin-left: 2.5vw;
+                margin-right: 2.5vw;
             }
-            
-            #lblInput {
-                font-weight: bold;
-            }
-
-            #btnNext {
-                font-size: 1.5vw;
-            }
-            
-            #age{
-                width: 3vw;
-            }
-            .input{
-                font-size: 1.3vw;
-            }
-            
-            #headline{
-                font-size: 2.2vw;
-                margin-top: 1.5vw;
-                margin-left: auto;
-                margin-right: auto;
+            #lblHeadline{
+                font-size: calc(0.5em + 2.2vw);
+                margin-top: 1vw;
                 color: rgb(255, 153, 0);
                 font-weight: bold;
             }
-            
-            #responses{
-                text-align: center;
+            #lblInput {
+                margin-top: 1em;
+                font-weight: bold;
             }
-            
+            .input {
+                font-size: calc(0.6em + 0.9vw);
+            }
             .demographics{
-                margin-top: 1.5vw;
+                margin-top: 0.6em;
+                margin-left: 5vw;
+                margin-right: 5vw;
             }            
+            .next {
+                font-size: calc(1em + 0.05vw);
+            }
         </script>
 
         <!-- standard template: infopage -->
