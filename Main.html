@@ -260,24 +260,6 @@
                     document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
                 }
             }
-            //continuation factory for test object
-            /*hayStack.infopage.continuationFactory = function(test) {
-                var conts = [];
-                conts.push(function() {
-                    hayStack.view.setTemplate("infopage", "infopageStyle");
-                    var data = test.trials[0].data;
-                    if (undefined === data.length) data = [data];
-                    if (data.length < 2) data.push("fortsetzen");
-                    hayStack.view.set(data[0], "infotext");
-                    hayStack.view.set(data[1], "infobtn");
-                    var hdr = trial.headerText | "";
-                    if (hdr.length > 0) hayStack.view.set(hdr, "header");
-                    var ftr = trial.footerTex | "";
-                    if (ftr.length > 0) hayStack.view.set(ftr, "footer");
-                    document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
-                });
-                return conts;
-            } */
         </script>
         <script type="text/template" id="infopageStyle">
             :root {
@@ -613,6 +595,7 @@
                 Eintragung der Versuchspersonenstunden oder/ und die Teilnahme am Gewinnspiel notwendig sind, gezogen werden.<br><br>
                 Zwecke und Ziele der Studie haben Sie aus der Einladungsmail bekommen. Wenn Sie weitermachen, 
                 geben Sie Ihre Einwilligung, an die Studie Teilzunehmen.<br><br>
+                <b>Wenn Sie bei diese Studie Ihren Smartphone verwenden, legen Sie ihn am besten quer.</b><br><br>
                 Wenn Sie Fragen zu dieser Untersuchung haben, wenden Sie sich bitte an:<br>
                 <b>UNS</b>
             </p>
