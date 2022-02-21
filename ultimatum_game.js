@@ -186,7 +186,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
     //get the offers from test
     var trialType = '';
     var sessionID = hayStack.output.emptyTrial().sessionID; //del?
-    var newRandInt = hayStack.ultimatum.rand_int(0,50);
+    var newRandInt = hayStack.ultimatum.view.rand_int(0,50);
     if (newRandInt % 2  === 0) {
         offers = test.options.xiang;
         trialType = "xiang";
