@@ -17,7 +17,7 @@ hayStack.SST.view = {
             if (data[i].length > maxLen) maxLen = data[i].length;
         }
         var fontSize;
-        if (maxLen > 12) fontSize = 2.2632 + -0.0395 * maxLen;
+        if (maxLen > 11) fontSize = 2.2632 + -0.0395 * maxLen;
         else fontSize = 2;
         //console.log("Max len word: " + maxLen + "; font size: " + fontSize);
         for (var i = 0; i < btns.length; ++i) {

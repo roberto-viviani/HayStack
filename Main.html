@@ -341,7 +341,6 @@
                 justify-content: center;
                 cursor: default;
             }
-
             #interface {
                 margin-top: 5vh;
                 text-align: center;
@@ -356,11 +355,9 @@
                 margin-top: 4vw;
                 font-size: calc(0.5em + 1.25vw);
             }
-            
             #response5{
                 display: none;
             }
-            
             #timeOut {
                 display: none;
             }
@@ -541,6 +538,11 @@
         </script>
         <script type="text/javascript" src="SST.js"></script>
         <script type="text/template" id="SSTStyle">
+            #interface {
+                margin-top: 30vh;
+                text-align: center;
+            }
+            :focus{outline:0}::-moz-focus-inner{border:0;}
             .SST.btn {
                 color: white;
                 background-color: RGB(90, 90, 120);
@@ -550,19 +552,10 @@
                 font-size: 2vw;
                 user-select:none;
             }
-            
-            :focus{outline:0}::-moz-focus-inner{border:0;}
-            
-            #interface {
-                margin-top: 30vh;
-                text-align: center;
-            }
-            
             #bottom {
                 text-align: center;
                 margin-top: 40vh;
             }
-            
             #message {
                 color: black;
                 font-size: 6vh;
@@ -571,7 +564,6 @@
                 margin-top: -10vh;
                 position: relative;
             }
-            
             #btnNext {
                 width: 14.3vw;
                 height: 11vh;
