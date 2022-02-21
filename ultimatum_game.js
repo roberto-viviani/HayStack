@@ -117,9 +117,10 @@ hayStack.ultimatum.response = function(trialsrc) {
     var startTime = new Date();
 
     var trial = output.emptyTrial();
-    trial.testID = "ultimatum";
+    trial.testID = trialsrc.testID;
     trial.itemID = trialsrc.itemID;
     trial.type = trialsrc.type;
+    trial.polarity = "";
     trial.response = [];
     //trial.respKey = resp; 
     //trial.responseData = "pos:"  + item.pos + ",neg:" + item.neg;
@@ -184,8 +185,9 @@ hayStack.ultimatum.continuationFactory = function(test) {
 
     //get the offers from test
     var trialType = '';
-    var sessionID = hayStack.output.emptyTrial().sessionID;
-    if (sessionID % 2  === 0) {
+    var sessionID = hayStack.output.emptyTrial().sessionID; //del?
+    var newRandInt = hayStack.ultimatum.rand_int(0,50);
+    if (newRandInt % 2  === 0) {
         offers = test.options.xiang;
         trialType = "xiang";
     } else {
