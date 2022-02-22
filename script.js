@@ -183,24 +183,41 @@
         ]
     },
 
+    /////////////////////REAL SCRIPTS////////////////////////////////////////////////////
     GHQ: {
-        frame: "likert",
-        description: "General Health Questionaire",
+        frame: "mchoice",
+        description: "General Health Questionaire, version 12 items",
         version: "1.0",
-        //timeout: 20000,
-        //timeRefractory: 2500,
-        randomOrder: true,
+        timeout: 0,
+        timeRefractory: 300,
+        randomOrder: false,
         skipOutput: false,
 
         //common property of all trials
         type: "GHQ",
         trials: [
-            { itemID: "GHQ01", data: ["I normally fall asleep soon", "strongly agree", "strongly disagree"], polarity: 1 },
-            { itemID: "GHQ01", data: ["I like my job", "strongly agree", "strongly disagree"], polarity: -1 }
+            { frame: "infopage"/*bleibt*/ , itemID: "infoGHQ", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
+                timeout: 0, timeRefractory: 0,
+                data: ["Der Fragebogen soll erfassen, ob Sie in den vergangenen Wochen irgendwelche Krankheitsbeschwerden " + 
+                    "hatten bzw. wie es ganz allgemein um Ihre Gesundheit in den letzten Wochen bestellt war. Bitte " + 
+                    "beantworten Sie alle Fragen, indem Sie die zutreffende Antwort auswählen. Bitte denken Sie daran, " + 
+                    "dass es um jetzige oder kürzliche Beschwerden geht und nicht um Ihre früheren. Es ist wichtig, dass " + 
+                    "Sie alle Fragen beantworten.", "start"]},
+            { itemID: "GHQ01", data: ["Haben Sie in den letzten Wochen wegen Sorgen weniger geschlafen?", "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ02", data: ["Haben Sie das Gefühl gehabt, dauernd unter Druck zu stehen?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ03", data: ["Haben Sie sich in den letzten Wochen auf das, was Sie gemacht haben konzentrieren können?", "besser als üblich", "so wie üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ04", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, für etwas nützlich zu sein?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ05", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, sich mit Ihren Problemen auseinander zu setzen?", "besser als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ06", data: ["Ist es Ihnen in den letzten Wochen schwer gefallen, Entscheidungen zu treffen?","nein, gar nicht", "so wie als üblich", "schwerer als üblich", "viel schwerer als üblich"]},
+            { itemID: "GHQ07", data: ["Haben Sie in den letzten Wochen den Eindruck gehabt, dass Sie mit Ihren Schwierigkeiten nicht zu Rande gekommen sind?", "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ08", data: ["Alles in allem, haben Sie sich in den letzten Wochen einigermaßen zufrieden gefühlt?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ09", data: ["Konnten Sie in den letzten Wochen Ihren Alltagsverpflichtungen mit Freude nachgehen?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ10", data: ["Haben Sie sich in den letzten Wochen unglücklich und deprimiert gefühlt?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ11", data: ["Haben Sie in den letzten Wochen einen Mangel an Selbstvertrauen gespürt?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ12", data: ["Haben Sie sich in den letzten Wochen wertlos gefühlt?","nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]}
         ]
     },
 
-    /////////////////////REAL SCRIPTS////////////////////////////////////////////////////
     ADS : {
         frame: "mchoice",//bleibt
         description: "Allgemeine Depressionsskala",
@@ -245,6 +262,7 @@
             { itemID: "ADS20", data: ["Während der letzten Wochen...<br><br>...konnte ich mich zu nichts aufraffen", "selten", "manchmal", "öfters", "meistens"]}
         ]
     },
+
     PTED : {
         frame: "mchoice",//bleibt
         description: "Posttraumatische Verbitterungsstörung",
@@ -307,6 +325,7 @@
                 "...zu dem sich mir immer wieder belastende Erinnerungen aufdrängen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]}
         ]
     },
+
     PID5BF25 : {
         frame: "mchoice",//bleibt
         description: "Personality inventory for DSM5, 25 items",
@@ -424,6 +443,7 @@
             { itemID: "PID5BF34", data: ["Wenn ich einen vertrauten Gegenstand anschaue, ist es manchmal so, als würde ich ihn zum ersten Mal sehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
+    
     LPFSBF : {
         frame: "mchoice",//bleibt
         description: "LevelofPersonalityFunctioningScaleBriefForm",
