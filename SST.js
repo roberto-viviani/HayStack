@@ -85,6 +85,7 @@ hayStack.SST.pushTrial = function(item, resp, rt) {
     trial.respKey = resp; 
     trial.responseData = "pos:"  + item.pos + ",neg:" + item.neg;
     trial.trialData = item.data;
+    if (undefined !== item.block) trial.trialData += (",block:" + item.block);
     trial.version = cf(item.version, "");
     trial.timestamp = item.timestamp
     trial.source = cf(item.source, "");
