@@ -205,7 +205,7 @@
                     "Sie alle Fragen beantworten.", "start"]},
             { itemID: "GHQ01", data: ["Haben Sie in den letzten Wochen wegen Sorgen weniger geschlafen?", "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
             { itemID: "GHQ02", data: ["Haben Sie das Gefühl gehabt, dauernd unter Druck zu stehen?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
-            { itemID: "GHQ03", data: ["Haben Sie sich in den letzten Wochen auf das, was Sie gemacht haben konzentrieren können?", "besser als üblich", "so wie üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ03", data: ["Haben Sie sich in den letzten Wochen auf das, was Sie gemacht haben, konzentrieren können?", "besser als üblich", "so wie üblich", "schlechter als üblich", "viel schlechter als üblich"]},
             { itemID: "GHQ04", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, für etwas nützlich zu sein?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
             { itemID: "GHQ05", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, sich mit Ihren Problemen auseinander zu setzen?", "besser als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
             { itemID: "GHQ06", data: ["Ist es Ihnen in den letzten Wochen schwer gefallen, Entscheidungen zu treffen?","nein, gar nicht", "so wie als üblich", "schwerer als üblich", "viel schwerer als üblich"]},
@@ -240,26 +240,26 @@
                 "hat. Die möglichen Antworten sind hierbei:<br><br>0 selten oder überhaupt nicht " + 
                 "(weniger als 1 Tag)<br>1 manchmal (1 bis 2 Tage lang)<br>2 öfters (3 bis 4 Tage " + 
                 "lang)<br>3 meistens, die ganze Zeit (5 bis 7 Tage lang)", "start"]}, //anpassen Instruktionen
-            { itemID: "ADS01", data: ["Während der letzten Wochen...<br><br>...haben mich Dinge beunruhigt die mir sonst nichts ausmachen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS02", data: ["Während der letzten Wochen...<br><br>...hatte ich kaum Appetiet", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS03", data: ["Während der letzten Wochen...<br><br>...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS04", data: ["Während der letzten Wochen...<br><br>...kam ich mir genauso gut vor wie andere", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS05", data: ["Während der letzten Wochen...<br><br>...hatte ich Mühe, mich zu konzentrieren", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS06", data: ["Während der letzten Wochen...<br><br>...war ich deprimiert/ niedergeschlagen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS07", data: ["Während der letzten Wochen...<br><br>...war alles anstrengend für mich", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS08", data: ["Während der letzten Wochen...<br><br>...dachte ich voller Hoffnung an die Zukunft", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS09", data: ["Während der letzten Wochen...<br><br>...dachte ich, mein Leben ist ein einziger Fehlschlag", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS10", data: ["Während der letzten Wochen...<br><br>...hatte ich Angst", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS11", data: ["Während der letzten Wochen...<br><br>...habe ich schlecht geschlafen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS12", data: ["Während der letzten Wochen...<br><br>...war ich fröhlich gestimmt", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS13", data: ["Während der letzten Wochen...<br><br>...habe ich weniger als sonst geredet", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS14", data: ["Während der letzten Wochen...<br><br>...fühlte ich mich einsam", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS15", data: ["Während der letzten Wochen...<br><br>...waren die Leute unfreundlich zu mir", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS16", data: ["Während der letzten Wochen...<br><br>...habe ich das Leben genossen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS17", data: ["Während der letzten Wochen...<br><br>...musste ich weinen", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS18", data: ["Während der letzten Wochen...<br><br>...war ich traurig", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS19", data: ["Während der letzten Wochen...<br><br>...hatte ich das Gefühl, dass mich die Leute nicht leiden können", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS20", data: ["Während der letzten Wochen...<br><br>...konnte ich mich zu nichts aufraffen", "selten", "manchmal", "öfters", "meistens"]}
+            { itemID: "ADS01", data: ["Während der letzten Wochen...<br><br>...haben mich Dinge beunruhigt die mir sonst nichts ausmachen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS02", data: ["Während der letzten Wochen...<br><br>...hatte ich kaum Appetit.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS03", data: ["Während der letzten Wochen...<br><br>...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS04", data: ["Während der letzten Wochen...<br><br>...kam ich mir genauso gut vor wie andere.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS05", data: ["Während der letzten Wochen...<br><br>...hatte ich Mühe, mich zu konzentrieren.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS06", data: ["Während der letzten Wochen...<br><br>...war ich deprimiert / niedergeschlagen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS07", data: ["Während der letzten Wochen...<br><br>...war alles anstrengend für mich.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS08", data: ["Während der letzten Wochen...<br><br>...dachte ich voller Hoffnung an die Zukunft.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS09", data: ["Während der letzten Wochen...<br><br>...dachte ich, mein Leben ist ein einziger Fehlschlag.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS10", data: ["Während der letzten Wochen...<br><br>...hatte ich Angst.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS11", data: ["Während der letzten Wochen...<br><br>...habe ich schlecht geschlafen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS12", data: ["Während der letzten Wochen...<br><br>...war ich fröhlich gestimmt.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS13", data: ["Während der letzten Wochen...<br><br>...habe ich weniger als sonst geredet.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS14", data: ["Während der letzten Wochen...<br><br>...fühlte ich mich einsam.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS15", data: ["Während der letzten Wochen...<br><br>...waren die Leute unfreundlich zu mir.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS16", data: ["Während der letzten Wochen...<br><br>...habe ich das Leben genossen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS17", data: ["Während der letzten Wochen...<br><br>...musste ich weinen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS18", data: ["Während der letzten Wochen...<br><br>...war ich traurig.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS19", data: ["Während der letzten Wochen...<br><br>...hatte ich das Gefühl, dass mich die Leute nicht leiden können.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS20", data: ["Während der letzten Wochen...<br><br>...konnte ich mich zu nichts aufraffen.", "selten", "manchmal", "öfters", "meistens"]}
         ]
     },
 
@@ -286,43 +286,43 @@
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
             { itemID: "PTED01", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                    "...das mich äußerst gekränkt oder verbittert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                    "...das mich äußerst gekränkt oder verbittert hat.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED02", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...wodurch sich meine psychische Befindlichkeit deutlich und bis heute negativ verändert hat", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...wodurch sich meine psychische Befindlichkeit deutlich und bis heute negativ verändert hat.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED03", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das aus meiner Sicht äußerst ungerecht oder nicht fair war", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das aus meiner Sicht äußerst ungerecht oder nicht fair war.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED04", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...an das ich immer wieder denken muss", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...an das ich immer wieder denken muss.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED05", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das mich heftig aufregt, wenn ich daran erinnert werde", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das mich heftig aufregt, wenn ich daran erinnert werde.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED06", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das in mir Gedanken an Rache auslöst", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das in mir Gedanken an Rache auslöst.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED07", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...wegen dem ich mir Vorwürfe mache und ärgerlich auf mich selbst bin", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...wegen dem ich mir Vorwürfe mache und ärgerlich auf mich selbst bin.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED08", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...weswegen ich häufiger das Gefühl habe, dass es keinen Sinn macht, Dinge anzupacken und sich anzustrengen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...weswegen ich häufiger das Gefühl habe, dass es keinen Sinn macht, Dinge anzupacken und sich anzustrengen.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED09", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...durch das meine Stimmung häufig niedergeschlagen und gedrückt ist", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...durch das meine Stimmung häufig niedergeschlagen und gedrückt ist.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED10", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das dazu geführt hat, dass ich mich in allgemein schlechter körperlicher Verfassung fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das dazu geführt hat, dass ich mich in allgemein schlechter körperlicher Verfassung fühle.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED11", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...weswegen ich bestimmte Orte oder Personen meide, um nicht daran erinnert zu werden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...weswegen ich bestimmte Orte oder Personen meide, um nicht daran erinnert zu werden.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED12", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...dem gegenüber ich mich ohnmächtig und hilflos ausgeliefert fühle", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...dem gegenüber ich mich ohnmächtig und hilflos ausgeliefert fühle.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED13", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das in mir Geühle der Genugtuung auslöst, beim Gedanken, der Verursacher würde einmal Ähnliches erleiden", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das in mir Geühle der Genugtuung auslöst, beim Gedanken, der Verursacher würde einmal Ähnliches erleiden.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED14", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das dazu geführt hat, dass meine Kraft und mein Antrieb reduziert und nich mehr wie früher sind", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das dazu geführt hat, dass meine Kraft und mein Antrieb reduziert und nicht mehr wie früher sind.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED15", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das dazu geführt hat, dass ich gereizter bin als früher", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das dazu geführt hat, dass ich gereizter bin als früher.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED16", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...weshalb ich mich ablenken muss, wenn ich vorübergehend eine normale und ausgeglichene Stimmung erleben will", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...weshalb ich mich ablenken muss, wenn ich vorübergehend eine normale und ausgeglichene Stimmung erleben will.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED17", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das dazu geführt hat, dass ich meinen beruflichen und/oder familiären Aktivitäten nicht mehr wie früher nachgehe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das dazu geführt hat, dass ich meinen beruflichen und/oder familiären Aktivitäten nicht mehr wie früher nachgehe.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED18", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...das dazu geführt hat, dass ich mich von Freunden und geselligen Aktiviäten zurückgezogen habe", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
+                "...das dazu geführt hat, dass ich mich von Freunden und geselligen Aktiviäten zurückgezogen habe.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]},
             { itemID: "PTED19", data: ["In den vergangenen Jahren hatte ich ein einschneidendes Lebensereignis zu verkraften,...<br><br>" +
-                "...zu dem sich mir immer wieder belastende Erinnerungen aufdrängen", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]}
+                "...zu dem sich mir immer wieder belastende Erinnerungen aufdrängen.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]}
         ]
     },
 
@@ -348,36 +348,36 @@
                     "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
                     "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
-                    "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt.", "start"],
+                    "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "start"],
                 footerText: "Hinweis: Bevor sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
-            { itemID: "PID5BF01", data: ["Andere würden mich als leichtsinnig beschreiben", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF02", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF03", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer weider unterstützte Entscheidungen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF04", data: ["Ich habe oft das Gefühl, dass nichts, was ich tue, wirklich wichtig ist", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF05", data: ["Andere halten mich für verantwortungslos", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF06", data: ["Ich kann nicht gut im Voraus planen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF07", data: ["Meine Gedankengänge ergeben für andere häufig keinen Sinn", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF08", data: ["Ich mache mir über fast alles Sorgen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF09", data: ["Ich werde schnell emotional, oft aus geringstem Anlass", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF10", data: ["Vor nichts im Leben fürchte ich mich so sehr wie vor dem Alleinsein", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF11", data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF12", data: ["Ich habe schon mal Dinge gesehen, die nicht wirklich da waren", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF13", data: ["Ich gehe Liebesbeziehungen aus dem Weg", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF14", data: ["Ich habe kein Interesse daran, Freundschaften zu schließen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF15", data: ["Ich bin schnell von allen möglichen Dingen genervt", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF16", data: ["Zu viel Nähe zu anderen Menschen ist mir unangenehm", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF17", data: ["Es ist nichts dabei, wenn ich die Gefühle anderer verletze", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF18", data: ["Ich bin selten von irgendetwas begeistert", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF19", data: ["Ich bin verrückt nach Aufmerksamkeit", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF20", data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF21", data: ["Ich habe oft Gedanken, die für mich Sinn ergeben, aber anderen Leuten seltsam erscheinen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF22", data: ["Ich benutze Menschen, um zu bekommen, was ich will", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF23", data: ["Ich vergesse häufig alles um mich herum, komme dann plötzlich zu mir, und stelle fest, dass viel Zeit vergangen ist", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF24", data: ["Die Dinge um mich herum fühlen sich oft unwirklich oder realer als sonst an", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF25", data: ["Es fällt mir leicht, andere auszunutzen", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
+            { itemID: "PID5BF01", data: ["Andere würden mich als leichtsinnig beschreiben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF02", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF03", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer wieder überstürzte Entscheidungen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF04", data: ["Ich habe oft das Gefühl, dass nichts, was ich tue, wirklich wichtig ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF05", data: ["Andere halten mich für verantwortungslos.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF06", data: ["Ich kann nicht gut im Voraus planen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF07", data: ["Meine Gedankengänge ergeben für andere häufig keinen Sinn.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF08", data: ["Ich mache mir über fast alles Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF09", data: ["Ich werde schnell emotional, oft aus geringstem Anlass.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF10", data: ["Vor nichts im Leben fürchte ich mich so sehr wie vor dem Alleinsein.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF11", data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF12", data: ["Ich habe schon mal Dinge gesehen, die nicht wirklich da waren.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF13", data: ["Ich gehe Liebesbeziehungen aus dem Weg.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF14", data: ["Ich habe kein Interesse daran, Freundschaften zu schließen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF15", data: ["Ich bin schnell von allen möglichen Dingen genervt.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF16", data: ["Zu viel Nähe zu anderen Menschen ist mir unangenehm.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF17", data: ["Es ist nichts dabei, wenn ich die Gefühle anderer verletze.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF18", data: ["Ich bin selten von irgendetwas begeistert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF19", data: ["Ich bin verrückt nach Aufmerksamkeit.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF20", data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF21", data: ["Ich habe oft Gedanken, die für mich Sinn ergeben, aber anderen Leuten seltsam erscheinen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF22", data: ["Ich benutze Menschen, um zu bekommen, was ich will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF23", data: ["Ich vergesse häufig alles um mich herum, komme dann plötzlich zu mir, und stelle fest, dass viel Zeit vergangen ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF24", data: ["Die Dinge um mich herum fühlen sich oft unwirklich oder realer als sonst an.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF25", data: ["Es fällt mir leicht, andere auszunutzen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
     PID5BF34 : {
@@ -402,7 +402,7 @@
                     "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
                     "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
-                    "und kreuzen Sie jeweils diejenig Antwort an, die Sie am besten beschreibt.", "start"],
+                    "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "start"],
                 footerText: "Hinweis: Bevor sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
@@ -439,7 +439,7 @@
             { itemID: "PID5BF30", data: ["Ich ertrage es nicht, allein gelassen zu werden – nicht mal für ein paar Stunden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF31", data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF32", data: ["Ich lasse mich leicht ablenken.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF33", data: ["Ich beende Beziehungen, wenn sie enger werden", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF33", data: ["Ich beende Beziehungen, wenn sie enger werden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
             { itemID: "PID5BF34", data: ["Wenn ich einen vertrauten Gegenstand anschaue, ist es manchmal so, als würde ich ihn zum ersten Mal sehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
@@ -466,18 +466,18 @@
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
-            { itemID: "LPFSBF01", data: ["Ich weiß oft nicht wer ich wirklich bin","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF02", data: ["Ich denke oft sehr schlecht über mich selbst", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF03", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF04", data: ["Ich habe keine Ahnung, wo ich im Leben hin will", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF05", data: ["Ich verstehe oft meine eigenen Gedanken und Gefühle nicht","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF06", data: ["Ich stelle oft unrealistische Anforderungen an mich selbst", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF07", data: ["Ich habe oft Schwierigkeiten, die Gedanken und Gefühle anderer zu verstehen","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF08", data: ["Ich kann es oft schwer aushalten, wenn andere eine andere Meinung haben", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF09", data: ["Ich verstehe oft nicht ganz warum mein Verhalten einen bestimmten Einfluss auf andere hat","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF10", data: ["Meine Beziehungen und Freundschaften halten nie lange", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF11", data: ["Ich fühle mich oft sehr verletzlich, wenn Beziehungen persönlicher werden","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF12", data: ["Es gelingt mir häufig nicht, mit anderen auf eine Weise zusammen zu arbeiten, die für beide Seiten zufriedenstellend sind", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
+            { itemID: "LPFSBF01", data: ["Ich weiß oft nicht wer ich wirklich bin.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF02", data: ["Ich denke oft sehr schlecht über mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF03", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF04", data: ["Ich habe keine Ahnung, wo ich im Leben hin will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF05", data: ["Ich verstehe oft meine eigenen Gedanken und Gefühle nicht.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF06", data: ["Ich stelle oft unrealistische Anforderungen an mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF07", data: ["Ich habe oft Schwierigkeiten, die Gedanken und Gefühle anderer zu verstehen.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF08", data: ["Ich kann es oft schwer aushalten, wenn andere eine andere Meinung haben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF09", data: ["Ich verstehe oft nicht ganz warum mein Verhalten einen bestimmten Einfluss auf andere hat.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF10", data: ["Meine Beziehungen und Freundschaften halten nie lange.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF11", data: ["Ich fühle mich oft sehr verletzlich, wenn Beziehungen persönlicher werden.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF12", data: ["Es gelingt mir häufig nicht, mit anderen auf eine Weise zusammen zu arbeiten, die für beide Seiten zufriedenstellend ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
 
@@ -502,7 +502,7 @@
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden. " +
                 "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz. " + 
                 "Versuchen Sie bitte so intuitive wie möglich zu entscheiden.<br><br>" + 
-                "Wenn Sie bei diese Studie Ihren Smartphone verwenden, legen Sie ihn am besten quer.<br><br>" + 
+                "Wenn Sie bei dieser Studie Ihr Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
                 "Sie bekommen nun eine Sequenz von Sätzen präsentiert, diese dienen zur Übung. Anschließend " + 
                 "folgt die Sequenz, welche dann zur Auswertung der Daten verwendet wird.<br><br>" + 
                 "Nehmen Sie sich bei der Übung so viel Zeit wie Sie brauchen. Nach der Übungsphase " + 
