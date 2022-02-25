@@ -60,7 +60,7 @@
             { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",
                 data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
             { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
+                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
             //actual test
 			{ itemID: "O2p13", block: 1, type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
 			{ itemID: "O2p7",  block: 1, type: "OP", data: ["verfehlen", "werde", "meine", "Ziele", "ich", "erreichen"], polarity: 1, pos: 6, neg: 1 },
@@ -110,7 +110,7 @@
         trials: [
             //instruction
             { itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
+                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
 		]	
     }, 
 	SSTDeprTest : {			
@@ -519,7 +519,7 @@
             { randomOrder: false, skipOutput: true, itemID: "Pr04", type: "AP",
                 data: ["Hosen", "blau", "sind", "seine", "schwarz", "alle"], polarity: -1, pos: 2, neg: 4 },
             { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Clicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
+                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
             //actual test, neutral sentences, not in any block (always included) but randomized with rest
             { itemID: "N1r_V2_2PN", type: "N", data: ["gehört", "habe", "ich", "es", "mehrmals", "gesehen"], polarity: -1, pos: 1, neg: 6 }, 
             { itemID: "N4r_V2_3PN", type: "N", data: ["Kinder", "im", "die", "spielen", "Wasser", "Sand"], polarity: 1, pos: 5, neg: 6 }, 
