@@ -892,6 +892,26 @@
             { itemID: "E11_V2_8PU", type: "PU", data: ["unverändert", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1 },
             { itemID: "E21_V2_6PN", type: "PN", data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5 }                     
         ]
-    }
+    },
+
+    Ukraine : {
+        frame: "mchoice",
+        description: "Fragen zur Erschütterung durch das Weltgeschehen",
+        version: "1.0",
+        timeout: 0, 
+        timeRefractory: 1000,
+        randomOrder: false,
+        skipOutput: false,
+        baselineScore: 0,
+
+        //common properties of all trials
+        type: "ukraine",
+        polarity: 1,//bleibt
+        trials: [
+            { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
+            
+        ]
+    },
 
 };
