@@ -242,24 +242,7 @@
                 <button class="infopage btn" id="infobtn">FORTSETZEN</button>
             </div>
         </script>
-        <script type="text/javascript">
-            hayStack.infopage = {};
-            //continuation factory for single trial (for external use)
-            hayStack.infopage.simpleContinuationFactory = function(trial) {
-                return function() {
-                    hayStack.view.setTemplate("infopage", "infopageStyle");
-                    var data = trial.data;
-                    if (data.length < 2) data.push("fortsetzen");
-                    hayStack.view.set(data[0], "infotext");
-                    hayStack.view.set(data[1], "infobtn");
-                    if (undefined !== trial.headerText) 
-                        hayStack.view.set(trial.headerText, "header");
-                    if (undefined !== trial.footerText) 
-                        hayStack.view.set(trial.footerText, "footer");
-                    document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
-                }
-            }
-        </script>
+        <script type="text/javascript" src="infopage.js"></script>
         <script type="text/template" id="infopageStyle">
             :root {
                 font-size: calc(0.5em + 1vw);
@@ -289,6 +272,7 @@
                 margin-top: 2em;
                 margin-left: 15vw;
                 margin-right: 15vw;
+                text-align: center;
             }
         </script>
 
