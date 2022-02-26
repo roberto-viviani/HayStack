@@ -38,7 +38,7 @@
         description: "General Health Questionaire, version 12 items",
         version: "1.0",
         timeout: 0,
-        timeRefractory: 300,
+        timeRefractory: 200,
         randomOrder: false,
         skipOutput: false,
 
@@ -72,7 +72,7 @@
         description: "Allgemeine Depressionsskala",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -117,7 +117,7 @@
         description: "Posttraumatische Verbitterungsstörung",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -180,7 +180,7 @@
         description: "Personality inventory for DSM5, 34 items",
         version: "1.0",//bleibt
         timeout: 0, //No timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -244,7 +244,7 @@
         description: "LevelofPersonalityFunctioningScaleBriefForm",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 1,
@@ -297,7 +297,7 @@
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden. " +
                 "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz. " + 
                 "Versuchen Sie bitte so intuitive wie möglich zu entscheiden.<br><br>" + 
-                "Wenn Sie bei diese Studie Ihren Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
+                "Wenn Sie bei diese Studie Ihr Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
                 "Sie bekommen nun eine Sequenz von Sätzen präsentiert, diese dienen zur Übung. Anschließend " + 
                 "folgt die Sequenz, welche dann zur Auswertung der Daten verwendet wird.<br><br>" + 
                 "Nehmen Sie sich bei der Übung so viel Zeit wie Sie brauchen. Nach der Übungsphase " + 
@@ -507,6 +507,25 @@
             { itemID: "E15_V2_2UP", block: 6, type: "PU", data: ["erreichbar", "bin", "immer", "ich", "fast", "siegreich"], polarity: 1, pos: 6, neg: 1                     },
             { itemID: "E8_V2_5UP", block: 6, type: "PU", data: ["meine", "weitergehen", "Anstrengungen", "geschätzt", "sicher", "werden"], polarity: 1, pos: 4, neg: 2      },
             { itemID: "O9R_V2_8PU", block: 6, type: "PU", data: ["rosig", "sehr", "Zukunft", "die", "nah", "ist"], polarity: -1, pos: 1, neg: 5                             }
+        ]
+    },
+
+    Ukraine : {
+        frame: "mchoice",
+        description: "Fragen zur Erschütterung durch das Weltgeschehen",
+        version: "1.0",
+        timeout: 0, 
+        timeRefractory: 1000,
+        randomOrder: false,
+        skipOutput: false,
+        baselineScore: -1,
+
+        //common properties of all trials
+        type: "ukraine",
+        polarity: -1,
+        trials: [
+            { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
         ]
     }
 

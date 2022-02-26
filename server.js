@@ -61,6 +61,10 @@ function checkTests(tests) {
             if (undefined === trial.polarity) trial.polarity = 0;
             test.trials[i] = trial;
         }
+
+        //create app-wide function for random blocks in tests
+        if (test.randomBlock.length > 0)
+            test.randomBlockFunction = randMatcher(test.randomBlock);
     }
     console.log("Available tests:");
     for (let tt in tests) console.log(tt);
@@ -88,21 +92,37 @@ function shuffle(array) {
     return array;
   }
 function shuffleTrials(trials) {
-    //if randomOrder property is not defined, define it assuming shuffle
-    trials.forEach(function(value) {
-        if (undefined === value.randomOrder) value.randomOrder = true;
-    });
-    //select trials to reorder
+    //select trials to reorder. If randomOrder property is not defined, 
+    //define it assuming shuffle
     let shTrials = trials.filter(function(value) {
+        if (undefined === value.randomOrder) return true;
         return value.randomOrder;
     });
     //reorder
     shTrials = shuffle(shTrials);
-    //copy back
+    //copy back reordered trials, leaving not-reordered intact
     return trials.map(function(value) {
         return value.randomOrder ? shTrials.pop() : value;
     });
 }  
+function randMatcher(block) {
+    //initialized to an array of indices, returns a function that
+    //samples from the indices w/o replacement, restarting after
+    //selecting all values. For use to create matched random samples.
+    let buffer = [];
+    return function() {
+        if (buffer.length === 0) {
+            buffer = block.slice();
+            buffer = shuffle(buffer);
+        }
+        console.log(buffer);
+        let value = buffer.pop();
+        console.log("returning sampled block " + value);
+        return value;
+        //return buffer.pop();
+    }
+}
+
 
 /* Output. This section serializes to disk the data received from the client */
 
@@ -199,12 +219,12 @@ function requestHandler(request, response) {
                 testNames.splice(0, 1); //drop the first element, 'test'
                 //check on testnames
                 for (let n = 0; n < testNames.length; ++n) {
-                    let value = testNames[n];
-                    if (undefined === tests[value]) {
-                        console.log("Invalid request: " + value + " not found in test cache");
-                        respondError(404, "Invalid request: test " + value + " is not known.");
+                    let testName = testNames[n];
+                    if (undefined === tests[testName]) {
+                        console.log("Invalid request: " + testName + " not found in test cache");
+                        respondError(404, "Invalid request: test " + testName + " is not known.");
                         return;
-                    } else console.log("Requested test: " + value);
+                    } else console.log("Requested test: " + testName);
                 }
                 requrl = "mainpage";  //internal name for switch code below
 			}
@@ -224,13 +244,14 @@ function requestHandler(request, response) {
                 //check on testname (unnlikely, tested previously)
                 testData = [];
                 for (let n = 0; n < testNames.length; ++n) {
-                    let value = testNames[n];
-                    if (undefined === tests[value]) {
-                        console.log("Invalid request: " + value + " not found in test cache");
-                        respondError(404, "Invalid request: test " + value + " is not known.");
+                    let testName = testNames[n];
+                    if (undefined === tests[testName]) {
+                        console.log("Invalid request: " + testName + " not found in test cache");
+                        respondError(404, "Invalid request: test " + testName + " is not known.");
                         return;
                     } else {
-                        testData.push(Object.assign({}, tests[value]));
+                        //random block function copied by reference here, as wished.
+                        testData.push(Object.assign({}, tests[testName]));
                     }
                 }
 				if (testData === undefined || 0 === testData.length) {
@@ -239,22 +260,23 @@ function requestHandler(request, response) {
 					return;
 				}
                 //initialize or refine the tests in testData
-                testData.forEach(function(value) {
+                testData.forEach(function(test) {
                     //if there are subsets of trials to randomize, do it here.
-                    if (value.randomBlock.length > 0) {
-                        let block = value.randomBlock[Math.floor(Math.random() * value.randomBlock.length)];
+                    if (test.randomBlock.length > 0) {
+                        //let block = test.randomBlock[Math.floor(Math.random() * test.randomBlock.length)];
+                        let block = test.randomBlockFunction();
                         console.log("Selected block: " + block);
                         let trials = [];
-                        for (let t = 0; t < value.trials.length; t++) 
-                            if (value.trials[t].block === undefined || value.trials[t].block === block) 
-                                trials.push(value.trials[t]);
-                        value.trials = trials;
+                        for (let t = 0; t < test.trials.length; t++) 
+                            if (test.trials[t].block === undefined || test.trials[t].block === block) 
+                                trials.push(test.trials[t]);
+                        test.trials = trials;
                     }
                     //here random shuffle of sents.trials
-                    if (value.randomOrder)
-                        value.trials = shuffleTrials(value.trials);
-                    value.sessionID = undefined; //sent over in html page, not here
-                    value.timestamp = getTimestamp();
+                    if (test.randomOrder)
+                        test.trials = shuffleTrials(test.trials);
+                    test.sessionID = undefined; //sent over in html page, not here
+                    test.timestamp = getTimestamp();
                 });
 				requrl = "trials";  //internal name for switch code below
 			}

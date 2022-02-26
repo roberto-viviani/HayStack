@@ -76,7 +76,9 @@
         <script type="text/template" id="logoffPage">
             <body>
                 <h1 id="lblHeadline" class="logoff">Versuchpersonenstunden</h1>
-                <p  id="lblInput" class="logoff">Um Probandenstunden an Studierende der Universtität Innsbruck zu verteilen, brauchen wir die folgenden Daten.</br> </br>
+                <p  id="lblInput" class="logoff">Die Teilnahme an dieser Studie wird für Studenten/innen der Universität Innsbruck
+                        mit 1 Versuchspersonenstunde(n) vergütet. Um Probandenstunden an Studierende der Universtität zu verteilen, 
+                        brauchen wir die folgenden Daten.<br>
                         Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
                         Die Teilnahme an dieser Studie wird für Studenten/innen mit 1 Versuchspersonenstunde(n) vergütet.<br>
                         Wenn keine Experimentenstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
@@ -86,11 +88,12 @@
                         <div class="Daten"><br>Vorname: <input class="input" type="text" name="firstName" id="firstName" value=""><br><br></div>
                         <div class ="Daten">Nachname: <input class="input" type="text" name="secondName" id="secondName" value=""><br><br></div>
                         <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
-                        <div class="Daten">Login-ID (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
+                        <div class="Daten">c-Kennung (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
                     </div>
-                    <p>Wenn Sie an der Verlosung der 15 Amazon Gutscheine im Wert von 30€ teilnehmen wollen, 
-                        dann geben Sie hier Ihre Email-Adresse an, sonst lassen sie es lehr. Es können 
-                        keinerlei Rückschlüsse von der Email-Adresse auf Ihre Antworten gezogen werden.</p>
+                    <p>Wenn Sie an der Verlosung der 15 Amazon Gutscheine im Wert von 30€ teilnehmen wollen, und sie keine c-Kennung
+                        angegeben haben (z.B. wenn Sie nicht an der Universität Innsbruck studieren), dann geben Sie hier Ihre Email-Adresse 
+                        an, sonst lassen sie es lehr. Die c-Kennung reicht für die Verlosung. Es können keinerlei Rückschlüsse auf 
+                        Ihre Antworten gezogen werden.</p>
                         <div class="dataInput">
                             <div class="Daten"><br>Email: <input class="input" type="text" name="email" id="email" value=""><br><br></div>
                         </div>
@@ -242,24 +245,7 @@
                 <button class="infopage btn" id="infobtn">FORTSETZEN</button>
             </div>
         </script>
-        <script type="text/javascript">
-            hayStack.infopage = {};
-            //continuation factory for single trial (for external use)
-            hayStack.infopage.simpleContinuationFactory = function(trial) {
-                return function() {
-                    hayStack.view.setTemplate("infopage", "infopageStyle");
-                    var data = trial.data;
-                    if (data.length < 2) data.push("fortsetzen");
-                    hayStack.view.set(data[0], "infotext");
-                    hayStack.view.set(data[1], "infobtn");
-                    if (undefined !== trial.headerText) 
-                        hayStack.view.set(trial.headerText, "header");
-                    if (undefined !== trial.footerText) 
-                        hayStack.view.set(trial.footerText, "footer");
-                    document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
-                }
-            }
-        </script>
+        <script type="text/javascript" src="infopage.js"></script>
         <script type="text/template" id="infopageStyle">
             :root {
                 font-size: calc(0.5em + 1vw);
@@ -289,6 +275,7 @@
                 margin-top: 2em;
                 margin-left: 15vw;
                 margin-right: 15vw;
+                text-align: center;
             }
         </script>
 
@@ -297,44 +284,42 @@
             <meta name="description" content="Mulitple choice frame">
             <div id= "question" class="mchoice"></div>
             <div id="responseList" class="mchoice">
-                <div id="response1" class="responseMchoice">selten</div>
-                <div id="response2" class="responseMchoice">manchmal</div>
-                <div id="response3" class="responseMchoice">öfters</div>
-                <div id="response4" class="responseMchoice">meistens</div>
-                <div id ="response5" class="responseMchoice"> </div>
+                <div id="response1" class="responseMchoice"></div>
+                <div id="response2" class="responseMchoice"></div>
+                <div id="response3" class="responseMchoice"></div>
+                <div id="response4" class="responseMchoice"></div>
+                <div id="response5" class="responseMchoice"></div>
+                <div id="response6" class="responseMchoice"></div>
             <div id="timeOut" class = "mchoice"> <p> Wenn du diese Frage nicht beanworten möchtest, klicke hier >> </p></div>
             </div>
         </script>
         <script type="text/javascript" src="mchoice.js"></script>
         <script type="text/template" id="mchoiceStyle">
-            .responseMchoice {
-                color: white;
-                background-color: RGB(90, 90, 120);
-                border: none;
-                width: 60vmax;
-                height:5vmax;
-                margin-top: 2vw;
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: default;
-            }
             #interface {
                 margin-top: 5vh;
+                margin-left: 7.5vw;
+                margin-right: 7.5vw;
                 text-align: center;
                 font-size: calc(0.5em + 1.25vw);
             }
             #question {
                 text-align: center;
-                margin-left: 7.5vw;
-                margin-right: 7.5vw;
             }
             #responseList {
                 margin-top: 4vw;
                 font-size: calc(0.5em + 1.25vw);
+            }
+            .responseMchoice {
+                color: white;
+                background-color: RGB(90, 90, 120);
+                border: none;
+                height:5vmax;
+                margin-top: 2vw;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: default;
             }
             #response5{
                 display: none;
@@ -599,10 +584,10 @@
                 Zeitlimit, dies wird Ihnen aber vor der jeweiligen Frequenz mitgeteilt.<br><br>
                 Damit Ihre Anonymität gewährleistet ist, werden Ihre persönlichen Daten getrennt von Ihren Antworten gespeichert. 
                 Es kann keine Verbindung zwischen Ihren Antworten der Erhebung und Ihren persönlichen Angaben, die für die 
-                Eintragung der Versuchspersonenstunden oder/ und die Teilnahme am Gewinnspiel notwendig sind, gezogen werden.<br><br>
+                Eintragung der Versuchspersonenstunden oder/und die Teilnahme am Gewinnspiel notwendig sind, gezogen werden.<br><br>
                 Zwecke und Ziele der Studie haben Sie aus der Einladungsmail bekommen. Wenn Sie weitermachen, 
                 geben Sie Ihre Einwilligung, an die Studie Teilzunehmen.<br><br>
-                <b>Wenn Sie bei diese Studie Ihren Smartphone verwenden, legen Sie ihn am besten quer.</b><br>
+                <b>Wenn Sie bei diese Studie Ihr Smartphone verwenden, legen Sie ihn am besten quer auf dem Tisch.</b><br><br>
             </p>
             <br><br>
             <button class="next" id="btnNext">weiter >></button>
