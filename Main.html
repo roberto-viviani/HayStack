@@ -76,7 +76,9 @@
         <script type="text/template" id="logoffPage">
             <body>
                 <h1 id="lblHeadline" class="logoff">Versuchpersonenstunden</h1>
-                <p  id="lblInput" class="logoff">Um Probandenstunden an Studierende der Universtität Innsbruck zu verteilen, brauchen wir die folgenden Daten.</br> </br>
+                <p  id="lblInput" class="logoff">Die Teilnahme an dieser Studie wird für Studenten/innen der Universität Innsbruck
+                        mit 1 Versuchspersonenstunde(n) vergütet. Um Probandenstunden an Studierende der Universtität zu verteilen, 
+                        brauchen wir die folgenden Daten.<br>
                         Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
                         Die Teilnahme an dieser Studie wird für Studenten/innen mit 1 Versuchspersonenstunde(n) vergütet.<br>
                         Wenn keine Experimentenstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
@@ -86,11 +88,12 @@
                         <div class="Daten"><br>Vorname: <input class="input" type="text" name="firstName" id="firstName" value=""><br><br></div>
                         <div class ="Daten">Nachname: <input class="input" type="text" name="secondName" id="secondName" value=""><br><br></div>
                         <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
-                        <div class="Daten">Login-ID (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
+                        <div class="Daten">c-Kennung (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
                     </div>
-                    <p>Wenn Sie an der Verlosung der 15 Amazon Gutscheine im Wert von 30€ teilnehmen wollen, 
-                        dann geben Sie hier Ihre Email-Adresse an, sonst lassen sie es lehr. Es können 
-                        keinerlei Rückschlüsse von der Email-Adresse auf Ihre Antworten gezogen werden.</p>
+                    <p>Wenn Sie an der Verlosung der 15 Amazon Gutscheine im Wert von 30€ teilnehmen wollen, und sie keine c-Kennung
+                        angegeben haben (z.B. wenn Sie nicht an der Universität Innsbruck studieren), dann geben Sie hier Ihre Email-Adresse 
+                        an, sonst lassen sie es lehr. Die c-Kennung reicht für die Verlosung. Es können keinerlei Rückschlüsse auf 
+                        Ihre Antworten gezogen werden.</p>
                         <div class="dataInput">
                             <div class="Daten"><br>Email: <input class="input" type="text" name="email" id="email" value=""><br><br></div>
                         </div>
@@ -281,11 +284,12 @@
             <meta name="description" content="Mulitple choice frame">
             <div id= "question" class="mchoice"></div>
             <div id="responseList" class="mchoice">
-                <div id="response1" class="responseMchoice">selten</div>
-                <div id="response2" class="responseMchoice">manchmal</div>
-                <div id="response3" class="responseMchoice">öfters</div>
-                <div id="response4" class="responseMchoice">meistens</div>
-                <div id ="response5" class="responseMchoice"> </div>
+                <div id="response1" class="responseMchoice"></div>
+                <div id="response2" class="responseMchoice"></div>
+                <div id="response3" class="responseMchoice"></div>
+                <div id="response4" class="responseMchoice"></div>
+                <div id="response5" class="responseMchoice"></div>
+                <div id="response6" class="responseMchoice"></div>
             <div id="timeOut" class = "mchoice"> <p> Wenn du diese Frage nicht beanworten möchtest, klicke hier >> </p></div>
             </div>
         </script>
@@ -566,7 +570,7 @@
             <!-- at startup, the interface shows basic information about the test -->
             <h1 id="lblHeadline">Entscheidungsfindung und Schemata Aktivierung</h1>
             <p id="welcome" style="text-align: left">Herzlich Willkommen zur Studie!<br><br></p>
-            <p id="lblInput" style="text-align:left">Liebe Teilnehmerin, lieber Teilnehmer,<br><br>
+            <p id="lblInput" style="text-align:left">Liebe Teilnehmerinnen, lieber Teilnehmer,<br><br>
                 vielen Dank, dass Sie Interesse an der Studie „Entscheidungsfindung und Schemata Aktivierung“ haben und teilnehmen möchten!
                 In der folgenden Studie bitten wir Sie, zunächst ein paar Fragen zu beantworten bevor Sie anschließend an 
                 einem interaktiven Spiel teilnehmen. Vor jeder Aufgabe erhalten Sie eine kurze Einführung was zu tun ist.<br><br>

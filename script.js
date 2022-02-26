@@ -189,7 +189,7 @@
         description: "General Health Questionaire, version 12 items",
         version: "1.0",
         timeout: 0,
-        timeRefractory: 300,
+        timeRefractory: 200,
         randomOrder: false,
         skipOutput: false,
 
@@ -223,7 +223,7 @@
         description: "Allgemeine Depressionsskala",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -268,7 +268,7 @@
         description: "Posttraumatische Verbitterungsstörung",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -331,7 +331,7 @@
         description: "Personality inventory for DSM5, 25 items",
         version: "1.0",//bleibt
         timeout: 0, //No timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -385,7 +385,7 @@
         description: "Personality inventory for DSM5, 34 items",
         version: "1.0",//bleibt
         timeout: 0, //No timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 0,
@@ -449,7 +449,7 @@
         description: "LevelofPersonalityFunctioningScaleBriefForm",
         version: "1.0",//bleibt
         timeout: 0, //no timeout
-        timeRefractory: 1000,//bleibt
+        timeRefractory: 200,//bleibt
         randomOrder: false,//bleibt
         skipOutput: false,//bleibt
         baselineScore: 1,
@@ -902,15 +902,14 @@
         timeRefractory: 1000,
         randomOrder: false,
         skipOutput: false,
-        baselineScore: 0,
+        baselineScore: -1,
 
         //common properties of all trials
         type: "ukraine",
-        polarity: 1,//bleibt
+        polarity: -1,
         trials: [
             { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
             { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
-            
         ]
     },
 

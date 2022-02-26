@@ -13,9 +13,17 @@ hayStack.mchoice.view = {
         //data is a field of trialobject. displays scrambled words.
         var question = document.getElementById("question");
         question.innerHTML = data[0];
-        for (let i = 1; i < data.length; ++i) {
-            let elem = document.getElementById("response" + i);
+        var coll = document.getElementsByClassName("responseMchoice");
+        var kks = Object.keys(coll);
+        for (var i = 1; i < data.length; ++i) {
+            var elem = coll[kks[i-1]];
             elem.innerHTML = data[i];
+            elem.style.visibility = "visible";
+        }
+        for (var j = data.length; j < kks.length + 1; ++j) {
+            var elem = coll[kks[j-1]];
+            elem.innerHTML = "";
+            elem.style.visibility = "hidden";
         }
     }, 
 
@@ -36,16 +44,15 @@ hayStack.mchoice.view = {
 };
     
 hayStack.mchoice.computeResponse = function(resp, trial, rt) {
-    //response encoding. Needs streamlining/revision.
+    //response encoding.
     if (rt <= 0) return "NA";  //miss trial
-    var baselineScore = trial.baselineScore | 0;
-    var score = resp;
+    var baselineScore = (undefined === trial.baselineScore) ? 0 : trial.baselineScore;
+    var score = resp - 1;  //resp is 1-based, we want a zero-based score
+    console.log("score before polarity correction: " + score);
     if (-1 === trial.polarity)
         //trial.data.length is number of responses + question
-        //so the coding would be
-        //score = (trial.data.length - 1) - (score + 1);
-        score = trial.data.length - score + baselineScore;
-    return score;
+        score = trial.data.length - resp - 1;
+    return score + baselineScore;
 };
 
 hayStack.mchoice.pushTrial = function(item, resp, rt) {
