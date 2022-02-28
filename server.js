@@ -115,7 +115,6 @@ function randMatcher(block) {
             buffer = block.slice();
             buffer = shuffle(buffer);
         }
-        console.log(buffer);
         let value = buffer.pop();
         console.log("returning sampled block " + value);
         return value;
