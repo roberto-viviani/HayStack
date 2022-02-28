@@ -283,8 +283,7 @@ hayStack.continuations.push(
     }
 );
 
-//The second continuation should collect the anagraphic information from the 
-//participant.
+//The third continuation collects the anagraphic information
 hayStack.continuations.push(
     function () {
         hayStack.view.setTemplate("SocDemo", "SocDemoStyle");
