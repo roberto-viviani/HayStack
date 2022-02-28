@@ -281,7 +281,7 @@
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte beantworten Sie die folgenden Aussagen und " + 
                     "Feststellungen und kreuzen Sie die für Sie zutreffende Option an.<br>", "start"],
-                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
@@ -349,7 +349,7 @@
                     "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
                     "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "start"],
-                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
@@ -403,7 +403,7 @@
                     "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
                     "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "start"],
-                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
@@ -462,7 +462,7 @@
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte geben Sie für die folgenden Aussagen an,<br>inwieweit " + 
                     "diese für Sie zutreffend sind.", "start"],
-                footerText: "Hinweis: Bevor sie mit der nächsten " + 
+                footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
@@ -498,10 +498,10 @@
                 "Kästchen beinhalten Wörter in einer durcheinandergewürfelten Reihenfolge. Aus diesen " + 
                 "Wörtern können Sie verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie " +
                 "nicht alle Wörter.<br><br>" +
-                "Bilden Sie  im Kopf aus den Wörtern einen Satz und klicken Sie auf " +
+                "Bilden Sie im Kopf aus den Wörtern einen Satz und klicken Sie auf " +
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden. " +
                 "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz. " + 
-                "Versuchen Sie bitte so intuitive wie möglich zu entscheiden.<br><br>" + 
+                "Versuchen Sie bitte so intuitiv wie möglich zu entscheiden.<br><br>" + 
                 "Wenn Sie bei dieser Studie Ihr Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
                 "Sie bekommen nun eine Sequenz von Sätzen präsentiert, diese dienen zur Übung. Anschließend " + 
                 "folgt die Sequenz, welche dann zur Auswertung der Daten verwendet wird.<br><br>" + 
