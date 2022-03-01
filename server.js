@@ -167,7 +167,7 @@ function serializeData(data, source) {
                 trial.timestamp, source];
             fs.appendFile("./SocioDemographics.txt", socdemText.join("\t") + "\n", "utf8", 
                  err => err ? console.log("error " + err) : 
-                 console.log("credits saved for " + trial.subjectID));
+                 console.log("Socdem info saved for " + trial.subjectID));
             continue;
         }
         let trialtext = [trial.sessionID, trial.subjectID, trial.testID, trial.trialID, 
