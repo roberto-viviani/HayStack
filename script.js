@@ -192,6 +192,8 @@
         timeRefractory: 200,
         randomOrder: false,
         skipOutput: false,
+        polarity: 1,
+        baselineScore: 0,
 
         //common property of all trials
         type: "GHQ",
@@ -203,18 +205,30 @@
                     "beantworten Sie alle Fragen, indem Sie die zutreffende Antwort auswählen. Bitte denken Sie daran, " + 
                     "dass es um jetzige oder kürzliche Beschwerden geht und nicht um Ihre früheren. Es ist wichtig, dass " + 
                     "Sie alle Fragen beantworten.", "start"]},
-            { itemID: "GHQ01", data: ["Haben Sie in den letzten Wochen wegen Sorgen weniger geschlafen?", "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
-            { itemID: "GHQ02", data: ["Haben Sie das Gefühl gehabt, dauernd unter Druck zu stehen?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
-            { itemID: "GHQ03", data: ["Haben Sie sich in den letzten Wochen auf das, was Sie gemacht haben, konzentrieren können?", "besser als üblich", "so wie üblich", "schlechter als üblich", "viel schlechter als üblich"]},
-            { itemID: "GHQ04", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, für etwas nützlich zu sein?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
-            { itemID: "GHQ05", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, sich mit Ihren Problemen auseinander zu setzen?", "besser als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
-            { itemID: "GHQ06", data: ["Ist es Ihnen in den letzten Wochen schwer gefallen, Entscheidungen zu treffen?","nein, gar nicht", "so wie als üblich", "schwerer als üblich", "viel schwerer als üblich"]},
-            { itemID: "GHQ07", data: ["Haben Sie in den letzten Wochen den Eindruck gehabt, dass Sie mit Ihren Schwierigkeiten nicht zu Rande gekommen sind?", "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
-            { itemID: "GHQ08", data: ["Alles in allem, haben Sie sich in den letzten Wochen einigermaßen zufrieden gefühlt?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
-            { itemID: "GHQ09", data: ["Konnten Sie in den letzten Wochen Ihren Alltagsverpflichtungen mit Freude nachgehen?", "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
-            { itemID: "GHQ10", data: ["Haben Sie sich in den letzten Wochen unglücklich und deprimiert gefühlt?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
-            { itemID: "GHQ11", data: ["Haben Sie in den letzten Wochen einen Mangel an Selbstvertrauen gespürt?", "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
-            { itemID: "GHQ12", data: ["Haben Sie sich in den letzten Wochen wertlos gefühlt?","nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]}
+            { itemID: "GHQ01", data: ["Haben Sie in den letzten Wochen wegen Sorgen weniger geschlafen?", 
+                "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ02", data: ["Haben Sie das Gefühl gehabt, dauernd unter Druck zu stehen?", 
+                "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ03", data: ["Haben Sie sich in den letzten Wochen auf das, was Sie gemacht haben, konzentrieren können?", 
+                "besser als üblich", "so wie üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ04", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, für etwas nützlich zu sein?", 
+                "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ05", data: ["Haben Sie in den letzten Wochen das Gefühl gehabt, sich mit Ihren Problemen auseinander zu setzen?", 
+                "besser als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ06", data: ["Ist es Ihnen in den letzten Wochen schwer gefallen, Entscheidungen zu treffen?",
+                "nein, gar nicht", "so wie als üblich", "schwerer als üblich", "viel schwerer als üblich"]},
+            { itemID: "GHQ07", data: ["Haben Sie in den letzten Wochen den Eindruck gehabt, dass Sie mit Ihren Schwierigkeiten nicht zu Rande gekommen sind?", 
+                "nein, gar nicht", "nicht schlechter als üblich", "schlechter als üblich", "viel schlechter als üblich"]},
+            { itemID: "GHQ08", data: ["Alles in allem, haben Sie sich in den letzten Wochen einigermaßen zufrieden gefühlt?", 
+                "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ09", data: ["Konnten Sie in den letzten Wochen Ihren Alltagsverpflichtungen mit Freude nachgehen?", 
+                "mehr als üblich", "so wie üblich", "weniger als üblich", "viel weniger als üblich"]},
+            { itemID: "GHQ10", data: ["Haben Sie sich in den letzten Wochen unglücklich und deprimiert gefühlt?", 
+                "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ11", data: ["Haben Sie in den letzten Wochen einen Mangel an Selbstvertrauen gespürt?", 
+                "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]},
+            { itemID: "GHQ12", data: ["Haben Sie sich in den letzten Wochen wertlos gefühlt?",
+                "nein, gar nicht", "nicht mehr als üblich", "mehr als üblich", "viel mehr als üblich"]}
         ]
     },
 

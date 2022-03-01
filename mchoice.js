@@ -48,7 +48,6 @@ hayStack.mchoice.computeResponse = function(resp, trial, rt) {
     if (rt <= 0) return "NA";  //miss trial
     var baselineScore = (undefined === trial.baselineScore) ? 0 : trial.baselineScore;
     var score = resp - 1;  //resp is 1-based, we want a zero-based score
-    console.log("score before polarity correction: " + score);
     if (-1 === trial.polarity)
         //trial.data.length is number of responses + question
         score = trial.data.length - resp - 1;
