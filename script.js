@@ -320,7 +320,7 @@
             { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
                 data: ["warten", "wir", "lange", "können", "sitzen", "nun"], polarity: -1, pos: 1, neg: 5 },
             { randomOrder: false, skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
-                data: ["werde", "Ich", "Post", "Haltestelle", "zur", "gehen"], polarity: -1, pos: 3, neg: 4},
+                data: ["werde", "Ich", "Post", "fahren", "zur", "gehen"], polarity: -1, pos: 3, neg: 4},
             { frame: "infopage", randomOrder: false, itemID: "instructtimeout", type: "info", timeout: 0,
                 data: ["Man hat in dem Test 7.5 Sek. um zu antworten.<br>Ab jetzt auch in der Übung.", "weiter"]},
             { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",
