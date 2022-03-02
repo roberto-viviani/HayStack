@@ -320,7 +320,7 @@
             { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
                 data: ["warten", "wir", "lange", "können", "sitzen", "nun"], polarity: -1, pos: 1, neg: 5 },
             { randomOrder: false, skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
-                data: ["werde", "Ich", "Post", "fahren", "zur", "gehen"], polarity: -1, pos: 3, neg: 4},
+                data: ["werde", "Ich", "Post", "fahren", "zur", "gehen"], polarity: -1, pos: 4, neg: 6},
             { frame: "infopage", randomOrder: false, itemID: "instructtimeout", type: "info", timeout: 0,
                 data: ["Man hat in dem Test 7.5 Sek. um zu antworten.<br>Ab jetzt auch in der Übung.", "weiter"]},
             { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",
@@ -546,8 +546,6 @@
         type: "ukraine",
         polarity: -1,
         trials: [
-            { frame: "infopage", randomOrder: false, itemID: "instrUkraine", type: "info", timeout: 0,
-                data: ["Fast geschafft.<br>Es folgen nun noch zwei Fragen zur aktuellen Situation in der Urkaine."]},
             { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
             { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
         ]
