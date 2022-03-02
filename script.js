@@ -546,6 +546,8 @@
         type: "ukraine",
         polarity: -1,
         trials: [
+            { frame: "infopage", randomOrder: false, itemID: "instrUkraine", type: "info", timeout: 0,
+                data: ["Fast geschafft.<br>Es folgen nun noch zwei Fragen zur aktuellen Situation in der Urkaine."]},
             { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
             { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
         ]
