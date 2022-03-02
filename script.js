@@ -328,7 +328,15 @@
             { randomOrder: false, skipOutput: true, itemID: "Pr04", type: "AP",
                 data: ["Hosen", "blau", "sind", "seine", "schwarz", "alle"], polarity: -1, pos: 2, neg: 4 },
             { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
+                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.<br><br>" + 
+                "Sollten Sie bei der Übung Probleme gehabt haben lesen Sie sich bitte nochmal die Anleitung durch:<br>" + 
+                "Ihnen werden nun immer sechs Kästchen nebeneinander präsentiert. Diese Kästchen beinhalten " + 
+                "Wörter in einer durcheinandergewürfelten Reihenfolge. Aus diesen Wörtern können Sie " +
+                "verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie nicht alle Wörter. " + 
+                "Bilden Sie im Kopf aus den Wörtern einen Satz und klicken Sie auf das eine Wort, das Sie " + 
+                "an das Ende des Satzes setzen würden. Nachdem Sie ein Wort angetippt haben kommen Sie " +
+                "automatisch zum nächsten Satz. Versuchen Sie bitte so intuitive wie möglich zu entscheiden.", 
+                "start"]},
             //actual test, neutral sentences, not in any block (always included) but randomized with rest
             { itemID: "N1r_V2_2PN", type: "N", data: ["gehört", "habe", "ich", "es", "mehrmals", "gesehen"], polarity: -1, pos: 1, neg: 6 }, 
             { itemID: "N4r_V2_3PN", type: "N", data: ["Kinder", "im", "die", "spielen", "Wasser", "Sand"], polarity: 1, pos: 5, neg: 6 }, 
@@ -538,6 +546,8 @@
         type: "ukraine",
         polarity: -1,
         trials: [
+            { frame: "infopage", randomOrder: false, itemID: "instrUkraine", type: "info", timeout: 0,
+                data: ["Fast geschafft.<br>Es folgen nun noch zwei Fragen zur aktuellen Situation in der Urkaine."]},
             { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
             { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
         ]
