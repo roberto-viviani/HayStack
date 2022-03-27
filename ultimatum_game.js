@@ -142,6 +142,9 @@ hayStack.ultimatum.response = function(trialsrc) {
         state.v_budget_playerone += state.v_offer_playerone;
         state.v_budget_playertwo += state.v_offer_playertwo;
 
+        // display correct budget
+        document.getElementById("budget_playerone").innerHTML = state.v_budget_playerone;
+
         // goto intertrial
         hayStack.ultimatum.intertrial();
     };
