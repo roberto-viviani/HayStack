@@ -267,10 +267,14 @@ hayStack.continuations.push(
         var regID = /^\d\d\D\D\D$/;
         var btnNext = document.getElementById("btnNext");
         btnNext.onclick = function () {
-            var sid = subjInput.value;
+            var sid = subjInput.value.trim();
             //validate, if invalid, just return w/o calling next
             if (false === regID.test(sid)) {
                 alert("Ungültiges ID. Ein ID soll z.B. so aussehen: O5IMR");
+                return;
+            }
+            if ("05IMR" === sid.toUpperCase()) {
+                alert("Ungültiges ID. Dieses ID ist schon vergeben.");
                 return;
             }
             //clean up interface and push data on output stack for sid
