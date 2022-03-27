@@ -167,13 +167,13 @@
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
                 data: ["Erkärtext zum Ultimatumgame", "Start"]},
-            { itemID: "ultRound1", type: "goodOffer"},
-            { itemID: "ultRound2", type: "badOffer"},
-            { frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { itemID: "ultRound3", type: "midOffer"},
-            { frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
+            { itemID: "ultRound1", blockID: 1, blockPos: -1, type: "goodOffer"},
+            { itemID: "ultRound2", blockID: 1, blockPos: 0, type: "badOffer"},
+            { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 2, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { itemID: "ultRound3", blockID: 2, blockPos: 0, type: "midOffer"},
+            { frame : "SST", itemID: "O2p13", blockID: 2, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
+            { frame : "SST", itemID: "O2p13", blockID: 2, blockPos: 2, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
         ]
 
     },

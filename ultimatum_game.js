@@ -123,11 +123,11 @@ hayStack.ultimatum.response = function(trialsrc) {
     trial.polarity = "";
     trial.response = [];
     //trial.respKey = resp; 
-    //trial.responseData = "pos:"  + item.pos + ",neg:" + item.neg;
+    trial.responseData = "blockID:"  + trialsrc.blockID + ",blockPos:" + trialsrc.blockPos;
     trial.trialData = trialsrc.data;
-    trial.version = trialsrc.version | "";
+    trial.version = trialsrc.version;
     trial.timestamp = output.timestamp(startTime);
-    trial.source = trialsrc.source | "";
+    trial.source = trialsrc.source;
 
     // if clicked "accept"
     document.getElementById("accept").onclick = function() {
@@ -194,6 +194,29 @@ hayStack.ultimatum.continuationFactory = function(test) {
         offers = test.options.series;
         trialType = "series";
     }
+
+    //override SST's output to record blockID and blockPos
+    hayStack.SST.pushTrial = function(item, resp, rt) {
+        var cf = function(data, deflt) { return (undefined === data) ? deflt : data; };
+    
+        var trial = hayStack.output.emptyTrial();
+        trial.testID = item.testID 
+        trial.itemID = item.itemID;
+        trial.type = item.type;
+        trial.polarity = item.polarity;
+        trial.response = hayStack.SST.computeResponse(resp, item, rt);
+        trial.RT = rt;
+        trial.respKey = resp; 
+        //custom response data
+        trial.responseData = "blockID:"  + item.blockID + ",blockPos:" + item.blockPos;
+        trial.trialData = item.data;
+        if (undefined !== item.block) trial.trialData += (",block:" + item.block);
+        trial.version = cf(item.version, "");
+        trial.timestamp = item.timestamp
+        trial.source = cf(item.source, "");
+    
+        hayStack.output.pushTrial(trial);
+    };    
 
     // the trials
     var j=0;
