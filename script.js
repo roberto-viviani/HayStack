@@ -33,105 +33,6 @@
     Separate multiple tests with a comma. The tests are then given in order.
     */
 
-    /* This is an SST test with two frames in the items. The continuation factory 
-        must create continuations that understand the frames they have. */
-	SSTDepr : {			
-        frame: "SST",
-		description: "SST socphob and depressed",	
-        version: "1.0",	
-        timeout: 7500,
-        timeRefractory: 400,
-        randomOrder: true,   //randomize order of presentation (defaults to false if missing)
-        randomBlock: [1, 2], //define blocks 1 and 2 to select at random
-        skipOutput: false,   //record response to server (defaults to false if missing)
-
-		trials: [
-            //instruction
-            { frame: "infopage", randomOrder: false, itemID: "startinstruct", type: "info", timeout: 0,
-                data: ["Bitte bilden Sie gedanklich aus den folgenden Wörtern<br>einen grammatikalisch " + 
-                "korrekten Satz.<br>Klicken Sie dann auf das letzte Wort im Satz.<br><br>Zuerst kommt eine kurze Übung.<br>", "start"]},
-            //practice trials. Override timeout and remove it. Override skipOutput.
-            { randomOrder: false, skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
-                data: ["Kinder ", "die", "Sand", "im", "Schnee", "spielen"], polarity: -1, pos: 3, neg: 5 },
-            { randomOrder: false, skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
-                data: ["ist", "Juni", "August", "mein", "Geburstag", "im"], polarity: -1, pos: 2, neg: 3 },
-            { frame: "infopage", randomOrder: false, itemID: "instructtimeout", type: "info", timeout: 0,
-                data: ["Man hat in dem Test 7.5 Sek. um zu antworten.<br>Ab jetzt auch in der Übung.", "weiter"]},
-            { randomOrder: false, skipOutput: true, itemID: "Pr03", type: "AP",
-                data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
-            { frame: "infopage", randomOrder: false, itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
-            //actual test
-			{ itemID: "O2p13", block: 1, type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-			{ itemID: "O2p7",  block: 1, type: "OP", data: ["verfehlen", "werde", "meine", "Ziele", "ich", "erreichen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p8",  block: 2, type: "OP", data: ["versagen", "werde", "mal", "ich", "wieder", "bestehen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p9",  block: 2, type: "OI", data: ["düster", "wird", "Zukunft", "eher", "rosig", "die"], polarity: 1, pos: 5, neg: 1 }
-		]	
-    },
-
-    /* This is the same test, this time coded as four consecutive tests, each with its own
-        unique frame. The infopage frame is a standard frame that provides its own continuation
-        factory. The SST frame is only asked to handle SST trials. The hyperlink requires specifying
-        all parts: localhost:61543/test:SSTInfopage,SSTPractice,SSTInfostart,SSTDeprTest*/
-	SSTInfopage : {			
-        frame: "infopage",
-		description: "SST infopage explanation",	
-        version: "1.0",	
-        //no timeout, timeRefractory, etc. since the cont factory does not understand them
-
-		trials: [
-            //instruction
-            { itemID: "startinstruct", type: "info", timeout: 0,
-                data: ["Mach den Satz im Kopf. Click auf das Wort, das am Ende kommt<br>Zuerst kommt eine kurze Übung.", "start"]},
-		]	
-    },
-	SSTPractice : {			
-        frame: "SST",
-		description: "SST practice",	
-        version: "1.0",	
-        timeout: 0,
-        timeRefractory: 400,
-        randomOrder: false,  //randomize order of presentation (defaults to false if missing)
-        skipOutput: true,   //record response to server (defaults to false if missing)
-
-		trials: [
-            //practice trials. Override timeout and remove it. Override skipOutput.
-            { itemID: "Pr01", type: "AP",
-                data: ["practice", "practice", "glücklich", "practice", "practice", "practice"], polarity: -1, pos: 3, neg: 5 },
-            { itemID: "Pr02", type: "AP",
-                data: ["practice", "practice", "practice", "practice", "müde", "practice"], polarity: -1, pos: 3, neg: 5 },
-		]	
-    },
-	SSTInfostart : {			
-        frame: "infopage",
-		description: "SST start notice",	
-        version: "1.0",	
-
-        trials: [
-            //instruction
-            { itemID: "endinstruct", type: "info", timeout: 0,
-                data: ["Die Übung ist jetzt zu Ende.<br>Klicken Sie auf 'start' um mit dem Test anzufangen.", "start"]},
-		]	
-    }, 
-	SSTDeprTest : {			
-        frame: "SST",
-		description: "SST socphob and depressed",	
-        version: "1.0",	
-        timeout: 7500,
-        timeRefractory: 400,
-        randomOrder: true,  //randomize order of presentation (defaults to false if missing)
-        skipOutput: false,  //record response to server (defaults to false if missing)
-
-		trials: [
-            //actual test
-			{ itemID: "O2p13", type: "AP", data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame: "mchoice", itemID: "BD02", type: "BD", data: ["I have lost all appetite", "false", "somewhat false", "somewhat true", "true"], polarity: 1},
-			{ itemID: "O2p7", type: "OP", data: ["verfehlen", "werde", "meine", "Ziele", "ich", "erreichen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p8", type: "OP", data: ["versagen", "werde", "mal", "ich", "wieder", "bestehen"], polarity: 1, pos: 6, neg: 1 },
-			{ itemID: "O2p9", type: "OI", data: ["düster", "wird", "Zukunft", "eher", "rosig", "die"], polarity: 1, pos: 5, neg: 1 }
-		]	
-    },
-    
     Ultimatum : {
         frame : "ultimatum",
         description : "ultimatum game, Stefanie Bernardin Jan 2022",
@@ -160,30 +61,7 @@
 
     },
 
-    /* These are not implemented yet but would look like this */
-    Beck : {
-        frame: "mchoice",
-        description: "Beck's depression scale",
-        version: "1.0",
-        timeout: 5000, 
-        timeRefractory: 1000,
-        randomOrder: false,
-        skipOutput: false,
-
-        //common properties of all trials
-        type: "BD",
-        polarity: 1,
-        trials: [
-            { frame: "infopage", itemID: "infoBeck", type: "info", skipOutput: true,
-                timeout: 0, timeRefractory: 0,
-                data: ["Answer as best as you can", "start"]},
-            { itemID: "BD01", data: ["I felt low for most of last week", "false", "somewhat false", "somewhat true", "true"]},
-            { itemID: "BD02", data: ["I have lost all appetite", "false", "somewhat false", "somewhat true", "true"]},
-            { itemID: "BD03", data: ["I have a big burden to carry", "false", "somewhat false", "somewhat true", "true"]}
-        ]
-    },
-
-    /////////////////////REAL SCRIPTS////////////////////////////////////////////////////
+    //SCALES//////////////////////////////////////////////////////////////////////
     GHQ: {
         frame: "mchoice",
         description: "General Health Questionaire, version 12 items",
@@ -257,19 +135,19 @@
             { itemID: "ADS01", data: ["Während der letzten Wochen...<br><br>...haben mich Dinge beunruhigt die mir sonst nichts ausmachen.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS02", data: ["Während der letzten Wochen...<br><br>...hatte ich kaum Appetit.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS03", data: ["Während der letzten Wochen...<br><br>...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern.", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS04", data: ["Während der letzten Wochen...<br><br>...kam ich mir genauso gut vor wie andere.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS04", polarity: -1, data: ["Während der letzten Wochen...<br><br>...kam ich mir genauso gut vor wie andere.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS05", data: ["Während der letzten Wochen...<br><br>...hatte ich Mühe, mich zu konzentrieren.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS06", data: ["Während der letzten Wochen...<br><br>...war ich deprimiert / niedergeschlagen.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS07", data: ["Während der letzten Wochen...<br><br>...war alles anstrengend für mich.", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS08", data: ["Während der letzten Wochen...<br><br>...dachte ich voller Hoffnung an die Zukunft.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS08", polarity: -1, data: ["Während der letzten Wochen...<br><br>...dachte ich voller Hoffnung an die Zukunft.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS09", data: ["Während der letzten Wochen...<br><br>...dachte ich, mein Leben ist ein einziger Fehlschlag.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS10", data: ["Während der letzten Wochen...<br><br>...hatte ich Angst.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS11", data: ["Während der letzten Wochen...<br><br>...habe ich schlecht geschlafen.", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS12", data: ["Während der letzten Wochen...<br><br>...war ich fröhlich gestimmt.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS12", polarity: -1, data: ["Während der letzten Wochen...<br><br>...war ich fröhlich gestimmt.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS13", data: ["Während der letzten Wochen...<br><br>...habe ich weniger als sonst geredet.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS14", data: ["Während der letzten Wochen...<br><br>...fühlte ich mich einsam.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS15", data: ["Während der letzten Wochen...<br><br>...waren die Leute unfreundlich zu mir.", "selten", "manchmal", "öfters", "meistens"]},
-            { itemID: "ADS16", data: ["Während der letzten Wochen...<br><br>...habe ich das Leben genossen.", "selten", "manchmal", "öfters", "meistens"]},
+            { itemID: "ADS16", polarity: -1, data: ["Während der letzten Wochen...<br><br>...habe ich das Leben genossen.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS17", data: ["Während der letzten Wochen...<br><br>...musste ich weinen.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS18", data: ["Während der letzten Wochen...<br><br>...war ich traurig.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS19", data: ["Während der letzten Wochen...<br><br>...hatte ich das Gefühl, dass mich die Leute nicht leiden können.", "selten", "manchmal", "öfters", "meistens"]},
@@ -351,7 +229,6 @@
         baselineScore: 0,
 
         //common properties of all trials
-        type: "PID5BF",
         polarity: 1,//bleibt
         trials: [
             { frame: "infopage"/*bleibt*/ , itemID: "infoPID5BF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
@@ -367,31 +244,31 @@
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
-            { itemID: "PID5BF01", data: ["Andere würden mich als leichtsinnig beschreiben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF02", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF03", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer wieder überstürzte Entscheidungen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF04", data: ["Ich habe oft das Gefühl, dass nichts, was ich tue, wirklich wichtig ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF05", data: ["Andere halten mich für verantwortungslos.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF06", data: ["Ich kann nicht gut im Voraus planen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF07", data: ["Meine Gedankengänge ergeben für andere häufig keinen Sinn.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF08", data: ["Ich mache mir über fast alles Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF09", data: ["Ich werde schnell emotional, oft aus geringstem Anlass.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF10", data: ["Vor nichts im Leben fürchte ich mich so sehr wie vor dem Alleinsein.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF11", data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF12", data: ["Ich habe schon mal Dinge gesehen, die nicht wirklich da waren.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF13", data: ["Ich gehe Liebesbeziehungen aus dem Weg.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF14", data: ["Ich habe kein Interesse daran, Freundschaften zu schließen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF15", data: ["Ich bin schnell von allen möglichen Dingen genervt.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF16", data: ["Zu viel Nähe zu anderen Menschen ist mir unangenehm.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF17", data: ["Es ist nichts dabei, wenn ich die Gefühle anderer verletze.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF18", data: ["Ich bin selten von irgendetwas begeistert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF19", data: ["Ich bin verrückt nach Aufmerksamkeit.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF20", data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF21", data: ["Ich habe oft Gedanken, die für mich Sinn ergeben, aber anderen Leuten seltsam erscheinen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF22", data: ["Ich benutze Menschen, um zu bekommen, was ich will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF23", data: ["Ich vergesse häufig alles um mich herum, komme dann plötzlich zu mir, und stelle fest, dass viel Zeit vergangen ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF24", data: ["Die Dinge um mich herum fühlen sich oft unwirklich oder realer als sonst an.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF25", data: ["Es fällt mir leicht, andere auszunutzen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
+            { itemID: "PID5BF01", type: "disinhibition", data: ["Andere würden mich als leichtsinnig beschreiben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF02", type: "disinhibition", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF03", type: "disinhibition", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer wieder überstürzte Entscheidungen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF04", type: "detachment",    data: ["Ich habe oft das Gefühl, dass nichts, was ich tue, wirklich wichtig ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF05", type: "disinhibition", data: ["Andere halten mich für verantwortungslos.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF06", type: "disinhibition", data: ["Ich kann nicht gut im Voraus planen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF07", type: "psychoticism",  data: ["Meine Gedankengänge ergeben für andere häufig keinen Sinn.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF08", type: "negaffect",     data: ["Ich mache mir über fast alles Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF09", type: "negaffect",     data: ["Ich werde schnell emotional, oft aus geringstem Anlass.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF10", type: "negaffect",     data: ["Vor nichts im Leben fürchte ich mich so sehr wie vor dem Alleinsein.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF11", type: "negaffect",     data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF12", type: "psychoticism",  data: ["Ich habe schon mal Dinge gesehen, die nicht wirklich da waren.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF13", type: "detachment",    data: ["Ich gehe Liebesbeziehungen aus dem Weg.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF14", type: "detachment",    data: ["Ich habe kein Interesse daran, Freundschaften zu schließen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF15", type: "negaffect",     data: ["Ich bin schnell von allen möglichen Dingen genervt.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF16", type: "detachment",    data: ["Zu viel Nähe zu anderen Menschen ist mir unangenehm.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF17", type: "antagonism",    data: ["Es ist nichts dabei, wenn ich die Gefühle anderer verletze.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF18", type: "detachment",    data: ["Ich bin selten von irgendetwas begeistert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF19", type: "antagonism",    data: ["Ich bin verrückt nach Aufmerksamkeit.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF20", type: "antagonism",    data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF21", type: "psychoticism",  data: ["Ich habe oft Gedanken, die für mich Sinn ergeben, aber anderen Leuten seltsam erscheinen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF22", type: "antagonism",    data: ["Ich benutze Menschen, um zu bekommen, was ich will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF23", type: "psychoticism",  data: ["Ich vergesse häufig alles um mich herum, komme dann plötzlich zu mir, und stelle fest, dass viel Zeit vergangen ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF24", type: "psychoticism",  data: ["Die Dinge um mich herum fühlen sich oft unwirklich oder realer als sonst an.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF25", type: "antagonism",    data: ["Es fällt mir leicht, andere auszunutzen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
     PID5BF34 : {
@@ -421,40 +298,40 @@
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
-            { itemID: "PID5BF01", data: ["Ich reagiere viel emotionaler als fast alle anderen Menschen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF02", data: ["Ich bin gut darin, Leute reinzulegen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF03", data: ["Ich gehe oft ziemlich nachlässig mit meinen Sachen und denen anderer um.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF04", data: ["Ich halte Abstand zu Menschen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF05", data: ["Ich sehe zwischen den Dingen oft ungewöhnliche Zusammenhänge, die anderen Menschen entgehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF06", data: ["Ich gehe Dinge immer auf die gleiche Weise an, auch wenn es so nicht funktioniert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF07", data: ["Ich mache mir ständig über irgendetwas Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF08", data: ["Manchmal muss man vor anderen übertreiben, um weiterzukommen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF09", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF10", data: ["Nichts scheint mich wirklich zu interessieren.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF11", data: ["Man hat mir gesagt, dass meine Art zu denken wirklich seltsam ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF12", data: ["Auch wenn es andere zum Wahnsinn treibt, bestehe ich darauf, alles perfekt zu machen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF13", data: ["Ich mache mir viele Sorgen darüber, allein zu sein.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF14", data: ["Es steht mir zu, besonders behandelt zu werden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF15", data: ["Ich verliere in Gesprächen den Faden, weil mich andere Dinge ablenken.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF16", data: ["Ich halte romantische Gefühle lieber aus meinem Leben heraus.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF17", data: ["Es ist komisch, aber manchmal kommen mir alltägliche Gegenstände anders vor als sonst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF18", data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF19", data: ["Ich werde schnell emotional, oft aus geringstem Anlass.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF20", data: ["Es fällt mir leicht, andere auszunutzen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF21", data: ["Ich vergesse oft, meine Rechnungen zu bezahlen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF22", data: ["Ich mag es nicht, Zeit mit anderen zu verbringen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF23", data: ["Ich hatte einige wirklich seltsame Erlebnisse, die sehr schwer zu erklären sind.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF24", data: ["Ich versuche Dinge weiter zu perfektionieren, auch wenn ich sie wahrscheinlich schon so gut wie möglich hinbekommen habe.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF25", data: ["Ich mache mir über fast alles Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF26", data: ["Ich biege mir die Wahrheit zurecht, wenn es zu meinem Vorteil ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF27", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer wieder überstürzte Entscheidungen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF28", data: ["Ich bin selten von irgendetwas begeistert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF29", data: ["Ich habe mehrere Angewohnheiten, die andere exzentrisch oder seltsam finden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF30", data: ["Ich ertrage es nicht, allein gelassen zu werden – nicht mal für ein paar Stunden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF31", data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF32", data: ["Ich lasse mich leicht ablenken.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF33", data: ["Ich beende Beziehungen, wenn sie enger werden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "PID5BF34", data: ["Wenn ich einen vertrauten Gegenstand anschaue, ist es manchmal so, als würde ich ihn zum ersten Mal sehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
+            { itemID: "PID5BF01", type: "negaffect",     data: ["Ich reagiere viel emotionaler als fast alle anderen Menschen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF02", type: "antagonism",    data: ["Ich bin gut darin, Leute reinzulegen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF03", type: "disinhibition", data: ["Ich gehe oft ziemlich nachlässig mit meinen Sachen und denen anderer um.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF04", type: "detachment",    data: ["Ich halte Abstand zu Menschen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF05", type: "psychoticism",  data: ["Ich sehe zwischen den Dingen oft ungewöhnliche Zusammenhänge, die anderen Menschen entgehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF06", type: "anancasm",      data: ["Ich gehe Dinge immer auf die gleiche Weise an, auch wenn es so nicht funktioniert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF07", type: "negaffect",     data: ["Ich mache mir ständig über irgendetwas Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF08", type: "antagonism",    data: ["Manchmal muss man vor anderen übertreiben, um weiterzukommen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF09", type: "disinhibition", data: ["Es kommt mir vor, als würde ich völlig impulsiv handeln.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF10", type: "detachment",    data: ["Nichts scheint mich wirklich zu interessieren.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF11", type: "psychoticism",  data: ["Man hat mir gesagt, dass meine Art zu denken wirklich seltsam ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF12", type: "anancasm",      data: ["Auch wenn es andere zum Wahnsinn treibt, bestehe ich darauf, alles perfekt zu machen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF13", type: "negaffect",     data: ["Ich mache mir viele Sorgen darüber, allein zu sein.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF14", type: "antagonism",    data: ["Es steht mir zu, besonders behandelt zu werden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF15", type: "disinhibition", data: ["Ich verliere in Gesprächen den Faden, weil mich andere Dinge ablenken.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF16", type: "detachment",    data: ["Ich halte romantische Gefühle lieber aus meinem Leben heraus.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF17", type: "psychoticism",  data: ["Es ist komisch, aber manchmal kommen mir alltägliche Gegenstände anders vor als sonst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF18", type: "anancasm",      data: ["Ich halte an einer bestimmten Herangehensweise fest, auch wenn klar ist, dass es so nicht funktionieren wird.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF19", type: "negaffect",     data: ["Ich werde schnell emotional, oft aus geringstem Anlass.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF20", type: "antagonism",    data: ["Es fällt mir leicht, andere auszunutzen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF21", type: "disinhibition", data: ["Ich vergesse oft, meine Rechnungen zu bezahlen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF22", type: "detachment",    data: ["Ich mag es nicht, Zeit mit anderen zu verbringen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF23", type: "psychoticism",  data: ["Ich hatte einige wirklich seltsame Erlebnisse, die sehr schwer zu erklären sind.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF24", type: "anancasm",      data: ["Ich versuche Dinge weiter zu perfektionieren, auch wenn ich sie wahrscheinlich schon so gut wie möglich hinbekommen habe.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF25", type: "negaffect",     data: ["Ich mache mir über fast alles Sorgen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF26", type: "antagonism",    data: ["Ich biege mir die Wahrheit zurecht, wenn es zu meinem Vorteil ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF27", type: "disinhibition", data: ["Obwohl ich es eigentlich besser weiß, treffe ich immer wieder überstürzte Entscheidungen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF28", type: "detachment",    data: ["Ich bin selten von irgendetwas begeistert.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF29", type: "psychoticism",  data: ["Ich habe mehrere Angewohnheiten, die andere exzentrisch oder seltsam finden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF30", type: "negaffect",     data: ["Ich ertrage es nicht, allein gelassen zu werden – nicht mal für ein paar Stunden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF31", type: "antagonism",    data: ["Ich muss mich oft mit Leuten beschäftigen, die weniger wichtig sind als ich.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF32", type: "disinhibition", data: ["Ich lasse mich leicht ablenken.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF33", type: "detachment",    data: ["Ich beende Beziehungen, wenn sie enger werden.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "PID5BF34", type: "psychoticism",  data: ["Wenn ich einen vertrauten Gegenstand anschaue, ist es manchmal so, als würde ich ihn zum ersten Mal sehen.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
     
@@ -469,7 +346,6 @@
         baselineScore: 1,
 
         //common properties of all trials
-        type: "LPFSBF",
         polarity: 1,//bleibt
         trials: [
             { frame: "infopage"/*bleibt*/ , itemID: "infoLPFSBF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
@@ -480,18 +356,18 @@
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
-            { itemID: "LPFSBF01", data: ["Ich weiß oft nicht wer ich wirklich bin.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF02", data: ["Ich denke oft sehr schlecht über mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF03", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF04", data: ["Ich habe keine Ahnung, wo ich im Leben hin will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF05", data: ["Ich verstehe oft meine eigenen Gedanken und Gefühle nicht.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF06", data: ["Ich stelle oft unrealistische Anforderungen an mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF07", data: ["Ich habe oft Schwierigkeiten, die Gedanken und Gefühle anderer zu verstehen.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF08", data: ["Ich kann es oft schwer aushalten, wenn andere eine andere Meinung haben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF09", data: ["Ich verstehe oft nicht ganz warum mein Verhalten einen bestimmten Einfluss auf andere hat.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF10", data: ["Meine Beziehungen und Freundschaften halten nie lange.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF11", data: ["Ich fühle mich oft sehr verletzlich, wenn Beziehungen persönlicher werden.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
-            { itemID: "LPFSBF12", data: ["Es gelingt mir häufig nicht, mit anderen auf eine Weise zusammen zu arbeiten, die für beide Seiten zufriedenstellend ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
+            { itemID: "LPFSBF01", type: "self", data: ["Ich weiß oft nicht wer ich wirklich bin.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF02", type: "self", data: ["Ich denke oft sehr schlecht über mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF03", type: "self", data: ["Meine Gefühle ändern sich, ohne dass ich sie im Griff habe.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF04", type: "self", data: ["Ich habe keine Ahnung, wo ich im Leben hin will.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF05", type: "self", data: ["Ich verstehe oft meine eigenen Gedanken und Gefühle nicht.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF06", type: "self", data: ["Ich stelle oft unrealistische Anforderungen an mich selbst.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF07", type: "interpersonal", data: ["Ich habe oft Schwierigkeiten, die Gedanken und Gefühle anderer zu verstehen.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF08", type: "interpersonal", data: ["Ich kann es oft schwer aushalten, wenn andere eine andere Meinung haben.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF09", type: "interpersonal", data: ["Ich verstehe oft nicht ganz warum mein Verhalten einen bestimmten Einfluss auf andere hat.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF10", type: "interpersonal", data: ["Meine Beziehungen und Freundschaften halten nie lange.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF11", type: "interpersonal", data: ["Ich fühle mich oft sehr verletzlich, wenn Beziehungen persönlicher werden.","trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]},
+            { itemID: "LPFSBF12", type: "interpersonal", data: ["Es gelingt mir häufig nicht, mit anderen auf eine Weise zusammen zu arbeiten, die für beide Seiten zufriedenstellend ist.", "trifft überhaupt nicht zu", "trifft eher nicht zu", "trifft eher zu", "trifft genau zu"]}
         ]
     },
 
