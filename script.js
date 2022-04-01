@@ -166,7 +166,17 @@
         trials: [
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
-                data: ["Erkärtext zum Ultimatumgame", "Start"]},
+                data: ["Sie werden auf der nächsten Seite ein Spiel spielen, bei dem Geld zwischen Ihnen und " +
+                "verschiedenen Mitspielern aufgeteilt wird. Sie starten in jeder Runde mit 20 €. " +
+                "Ihr Mitspieler wird Ihnen ein Angebot machen, wie sie die 20 € aufteilen.<br><br>" +
+                "Sie können sich in jeder Runde entscheiden, ob Sie kooperieren wollen. Kooperieren Sie, so wird " +
+                "Ihnen beiden der jeweilige Anteil der 20 € gutgeschrieben. Lehnen Sie das Angebot ab, wird nichts " +
+                "gutgeschrieben.<br><br>" +
+                "Die Mitspieler verhalten sich wie echte Menschen. Sie sind Spielern nachempfunden, " + 
+                "deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
+                "TEST UND SPIELRUNDEN<br><br>" +
+                "Wenn Sie bereit sind, klicken Sie bitte hier:",
+                "Start"]},
             { itemID: "ultRound1", blockID: 1, blockPos: -1, type: "goodOffer"},
             { itemID: "ultRound2", blockID: 1, blockPos: 0, type: "badOffer"},
             { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
