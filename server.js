@@ -57,6 +57,7 @@ function checkTests(tests) {
             }
             if (undefined === trial.itemID) throw("Test " + testID + ": item at position " + i + " has no itemID field.");
             if (undefined === trial.data)   throw("Test " + testID + ", item " + trial.itemID + ": missing data property.");
+            if (!Array.isArray(trial.data)) throw("Test " + testID + ", item " + trial.itemID + ": data property must be an array.");
             if (undefined === trial.type) trial.type = "";
             if (undefined === trial.polarity) trial.polarity = 0;
             test.trials[i] = trial;
