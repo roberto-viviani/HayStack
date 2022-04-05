@@ -135,6 +135,7 @@ hayStack.output = (function () {
         },
         //cumulates data into buffer.
         pushTrial : function(trial) {
+            if (trial.skipOutput) return;
             if (undefined === trial.timestamp)
                 trial.timestamp = fmatTime();
             trial.subjectID = subjectID;

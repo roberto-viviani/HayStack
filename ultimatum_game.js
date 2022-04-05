@@ -41,11 +41,18 @@ hayStack.ultimatum.state = {
     v_budget_playertwo : 0,
 
     responses : [],
-    data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}, //TODO: delete?
+    //data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}, //TODO: delete?
 
     clickedTime : new Date(),
     startTime : new Date(),
     reactionTime : new Date(),
+
+    reset : function() {
+        this.current_round = 0;
+        this.v_budget_playerone = 0;
+        this.v_budget_playertwo = 0;
+        this.responses = [];
+    }
 };
 
 
@@ -239,8 +246,11 @@ hayStack.ultimatum.continuationFactory = function(test) {
         else if ("ultimatum" === trialobj.frame) {
             //the continuations of ultimatum itself
             trialobj.trialID = i + 1;
-            trialobj.data[0] = offers[j];
-            j++;
+            if (0 === trialobj.data.length) {
+                //load offer from the options series, unless specified in trial
+                trialobj.data[0] = offers[j];
+                j++;
+            }
             trialobj.type = trialType;
             conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
         } 
@@ -257,6 +267,12 @@ hayStack.ultimatum.continuationFactory = function(test) {
 
 //for export
 hayStack.ultimatum.simpleContinuationFactory = function(trial) {
+    //trials with itemID reset the scores
+    if (trial.itemID === "reset") return function () {
+        hayStack.ultimatum.state.reset();
+        hayStack.continuations.next();
+    }
+
     return function() {
         hayStack.view.setTemplate("ultimatum", "ultimatumStyle");
         

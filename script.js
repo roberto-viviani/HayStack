@@ -44,7 +44,8 @@
         skipOutput : false,
         version : "1.0",
 
-        //the offers
+        //the offers may be specified in the options section, unless given in the data
+        //field of the rial object
         options : {
             //a first series of 30 offers N(12, 1.5), followed by 30 offers N(4, 1.5)
             //source: Xiang, Lohrenz, & Montague, J. Neurosci. 33:1099-1108
@@ -175,8 +176,18 @@
                 "Die Mitspieler verhalten sich wie echte Menschen. Sie sind Spielern nachempfunden, " + 
                 "deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
                 "TEST UND SPIELRUNDEN<br><br>" +
+                "Zuerst kommt eine Übung, um sich mit dem Spiel zu familiarisieren. Wenn Sie bereit sind, klicken Sie bitte hier:",
+                "Start"]},
+            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: -1, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: 0, type: "practice"},
+            { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
+                timeout: 0, timeRefractory: 0,
+                data: ["Jetzt fängt der echte Spiel an. Die Mitspieler verhalten sich wie echte Menschen. " + 
+                "Sie sind Spielern nachempfunden, deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
+                "TEST UND SPIELRUNDEN<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:",
                 "Start"]},
+            { itemID: "reset"},  //reset the gains of the practice phase
             { itemID: "ultRound1", blockID: 1, blockPos: -1, type: "goodOffer"},
             { itemID: "ultRound2", blockID: 1, blockPos: 0, type: "badOffer"},
             { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
