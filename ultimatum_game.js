@@ -47,11 +47,12 @@ hayStack.ultimatum.state = {
     startTime : new Date(),
     reactionTime : new Date(),
 
-    reset : function() {
+    reset : function(total_rounds) {
         this.current_round = 0;
         this.v_budget_playerone = 0;
         this.v_budget_playertwo = 0;
         this.responses = [];
+        this.total_rounds = total_rounds;
     }
 };
 
@@ -269,10 +270,10 @@ hayStack.ultimatum.continuationFactory = function(test) {
 hayStack.ultimatum.simpleContinuationFactory = function(trial) {
     //trials with itemID reset the scores
     if (trial.itemID === "reset") return function () {
-        hayStack.ultimatum.state.reset();
+        hayStack.ultimatum.state.reset(trial.data[0]);
         hayStack.continuations.next();
     }
-
+    //ordinary trial
     return function() {
         hayStack.view.setTemplate("ultimatum", "ultimatumStyle");
         

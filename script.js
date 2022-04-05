@@ -42,6 +42,7 @@
         timeout : 0,  //no timeout
         timeRefractory : 300,
         skipOutput : false,
+        randomOrder : false,
         version : "1.0",
 
         //the offers may be specified in the options section, unless given in the data
@@ -165,29 +166,62 @@
 
         data : [],
         trials: [
+            //instruction ultimatum
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
                 data: ["Sie werden auf der nächsten Seite ein Spiel spielen, bei dem Geld zwischen Ihnen und " +
                 "verschiedenen Mitspielern aufgeteilt wird. Sie starten in jeder Runde mit 20 €. " +
-                "Ihr Mitspieler wird Ihnen ein Angebot machen, wie sie die 20 € aufteilen.<br><br>" +
+                "Ihr Mitspieler wird Ihnen ein Angebot machen, wie sie die 20 € aufteilen. " +
                 "Sie können sich in jeder Runde entscheiden, ob Sie kooperieren wollen. Kooperieren Sie, so wird " +
                 "Ihnen beiden der jeweilige Anteil der 20 € gutgeschrieben. Lehnen Sie das Angebot ab, wird nichts " +
                 "gutgeschrieben.<br><br>" +
                 "Die Mitspieler verhalten sich wie echte Menschen. Sie sind Spielern nachempfunden, " + 
                 "deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
-                "TEST UND SPIELRUNDEN<br><br>" +
+                "Wenn Sie bei dieser Studie Ihr Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
+                "ÜBUNG<br><br>" +
                 "Zuerst kommt eine Übung, um sich mit dem Spiel zu familiarisieren. Wenn Sie bereit sind, klicken Sie bitte hier:",
                 "Start"]},
+            { itemID: "reset", data: [4]},  //set the number of practice rounds
             { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: -1, type: "practice"},
             { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: 0, type: "practice"},
+            //instruction SST
+            { frame: "infopage", itemID: "startinstruct", type: "info", timeout: 0,
+                data: ["Zwischen den Spielrunden sind Sie immer wieder gefragt, eine kleine Aufgabe zu erledigen. " + 
+                "Ihnen werden immer sechs Kästchen nebeneinander präsentiert, die " +
+                "Wörter in einer durcheinandergewürfelten Reihenfolge beinhalten. Aus diesen " + 
+                "Wörtern können Sie verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie " +
+                "nicht alle Wörter.<br><br>" +
+                "Bilden Sie im Kopf aus den Wörtern einen Satz und <b>klicken Sie auf " +
+                "das eine Wort, das Sie an das Ende des Satzes setzen würden</b>. " +
+                "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz oder zurück zum Spiel.<br><br>" + 
+                "Bitte beachten Sie: während Sie beim Spiel sich alle Zeit nehmen können, die Sie brauchen," + 
+                "haben Sie bei der Aufgabe nur 7.5 Sek. pro Aufgabe!<br><br>" +
+                "ÜBUNG<br><br>" +
+                "Zuerst kommt hier auch eine Übung, um sich mit der Aufgabe zu familiarisieren. " +
+                "Wenn Sie bereit sind, klicken Sie bitte hier:", "Start"]},
+            //practice trials. Override timeout. Override skipOutput.
+            { frame : "SST", skipOutput: true, itemID: "Pr01", type: "AP", timeout: 7500,
+                data: ["warten", "wir", "lange", "können", "sitzen", "nun"], polarity: -1, pos: 1, neg: 5 },
+            { frame : "SST", skipOutput: true, itemID: "Pr02", type: "AP", timeout: 7500,
+                data: ["nun", "Ich", "Post", "Haltestelle", "zur", "gehe"], polarity: -1, pos: 3, neg: 4},
+            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: -1, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: 0, type: "practice"},
+            { frame : "SST", skipOutput: true, itemID: "Pr03", type: "AP", timeout: 7500,
+                data: ["Tisch", "Anna", "auf", "sitzt", "dem", "Stuhl"], polarity: -1, pos: 1, neg: 6 },
+            { frame : "SST", skipOutput: true, itemID: "Pr04", type: "AP", timeout: 7500,
+                data: ["Hosen", "blau", "sind", "seine", "schwarz", "alle"], polarity: -1, pos: 2, neg: 4 },
+            //the test starts here.
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
-                data: ["Jetzt fängt der echte Spiel an. Die Mitspieler verhalten sich wie echte Menschen. " + 
+                data: ["Jetzt fängt der echte Spiel an. Noch mal: Sie können sich in jeder Runde entscheiden, ob "  + 
+                "Sie kooperieren wollen. Kooperieren Sie, so wird " +
+                "Ihnen beiden der jeweilige Anteil der 20 € gutgeschrieben. Lehnen Sie das Angebot ab, wird nichts " +
+                "gutgeschrieben.<br><br>Die Mitspieler verhalten sich wie echte Menschen. " + 
                 "Sie sind Spielern nachempfunden, deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
                 "TEST UND SPIELRUNDEN<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:",
                 "Start"]},
-            { itemID: "reset"},  //reset the gains of the practice phase
+            { itemID: "reset", data: [60]},  //reset the gains of the practice phase
             { itemID: "ultRound1", blockID: 1, blockPos: -1, type: "goodOffer"},
             { itemID: "ultRound2", blockID: 1, blockPos: 0, type: "badOffer"},
             { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
