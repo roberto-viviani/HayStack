@@ -970,8 +970,13 @@
         type: "ukraine",
         polarity: -1,
         trials: [
-            { itemID: "ukraine1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
-            { itemID: "ukraine2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen1", data: ["Fühlen Sie sich von der aktuellen Situation in der Ukraine bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen2", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen3", data: ["Fühlen Sie sich vom Klimawandel bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen4", data: ["Sind Sie oder eine nahestehende Person betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen5", data: ["Fühlen Sie sich von der Corona-Pandemie bedroht?", "Ja", "Nein", "Möchte nicht antworten"]},
+            { itemID: "weltgeschehen6", data: ["Sind Sie oder eine nahestehende Person aktuell betroffen?", "Ja", "Nein", "Möchte nicht antworten"]},
+
         ]
     },
 
