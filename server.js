@@ -403,8 +403,12 @@ function requestHandler(request, response) {
 	}
 	
 	function logRequest(request, msg) {
+        //reformat source
+        let src = /\d+\.\d+\.\d+\.\d+/.exec(request.socket.remoteAddress);
+        if (null !== src) source = request.socket.remoteAddress; 
+
 		console.log(msg + " (remote address: " + 
-            request.socket.remoteAddress + " - " + getTimestamp() + ")");
+            src + " - " + getTimestamp() + ")");
         return msg;
     }
     
