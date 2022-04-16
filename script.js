@@ -363,113 +363,113 @@
 
             { itemID: "ultimatum", blockID: 2, blockPos: -1 },
             { itemID: "ultimatum", blockID: 2, blockPos: 0 },
-            { itemID: "R19_V2_5NP", blockID: 2, blockPos: 1, type: "PN", data: ["gibt", "Probleme", "neue", "Chancen", "es", "viele"], polarity: 1, pos: 4, neg: 2                         },
+            { frame : "SST", itemID: "R19_V2_5NP", blockID: 2, blockPos: 1, type: "PN", timeout: 7500, data: ["gibt", "Probleme", "neue", "Chancen", "es", "viele"], polarity: 1, pos: 4, neg: 2                         },
 
             { itemID: "ultimatum", blockID: 3, blockPos: -2 },
             { itemID: "ultimatum", blockID: 3, blockPos: -1 },
             { itemID: "ultimatum", blockID: 3, blockPos: 0 },
-            { itemID: "A6R_V2_10PN", blockID: 3, blockPos: 1, type: "PN", data: ["Zuversicht", "ist", "Trauer", "voller", "Leben", "mein"], polarity: -1, pos: 1, neg: 3                   },
-            { itemID: "E15_V2_2NP", blockID: 3, blockPos: 2, type: "PN", data: ["gescheitert", "bin", "immer", "ich", "fast", "siegreich"], polarity: 1, pos: 6, neg: 1                    },
+            { frame : "SST", itemID: "A6R_V2_10PN", blockID: 3, blockPos: 1, type: "PN", timeout: 7500, data: ["Zuversicht", "ist", "Trauer", "voller", "Leben", "mein"], polarity: -1, pos: 1, neg: 3                   },
+            { frame : "SST", itemID: "E15_V2_2NP", blockID: 3, blockPos: 2, type: "PN", timeout: 7500, data: ["gescheitert", "bin", "immer", "ich", "fast", "siegreich"], polarity: 1, pos: 6, neg: 1                    },
 
             { itemID: "ultimatum", blockID: 4, blockPos: -2 },
             { itemID: "ultimatum", blockID: 4, blockPos: -1 },
             { itemID: "ultimatum", blockID: 4, blockPos: 0 },
-            { itemID: "E8_V2_5NP", blockID: 4, blockPos: 1, type: "PN", data: ["meine", "verpuffen", "Anstrengungen", "geschätzt", "sicher", "werden"], polarity: 1, pos: 4, neg: 2        },
+            { frame : "SST", itemID: "E8_V2_5NP", blockID: 4, blockPos: 1, type: "PN", timeout: 7500, data: ["meine", "verpuffen", "Anstrengungen", "geschätzt", "sicher", "werden"], polarity: 1, pos: 4, neg: 2        },
 
             { itemID: "ultimatum", blockID: 5, blockPos: -2 },
             { itemID: "ultimatum", blockID: 5, blockPos: -1 },
             { itemID: "ultimatum", blockID: 5, blockPos: 0 },
-            { itemID: "E14_V2_3NP", blockID: 5, blockPos: 1, type: "PN", data: ["Zukunft", "in", "alles", "wird", "angenehmer", "schwerer"], polarity: 1, pos: 5, neg: 6                   },
+            { frame : "SST", itemID: "E14_V2_3NP", blockID: 5, blockPos: 1, type: "PN", timeout: 7500, data: ["Zukunft", "in", "alles", "wird", "angenehmer", "schwerer"], polarity: 1, pos: 5, neg: 6                   },
 
             { itemID: "ultimatum", blockID: 6, blockPos: -2 },
             { itemID: "ultimatum", blockID: 6, blockPos: -1 },
             { itemID: "ultimatum", blockID: 6, blockPos: 0 },
-            { itemID: "E10_V2_8PN", blockID: 6, blockPos: 1, type: "PN", data: ["erreichen", "ich", "Anschluss", "den", "verpassen", "werde"], polarity: -1, pos: 1, neg: 5               },
+            { frame : "SST", itemID: "E10_V2_8PN", blockID: 6, blockPos: 1, type: "PN", timeout: 7500, data: ["erreichen", "ich", "Anschluss", "den", "verpassen", "werde"], polarity: -1, pos: 1, neg: 5               },
 
             { itemID: "ultimatum", blockID: 7, blockPos: -1 },
             { itemID: "ultimatum", blockID: 7, blockPos: 0 },
-            { itemID: "E18_V2_4PN", blockID: 7, blockPos: 1, type: "PN", data: ["froh", "schuld", "bin", "immer", "wieder", "ich"], polarity: -1, pos: 1, neg: 2                           },
+            { frame : "SST", itemID: "E18_V2_4PN", blockID: 7, blockPos: 1, type: "PN", timeout: 7500, data: ["froh", "schuld", "bin", "immer", "wieder", "ich"], polarity: -1, pos: 1, neg: 2                           },
 
             { itemID: "ultimatum", blockID: 8, blockPos: -2 },
             { itemID: "ultimatum", blockID: 8, blockPos: -1 },
             { itemID: "ultimatum", blockID: 8, blockPos: 0 },
-            { itemID: "E24_V2_1NP", blockID: 8, blockPos: 1, type: "PN", data: ["Sorgen", "viele", "habe", "sehr", "ich", "Chancen"], polarity: 1, pos: 6, neg: 1                          },
-            { itemID: "E13_V2_9NP", blockID: 8, blockPos: 2, type: "PN", data: ["stehen", "Chancen", "echt", "schlecht", "die", "großartig"], polarity: 1, pos: 6, neg: 4                  },
+            { frame : "SST", itemID: "E24_V2_1NP", blockID: 8, blockPos: 1, type: "PN", timeout: 7500, data: ["Sorgen", "viele", "habe", "sehr", "ich", "Chancen"], polarity: 1, pos: 6, neg: 1                          },
+            { frame : "SST", itemID: "E13_V2_9NP", blockID: 8, blockPos: 2, type: "PN", timeout: 7500, data: ["stehen", "Chancen", "echt", "schlecht", "die", "großartig"], polarity: 1, pos: 6, neg: 4                  },
 
             { itemID: "ultimatum", blockID: 9, blockPos: -1 },
             { itemID: "ultimatum", blockID: 9, blockPos: 0 },
-            { itemID: "E22_V2_6NP", blockID: 9, blockPos: 1, type: "PN", data: ["noch", "wir", "Strafe", "bekommen", "Auszeichnung", "eine"], polarity: 1, pos: 5, neg: 3                  },
+            { frame : "SST", itemID: "E22_V2_6NP", blockID: 9, blockPos: 1, type: "PN", timeout: 7500, data: ["noch", "wir", "Strafe", "bekommen", "Auszeichnung", "eine"], polarity: 1, pos: 5, neg: 3                  },
 
             { itemID: "ultimatum", blockID: 10, blockPos: -2 },
             { itemID: "ultimatum", blockID: 10, blockPos: -1 },
             { itemID: "ultimatum", blockID: 10, blockPos: 0 },
-            { itemID: "O5_V2_10NP", blockID: 10, blockPos: 1, type: "PN", data: ["verpasst", "die", "genutzt", "meistens", "Chancen", "werden"], polarity: -1, pos: 3, neg: 1               },
-            { itemID: "O7_V2_6NP", blockID: 10, blockPos: 2, type: "PN", data: ["meine", "werde", "erreichen", "Ziele", "verfehlen", "ich"], polarity: -1, pos: 3, neg: 5                   },
+            { frame : "SST", itemID: "O5_V2_10NP", blockID: 10, blockPos: 1, type: "PN", timeout: 7500, data: ["verpasst", "die", "genutzt", "meistens", "Chancen", "werden"], polarity: -1, pos: 3, neg: 1               },
+            { frame : "SST", itemID: "O7_V2_6NP", blockID: 10, blockPos: 2, type: "PN", timeout: 7500, data: ["meine", "werde", "erreichen", "Ziele", "verfehlen", "ich"], polarity: -1, pos: 3, neg: 5                   },
 
             { itemID: "ultimatum", blockID: 11, blockPos: -2 },
             { itemID: "ultimatum", blockID: 11, blockPos: -1 },
             { itemID: "ultimatum", blockID: 11, blockPos: 0 },
-            { itemID: "E21_V2_6PN", blockID: 11, blockPos: 1, type: "PN", data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5         },
-            { itemID: "56_V2_7NP", blockID: 11, blockPos: 2, type: "PN", data: ["man", "Falsche", "das", "tut", "meist", "Richtige"], polarity: 1, pos: 6, neg: 2                           },
+            { frame : "SST", itemID: "E21_V2_6PN", blockID: 11, blockPos: 1, type: "PN", timeout: 7500, data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5         },
+            { frame : "SST", itemID: "56_V2_7NP", blockID: 11, blockPos: 2, type: "PN", timeout: 7500, data: ["man", "Falsche", "das", "tut", "meist", "Richtige"], polarity: 1, pos: 6, neg: 2                           },
 
             //30
 
             { itemID: "ultimatum", blockID: 12, blockPos: -2 },
             { itemID: "ultimatum", blockID: 12, blockPos: -1 },
             { itemID: "ultimatum", blockID: 12, blockPos: 0 },
-            { itemID: "O11_V2_7PN", blockID: 12, blockPos: 1, type: "PN", data: ["meine", "professionell", "sind", "Bewerbungen", "bestimmt", "aussichtslos"], polarity: -1, pos: 2, neg: 6 },
-            { itemID: "E1_V2_4NP", blockID: 12, blockPos: 2, type: "PN", data: ["Schuld", "Geschenke", "mir", "sie", "die", "geben"], polarity: -1, pos: 2, neg: 1                          },
+            { frame : "SST", itemID: "O11_V2_7PN", blockID: 12, blockPos: 1, type: "PN", timeout: 7500, data: ["meine", "professionell", "sind", "Bewerbungen", "bestimmt", "aussichtslos"], polarity: -1, pos: 2, neg: 6 },
+            { frame : "SST", itemID: "E1_V2_4NP", blockID: 12, blockPos: 2, type: "PN", timeout: 7500, data: ["Schuld", "Geschenke", "mir", "sie", "die", "geben"], polarity: -1, pos: 2, neg: 1                          },
 
             { itemID: "ultimatum", blockID: 13, blockPos: -2 },
             { itemID: "ultimatum", blockID: 13, blockPos: -1 },
             { itemID: "ultimatum", blockID: 13, blockPos: 0 },
-            { itemID: "E2_V2_4PN", blockID: 13, blockPos: 1, type: "PN", data: ["erwischt", "verpasst", "den", "habe", "ich", "Zug"], polarity: -1, pos: 1, neg: 2                          },
-            { itemID: "E12_V2_9PN", blockID: 13, blockPos: 2, type: "PN", data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6                 },
+            { frame : "SST", itemID: "E2_V2_4PN", blockID: 13, blockPos: 1, type: "PN", timeout: 7500, data: ["erwischt", "verpasst", "den", "habe", "ich", "Zug"], polarity: -1, pos: 1, neg: 2                          },
+            { frame : "SST", itemID: "E12_V2_9PN", blockID: 13, blockPos: 2, type: "PN", timeout: 7500, data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6                 },
 
             { itemID: "ultimatum", blockID: 14, blockPos: -2 },
             { itemID: "ultimatum", blockID: 14, blockPos: -1 },
             { itemID: "ultimatum", blockID: 14, blockPos: 0 },
-            { itemID: "E16_V2_5PN", blockID: 14, blockPos: 1, type: "PN", data: ["mal", "bewundert", "werde", "beschuldigt", "ich", "wieder"], polarity: -1, pos: 2, neg: 4                 },
-            { itemID: "O10r_V2_1PN", blockID: 14, blockPos: 2, type: "PN", data: ["sinnvoll", "meistens", "sind", "Seminare", "meine", "sinnlos"], polarity: -1, pos: 1, neg: 6             },
+            { frame : "SST", itemID: "E16_V2_5PN", blockID: 14, blockPos: 1, type: "PN", timeout: 7500, data: ["mal", "bewundert", "werde", "beschuldigt", "ich", "wieder"], polarity: -1, pos: 2, neg: 4                 },
+            { frame : "SST", itemID: "O10r_V2_1PN", blockID: 14, blockPos: 2, type: "PN", timeout: 7500, data: ["sinnvoll", "meistens", "sind", "Seminare", "meine", "sinnlos"], polarity: -1, pos: 1, neg: 6             },
 
             { itemID: "ultimatum", blockID: 15, blockPos: -1 },
             { itemID: "ultimatum", blockID: 15, blockPos: 0 },
-            { itemID: "E4_V2_7NP", blockID: 15, blockPos: 1, type: "PN", data: ["bin", "schuld", "fast", "ich", "immer", "fleißig"], polarity: -1, pos: 6, neg: 2                           },
+            { frame : "SST", itemID: "E4_V2_7NP", blockID: 15, blockPos: 1, type: "PN", timeout: 7500, data: ["bin", "schuld", "fast", "ich", "immer", "fleißig"], polarity: -1, pos: 6, neg: 2                           },
 
             { itemID: "ultimatum", blockID: 16, blockPos: -2 },
             { itemID: "ultimatum", blockID: 16, blockPos: -1 },
             { itemID: "ultimatum", blockID: 16, blockPos: 0 },
-            { itemID: "O4_V2_2PN", blockID: 16, blockPos: 1, type: "PN", data: ["Erfolg", "habe", "gewöhnlich", "ich", "viel", "Misserfolg"], polarity: -1, pos: 1, neg: 6                  },
-            { itemID: "A2_V2_3NP", blockID: 16, blockPos: 2, type: "PN", data: ["bin ", "einfach", "manchmal", "ich", "traurig", "glücklich"], polarity: 1, pos: 6, neg: 5                  },
+            { frame : "SST", itemID: "O4_V2_2PN", blockID: 16, blockPos: 1, type: "PN", timeout: 7500, data: ["Erfolg", "habe", "gewöhnlich", "ich", "viel", "Misserfolg"], polarity: -1, pos: 1, neg: 6                  },
+            { frame : "SST", itemID: "A2_V2_3NP", blockID: 16, blockPos: 2, type: "PN", timeout: 7500, data: ["bin ", "einfach", "manchmal", "ich", "traurig", "glücklich"], polarity: 1, pos: 6, neg: 5                  },
 
             { itemID: "ultimatum", blockID: 17, blockPos: -1 },
             { itemID: "ultimatum", blockID: 17, blockPos: 0 },
-            { itemID: "O9r_V2_8PN", blockID: 17, blockPos: 1, type: "PN", data: ["rosig", "sehr", "Zukunft", "die", "düster", "ist"], polarity: -1, pos: 1, neg: 5                          },
+            { frame : "SST", itemID: "O9r_V2_8PN", blockID: 17, blockPos: 1, type: "PN", timeout: 7500, data: ["rosig", "sehr", "Zukunft", "die", "düster", "ist"], polarity: -1, pos: 1, neg: 5                          },
 
             { itemID: "ultimatum", blockID: 18, blockPos: -2 },
             { itemID: "ultimatum", blockID: 18, blockPos: -1 },
             { itemID: "ultimatum", blockID: 18, blockPos: 0 },
-            { itemID: "E7_V2_10NP", blockID: 18, blockPos: 1, type: "PN", data: ["verloren", "viel", "verdient", "ich", "Geld", "habe"], polarity: -1, pos: 3, neg: 1                       },
-            { itemID: "O6r_V2_2NP", blockID: 18, blockPos: 1, type: "PN", data: ["zerstört", "große", "Wünsche", "werden", "sehr", "erfüllt"], polarity: 1, pos: 6, neg: 1                  },
+            { frame : "SST", itemID: "E7_V2_10NP", blockID: 18, blockPos: 1, type: "PN", timeout: 7500, data: ["verloren", "viel", "verdient", "ich", "Geld", "habe"], polarity: -1, pos: 3, neg: 1                       },
+            { frame : "SST", itemID: "O6r_V2_2NP", blockID: 18, blockPos: 1, type: "PN", timeout: 7500, data: ["zerstört", "große", "Wünsche", "werden", "sehr", "erfüllt"], polarity: 1, pos: 6, neg: 1                  },
 
             { itemID: "ultimatum", blockID: 19, blockPos: -2 },
             { itemID: "ultimatum", blockID: 19, blockPos: -1 },
             { itemID: "ultimatum", blockID: 19, blockPos: 0 },
-            { itemID: "O1r_V2_1PN", blockID: 19, blockPos: 1, type: "PN", data: ["glücklich", "irgendwann", "mal", "werde", "ich", "sterben"], polarity: -1, pos: 1, neg: 6                 },
+            { frame : "SST", itemID: "O1r_V2_1PN", blockID: 19, blockPos: 1, type: "PN", timeout: 7500, data: ["glücklich", "irgendwann", "mal", "werde", "ich", "sterben"], polarity: -1, pos: 1, neg: 6                 },
 
             { itemID: "ultimatum", blockID: 20, blockPos: -2 },
             { itemID: "ultimatum", blockID: 20, blockPos: -1 },
             { itemID: "ultimatum", blockID: 20, blockPos: 0 },
-            { itemID: "E23_V2_9PN", blockID: 20, blockPos: 1, type: "PN", data: ["wird", "Akku", "gleich", "voll", "der", "leer"], polarity: 1, pos: 4, neg: 6                              },
+            { frame : "SST", itemID: "E23_V2_9PN", blockID: 20, blockPos: 1, type: "PN", timeout: 7500, data: ["wird", "Akku", "gleich", "voll", "der", "leer"], polarity: 1, pos: 4, neg: 6                              },
 
             { itemID: "ultimatum", blockID: 21, blockPos: -2 },
             { itemID: "ultimatum", blockID: 21, blockPos: -1 },
             { itemID: "ultimatum", blockID: 21, blockPos: 0 },
-            { itemID: "E20_V2_3NP", blockID: 21, blockPos: 1, type: "PN", data: ["Kinder", "viel", "die", "machen", "Kummer", "Vergnügen"], polarity: 1, pos: 6, neg: 5                     },
+            { frame : "SST", itemID: "E20_V2_3NP", blockID: 21, blockPos: 1, type: "PN", timeout: 7500, data: ["Kinder", "viel", "die", "machen", "Kummer", "Vergnügen"], polarity: 1, pos: 6, neg: 5                     },
 
             { itemID: "ultimatum", blockID: 22, blockPos: -1 },
             { itemID: "ultimatum", blockID: 22, blockPos: 0 },
-            { itemID: "E11_V2_8PN", blockID: 22, blockPos: 1, type: "PN", data: ["hoffnungslos", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1           }
+            { frame : "SST", itemID: "E11_V2_8PN", blockID: 22, blockPos: 1, type: "PN", timeout: 7500, data: ["hoffnungslos", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1           }
         ]
 
     },

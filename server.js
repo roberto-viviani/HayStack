@@ -55,7 +55,10 @@ function checkTests(tests) {
                 if ("options" === fname) continue;
                 if (undefined === trial[fname]) trial[fname] = test[fname];
             }
-            if (undefined === trial.itemID) throw("Test " + testID + ": item at position " + i + " has no itemID field.");
+            if (undefined === trial.itemID) {
+                console.log(trial);
+                throw("Test " + testID + ": item at position " + i + " has no itemID field.");
+            }
             if (undefined === trial.data)   throw("Test " + testID + ", item " + trial.itemID + ": missing data property.");
             if (!Array.isArray(trial.data)) throw("Test " + testID + ", item " + trial.itemID + ": data property must be an array.");
             if (undefined === trial.type) trial.type = "";

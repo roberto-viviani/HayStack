@@ -41,7 +41,6 @@ hayStack.ultimatum.state = {
     v_budget_playertwo : 0,
 
     responses : [],
-    //data : { itemID: "ultRound1", type: "goodOffer", data : [12, 8]}, //TODO: delete?
 
     clickedTime : new Date(),
     startTime : new Date(),
@@ -184,7 +183,7 @@ hayStack.ultimatum.intertrial = function() {
     view.hide_screen(offer_screen);
 
     // after intertrial continue with next trial
-    setTimeout(hayStack.continuations.next, view.rand_int(2000, 4000));
+    setTimeout(hayStack.continuations.next, view.rand_int(500, 1000));
 };
 
 
@@ -203,7 +202,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
         trialType = "xiang";
     } else {
         offers = test.options.series;
-        trialType = "series";
+        trialType = "mixture";
     }
 
     //override SST's output to record blockID and blockPos
@@ -259,7 +258,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
                 }
                 j++;
             }
-            trialobj.type = trialType;
+            if (trialobj.itemID !== "reset") trialobj.itemID = trialType;
             conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
         } 
         else {
