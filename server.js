@@ -125,6 +125,12 @@ function randMatcher(block) {
         //return buffer.pop();
     }
 }
+function fmatSource(source) {
+    let src = /\d+\.\d+\.\d+\.\d+/.exec(source);
+    if (null !== src) source = src[0]; 
+    else src = source;
+    return src;
+}
 
 
 /* Output. This section serializes to disk the data received from the client */
@@ -301,7 +307,7 @@ function requestHandler(request, response) {
                 
 				case "trials":
                     //The client issues this request when it fechtes the trials to be presented.
-					console.log("uploading main to " + request.socket.remoteAddress + " - " + getTimestamp());
+					console.log("uploading main to " + fmatSource(request.socket.remoteAddress) + " - " + getTimestamp());
 					response.setHeader("Content-Type", "text/html");
                     response.setHeader("access-control-allow-origin", "*");
                     response.statusCode = 200;
@@ -311,7 +317,7 @@ function requestHandler(request, response) {
 
                 /*
 				case "/styles.css":
-					console.log("uploading styles.css to " + request.socket.remoteAddress + " - " + Date(Date.now()));
+					console.log("uploading styles.css to " + fmatSource(request.socket.remoteAddress) + " - " + Date(Date.now()));
 					response.setHeader("Content-Type", "text/css");
 					response.setHeader("access-control-allow-origin", "*");
 					response.statusCode = 200;
@@ -319,7 +325,7 @@ function requestHandler(request, response) {
 					break;  
 					
 				case "/client.js":
-					console.log("uploading client.js to " + request.socket.remoteAddress + " - " + getTimestamp());
+					console.log("uploading client.js to " + fmatSource(request.socket.remoteAddress) + " - " + getTimestamp());
 					response.setHeader("Content-Type", "text/javascript");
 					response.setHeader("access-control-allow-origin", "*");
 					response.statusCode = 200;
@@ -328,7 +334,7 @@ function requestHandler(request, response) {
                 */
                 
                case "/favicon.ico":
-                console.log("uploading favicon.ico to " + request.socket.remoteAddress + " - " + getTimestamp());
+                console.log("uploading favicon.ico to " + fmatSource(request.socket.remoteAddress) + " - " + getTimestamp());
                 response.setHeader("Content-Type", "image/ico");
                 response.setHeader("access-control-allow-origin", "*");
                 response.statusCode = 200;
@@ -406,12 +412,8 @@ function requestHandler(request, response) {
 	}
 	
 	function logRequest(request, msg) {
-        //reformat source
-        let src = /\d+\.\d+\.\d+\.\d+/.exec(request.socket.remoteAddress);
-        if (null !== src) source = request.socket.remoteAddress; 
-
 		console.log(msg + " (remote address: " + 
-            src + " - " + getTimestamp() + ")");
+            fmatSource(request.socket.remoteAddress) + " - " + getTimestamp() + ")");
         return msg;
     }
     
