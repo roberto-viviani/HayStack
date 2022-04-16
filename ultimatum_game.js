@@ -95,8 +95,8 @@ hayStack.ultimatum.start_trial = function(trial) {
     document.getElementById("offer_playertwo").innerHTML = state.v_offer_playertwo;
 
     // timeout for displaying proposal and respond-buttons
-    setTimeout(ctl.proposal, 4000);
-    setTimeout(ctl.response, 8000, trial);
+    setTimeout(ctl.proposal, 2000);  //was 4000
+    setTimeout(ctl.response, 4000, trial);  //was 8000
 };
 
 
