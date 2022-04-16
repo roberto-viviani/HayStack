@@ -264,115 +264,41 @@
             xiang : [11,    10,    13,    13,    12,    11,    12,    14,    14,    11,    
                      12,    10,    13,    13,    13,    10,    13,    11,    11,    13,    
                      12,    12,    13,    14,    11,    10,    10,    11,    11,    13,     
-                     1,     4,     3,     6,     3,     4,     3,     3,     4,     4,     
-                     3,     6,     5,     7,     4,     6,     1,     5,     5,     3,     
-                     5,     5,     6,     5,     5,     3,     2,     4,     4,     5],
+                     -1,    -4,    -3,    -6,    -3,    -4,    -3,    -3,    -4,    -4,     
+                     -3,    -6,    -5,    -7,    -4,    -6,    -1,    -5,    -5,    -3,     
+                     -5,    -5,    -6,    -5,    -5,    -3,    -2,    -4,    -4,    -5],
             //Offers generated from a mixture of two Gaussians, proportion 60/40%,
-            //having means 9 and 5.5, and variances 0.8 and 1.5. The first Gaussian
-            //establishes (realistic) expectations of mean offers. The second one
-            //generates prediction errors. Source: Kienhöfer, Sittenberger, Rabl, Labek, 
+            //having means 10 and 4, and variances 0.8 and 1.3. The first offers
+            //establishes (realistic) expectations of mean offers. Further offers
+            //generate prediction errors. Source: Kienhöfer, Sittenberger, Rabl, Labek, 
             //Viviani 2020, "Preliminary analysis of the 'ultimatum' paradigm in the
-            //paracetamol study", Technical Report, May-September 2020.
+            //paracetamol study", Technical Report, May-September 2020. In that work,
+            //offers had a mean of 9 and 5.5; they were modified here to increase 
+            //comparability with the xiang series.
             series : [
-                     11,5,10,9,5,4,5,10,7,9,11,9,10,4,8,8,7,6,5,10,4,9,9,5,9,5,8,5,5,7,5,
-                     5,4,8,5,10,7,5,4,10,6,7,3,5,4,6,10,8,10,10,5,9,5,9,9,5,8,10,10,6,9,8,
-                     7,10,5,6,8,8,10,8,4,10,6,9,8,10,11,10,8,6,11,9,10,5,4,6,9,3,9,5,3,10,
-                     7,5,6,10,5,10,5,9,5,9,10,9,3,3,9,6,9,9,9,10,6,6,10,8,3,4,5,9,7,9,3,9,
-                     7,8,11,8,6,5,5,8,8,9,9,7,10,7,7,9,8,9,10,6,7,6,5,9,5,5,6,11,8,7,9,9,9,
-                     9,5,7,11,10,11,8,10,6,9,9,7,8,7,7,9,9,10,6,5,4,9,8,5,9,8,5,8,8,8,9,8,8,
-                     9,8,11,4,11,6,9,6,5,9,9,9,6,6,8,5,7,9,6,5,6,9,10,9,5,9,5,6,6,10,10,10,
-                     6,11,9,9,4,10,8,4,6,5,10,8,7,11,5,9,9,6,9,9,10,5,9,8,6,8,5,9,9,6,8,10,
-                     10,8,10,9,6,5,4,9,9,10,7,6,4,6,6,6,7,5,9,6,9,9,11,9,9,9,9,5,6,9,4,9,9,
-                     4,9,5,10,6,9,10,5,9,6,7,9,8,10,7,4,6,8,7,9,10,10,7,10,9,8,6,9,5,10,9,8,
-                     8,9,8,10,9,6,7,11,7,5,7,9,10,10,5,10,4,9,10,5,10,8,8,6,5,8,8,11,8,4,9,
-                     6,7,7,9,5,5,9,10,6,10,9,9,6,5,9,6,9,6,5,5,10,10,10,5,10,8,10,6,5,4,10,
-                     9,9,10,6,6,10,8,9,7,6,8,8,7,10,10,6,9,6,9,8,9,9,6,10,7,5,6,9,10,7,8,7,
-                     8,9,9,10,10,6,9,7,11,8,9,5,10,9,6,10,10,7,9,3,7,9,5,9,5,8,7,8,9,4,9,8,
-                     9,10,6,6,5,8,10,10,9,10,4,9,3,6,10,5,9,10,6,9,11,10,9,5,8,5,7,9,8,9,6,
-                     7,5,10,4,7,4,5,8,9,7,5,7,10,9,8,7,7,5,4,9,6,8,9,9,5,6,8,10,8,4,6,5,9,9,
-                     7,10,5,10,9,5,6,11,7,10,9,9,9,9,5,7,8,5,6,10,6,10,8,9,5,8,8,5,9,8,10,8,
-                     6,10,9,7,8,8,9,8,6,4,7,9,8,5,9,10,10,5,10,9,5,10,6,9,3,9,4,9,9,3,10,5,
-                     8,10,9,4,9,10,7,11,6,9,8,8,9,6,9,4,8,11,9,7,10,9,8,8,4,9,8,4,8,9,9,8,7,
-                     10,7,7,11,9,8,6,8,4,9,11,10,6,8,4,6,5,9,4,4,5,8,8,10,9,6,4,6,5,9,4,6,7,
-                     6,9,5,8,10,8,7,3,9,9,10,8,9,6,9,10,6,6,7,8,7,9,10,7,5,10,10,8,8,9,5,5,
-                     9,9,9,9,6,9,5,10,9,4,9,6,7,6,8,7,5,10,4,7,10,8,8,8,9,9,9,6,5,7,8,8,6,11,
-                     10,9,6,6,7,10,9,9,9,10,5,9,10,9,9,6,9,9,4,4,9,7,4,9,9,10,9,8,10,5,8,4,8,
-                     4,10,9,11,4,8,9,5,10,7,9,6,10,6,8,9,8,7,5,11,9,6,9,6,8,4,5,8,9,6,10,9,9,
-                     8,9,5,4,9,10,8,6,5,6,8,10,10,8,9,9,10,6,9,9,9,3,4,9,10,4,8,10,8,5,8,9,9,
-                     6,8,8,9,9,4,8,3,8,10,4,7,3,11,5,10,4,9,6,10,4,9,8,6,9,5,9,5,10,9,8,9,9,
-                     9,4,9,9,10,3,7,5,9,8,6,8,4,5,10,9,9,8,8,6,8,8,9,4,9,7,6,10,4,9,9,5,8,8,
-                     9,9,6,9,5,10,5,7,8,9,10,5,5,5,9,6,8,4,8,9,6,5,9,5,9,8,10,10,6,5,9,6,9,7,
-                     4,10,8,6,8,9,7,4,8,10,9,6,10,10,10,10,9,6,11,6,6,10,5,9,5,8,10,10,9,8,11,
-                     10,10,9,6,5,5,6,10,9,8,9,8,10,7,6,9,5,10,9,9,9,9,9,5,6,9,6,10,5,10,8,8,
-                     10,6,4,5,6,10,7,6,5,5,5,8,3,9,9,5,7,9,9,10,8,9,9,9,10,8,8,9,10,7,9,10,10,
-                     6,4,6,9,4,5,5,5,9,9,9,10,7,6,7,8,7,10,6,10,6,6,8,9,11,9,9,6,9,9,9,9,9,10,
-                     4,6,5,8,9,3,10,9,4,4,9,9,9,9,8,8,10,8,9,9,6,5,8,9,9,9,8,8,5,4,9,4,9,8,9,
-                     5,8,7,8,9,8,9,10,9,8,5,11,8,9,9,9,10,7,9,11,7,9,9,5,9,2,9,9,6,5,9,9,8,5,
-                     9,5,6,8,6,11,7,5,8,4,6,9,8,9,9,5,9,10,9,10,9,8,3,9,9,10,9,9,6,10,5,9,10,
-                     10,9,4,8,8,8,5,9,7,6,9,9,11,4,7,9,6,6,10,10,7,5,10,7,10,8,11,7,8,9,3,4,5,
-                     10,9,10,9,8,8,7,5,6,6,9,9,9,8,9,7,5,3,5,9,7,10,10,6,5,4,7,9,10,5,9,9,8,10,
-                     3,5,8,8,6,8,8,5,10,11,9,5,9,9,8,10,5,9,8,5,8,5,9,7,8,6,9,3,7,11,10,8,6,9,
-                     10,5,9,4,10,10,5,6,8,9,5,5,6,9,7,11,9,9,8,8,9,9,5,10,6,9,10,4,7,8,5,9,9,9,
-                     7,9,11,9,4,7,6,8,9,9,9,9,4,10,9,9,8,6,5,10,10,6,6,6,7,8,7,6,6,10,9,10,10,8,
-                     6,8,10,6,9,8,8,7,5,7,10,9,5,6,8,9,3,6,6,6,4,4,9,10,9,10,11,11,5,9,6,6,9,6,
-                     6,9,8,6,8,6,8,5,10,5,9,8,9,9,9,9,7,10,5,11,6,8,9,9,5,9,8,5,6,9,10,6,7,9,4,
-                     8,9,8,8,6,10,11,10,7,9,10,10,9,8,7,6,6,7,5,9,9,6,8,9,4,5,9,7,9,6,10,8,9,10,
-                     6,10,6,8,9,9,5,4,6,9,8,6,7,10,9,6,8,9,5,7,8,3,7,6,10,10,9,10,8,4,6,8,9,6,6,
-                     9,9,5,9,9,10,9,4,6,9,10,10,9,9,6,7,8,8,8,6,10,9,10,8,7,4,7,9,8,8,11,9,9,9,8,
-                     7,8,7,10,3,8,4,4,10,9,8,5,11,10,8,10,9,5,9,8,6,9,7,8,4,9,7,8,6,6,9,10,9,5,10,
-                     5,8,7,5,7,5,9,11,9,10,7,7,6,8,9,6,11,7,10,10,4,7,4,7,9,5,4,6,8,10,9,7,4,7,6,
-                     5,9,10,7,8,9,7,9,5,8,11,3,9,10,9,10,5,9,7,7,6,6,8,10,10,9,5,9,4,5,9,8,9,10,
-                     5,9,6,4,5,5,9,4,7,5,5,10,4,8,6,7,9,5,9,7,9,10,4,7,6,6,8,10,9,4,8,9,9,5,3,9,9,
-                     10,11,10,10,7,4,9,10,4,6,8,10,4,5,6,6,9,4,8,4,8,10,10,8,11,8,8,8,5,5,9,9,6,10,
-                     5,9,9,8,10,10,8,4,9,7,8,11,9,8,4,5,10,7,8,5,8,9,9,9,6,10,9,7,9,8,9,8,3,8,9,8,
-                     10,5,9,9,9,11,9,5,5,10,5,7,10,3,10,7,3,3,8,8,8,5,4,7,7,5,8,9,7,6,4,9,8,8,6,9,
-                     5,10,5,10,8,4,9,8,9,9,6,8,8,9,8,6,10,9,11,9,10,9,9,5,7,10,8,9,7,5,9,9,7,7,6,9,
-                     6,9,6,9,6,10,8,8,6,9,9,3,9,5,9,6,6,6,5,5,10,5,7,4,9,8,8,7,5,9,8,8,10,10,9,9,7,
-                     5,6,10,5,6,7,5,8,10,9,7,6,8,5,6,8,9,6,9,9,6,7,9,10,8,5,8,9,11,4,9,7,4,10,6,9,
-                     6,8,4,9,8,10,6,9,10,10,8,7,10,8,10,9,8,8,9,10,8,5,4,10,9,8,9,8,9,7,8,8,5,9,5,
-                     5,4,5,10,10,6,9,9,3,5,11,9,8,10,3,4,9,7,8,4,8,6,9,9,8,9,10,5,6,11,5,8,8,8,4,9,
-                     6,10,8,10,11,9,8,6,7,6,8,9,8,5,10,10,5,9,10,9,9,9,10,5,6,4,6,10,6,8,9,9,4,8,4,
-                     8,9,10,9,8,8,4,3,9,9,5,8,6,5,8,4,9,9,5,5,6,6,8,10,7,4,5,6,7,8,9,10,9,7,10,4,7,
-                     9,5,8,9,9,9,8,6,9,10,9,5,10,8,9,10,9,6,10,9,9,9,4,9,9,6,9,7,9,6,5,8,9,8,11,8,5,
-                     9,10,5,9,6,10,5,5,5,7,10,8,10,9,7,10,4,9,6,9,6,10,5,4,8,9,9,9,5,9,5,10,9,5,8,10,
-                     6,7,9,10,9,5,9,9,7,8,5,6,9,8,10,10,8,10,7,10,9,4,7,8,10,6,10,6,9,11,6,7,10,9,4,
-                     9,9,10,6,10,9,10,11,7,5,10,6,10,10,7,8,8,5,7,10,8,9,9,9,10,10,9,5,4,6,9,9,5,7,8,
-                     7,6,8,6,6,10,6,6,10,6,6,8,9,9,9,9,8,5,9,11,8,9,10,7,8,9,10,5,10,10,8,10,10,8,
-                     9,5,8,5,8,7,6,7,9,5,10,6,9,3,5,9,5,9,4,9,9,8,6,9,10,7,6,9,9,8,8,6,8,10,6,9,8,
-                     6,3,10,9,2,10,5,6,6,4,5,9,9,10,9,9,10,9,7,8,5,10,9,9,8,8,9,4,9,8,10,10,10,6,
-                     10,8,9,8,10,5,9,10,7,7,8,9,3,10,7,10,8,4,7,6,5,9,7,5,5,5,2,9,9,5,7,8,6,5,10,9,
-                     9,5,2,8,10,9,9,10,9,5,8,8,5,4,8,7,9,6,10,8,10,8,9,6,6,9,6,10,9,5,9,9,7,9,10,7,
-                     9,7,8,4,10,9,9,4,10,10,4,11,9,7,11,8,9,6,6,9,10,7,9,9,6,9,7,9,9,8,7,5,9,5,9,3,
-                     6,10,9,11,6,3,7,8,10,10,6,7,9,9,6,8,8,5,10,5,9,7,9,6,11,5,10,8,9,8,8,3,6,10,9,
-                     10,8,9,7,9,9,9,9,9,8,6,9,9,6,8,6,6,5,9,5,11,8,8,11,9,8,7,6,5,9,9,9,4,11,5,10,7,
-                     8,10,11,10,4,8,10,8,7,6,6,9,4,8,11,10,10,5,6,8,5,9,5,6,5,10,6,10,10,10,9,8,8,8,
-                     9,8,8,6,6,6,9,5,6,5,8,9,9,4,11,11,9,9,7,8,7,4,8,6,5,5,5,9,9,5,5,8,9,9,6,5,10,5,
-                     10,11,10,6,5,9,7,9,9,6,11,5,7,4,6,9,5,10,4,8,5,5,9,9,8,6,8,10,7,5,8,5,6,9,5,5,
-                     7,9,10,6,9,8,8,7,8,9,10,5,5,3,8,3,9,6,5,6,8,9,9,7,5,5,6,10,8,7,10,9,5,8,7,10,
-                     10,6,9,11,9,4,5,8,10,7,9,7,10,8,5,4,5,9,5,10,9,8,7,8,6,9,9,10,9,10,6,5,5,9,4,
-                     8,9,6,9,10,4,10,5,9,7,10,10,10,3,10,9,5,10,8,9,8,7,7,3,9,7,5,3,9,5,4,9,5,7,9,
-                     10,10,6,9,7,8,10,10,7,8,10,9,5,5,5,7,6,6,7,9,9,8,4,10,9,4,9,6,9,5,10,8,5,6,8,
-                     5,7,10,9,6,5,5,8,7,9,10,4,9,7,9,7,7,9,10,8,10,7,5,9,8,8,5,9,8,9,9,9,9,10,11,
-                     8,6,8,8,7,6,7,6,8,9,10,9,5,6,9,6,8,9,8,9,7,4,5,9,7,8,10,9,4,9,11,4,8,6,9,4,
-                     10,6,10,9,8,10,8,10,10,9,10,9,4,7,5,8,9,4,9,10,5,8,5,7,9,7,6,9,10,6,9,9,9,5,
-                     6,5,9,9,3,8,9,5,9,8,8,6,7,9,4,3,9,6,7,9,7,9,9,8,4,8,10,7,9,6,9,10,8,7,5,10,9,
-                     8,4,9,5,9,5,8,7,10,8,9,10,6,9,8,10,8,8,10,7,9,4,9,9,9,11,9,10,9,9,6,3,8,9,8,
-                     9,5,4,9,9,9,9,6,9,4,9,10,10,9,8,9,6,9,5,8,10,7,10,5,8,9,9,6,8,7,9,10,7,8,3,
-                     10,10,10,4,7,10,7,9,6,8,5,6,9,6,4,9,9,7,9,11,8,8,9,6,8,8,8,10,8,8,3,8,7,5,8,
-                     7,8,4,6,10,7,4,9,5,6,4,10,6,7,7,5,10,10,6,10,9,8,8,10,5,9,7,10,5,9,9,8,6,8,11,
-                     5,7,9,8,9,9,8,8,5,9,10,10,10,6,6,8,7,5,9,4,9,9,6,4,9,10,9,9,11,9,8,6,6,9,4,10,
-                     10,10,8,4,5,4,6,8,8,10,6,4,8,8,7,6,6,10,9,3,9,9,10,4,5,8,9,8,9,6,4,11,7,9,4,6,
-                     9,9,10,8,7,6,4,5,10,10,10,8,8,8,5,5,9,9,8,10,4,8,9,11,5,11,8,8,5,10,10,6,9,4,
-                     4,8,8,5,7,5,9,8,9,3,9,5,5,5,8,5,10,9,6,9,5,9,5,3,9,9,10,8,8,7,8,4,6,4,8,8,7,
-                     8,6,8,10,9,4,5,10,10,9,9,8,7,8,6,4,5,10,4,5,10,7,9,6,9,11,8,8,8,2,3,9,4,9,9,
-                     6,6,9,5,8,9,9,7,9,9,10,7,4,8,9,8,8,6,10,9,9,6,9,10,10,5,6,6,9,9,10,6,8,8,9,
-                     9,10,9,9,6,5,9,10,11,9,9,9,9,8,6,8,10,6,4,5,8,6,8,8,5,9,9,8,7,9,9,5,9,9,9,8,
-                     5,9,8,7,9,8,10,8,8,10,7,9,7,9,8,10,11,10,6,9,7,10,8,8,6,7,9,8,6,8,8,10,8,8,
-                     9,6,8,9,10,6,5,4,5,9,4,11,6,5,6,6,8,4,9,8,3,8,7,9,7,10,7,9,5,8,9,10,4,11,6,
-                     11,3,9,9,9,10,6,9,6,9,8,5,9,5,5,8,9,9,9,8,10,8,10,7,9,6,8,5,7,9,9,7,3,9,10,
-                     6,6,8,11,9,6,8,9,9,5,10,10,3,8,8,5,8,9,5,9,8,10,10,9,6,5,10,9,8,9,8,8,9,8,
-                     10,5,7,8,5,4,10,7,9,5,8,9,5,9,6,7,9,5,4,9,10,8,8,4,9,10,10,10,11,9,9,5,7,9
-                     ]
+                     11, 12, 10,    //1
+                     11,  9,        //2
+                     12, 12, 11,    //3
+                     -3, -1, -3,    //4
+                     12, 11, 10,    //5
+                     -4, -4, -5,    //6
+                     -3, -2,        //7
+                     -2, -5, -3,    //8
+                     9, 10,         //9
+                     12, 11, 11,    //10
+                     -6, -3, -4,    //11
+                     11, 11,  9,    //12
+                     10, 12, 10     //13
+                     -2, -3, -4,    //14
+                     -3, -6,        //15
+                     -6, -4, -3,    //16
+                     10, 11,        //17
+                     10, 10, 10,    //18
+                     -1, -5, -4,    //19
+                     10, 10, 12,    //20
+                     -4, -5, -3,    //21
+                     -4, -5         //22
+                    ]
         },
 
         data : [],
@@ -431,13 +357,119 @@
                 "Wenn Sie bereit sind, klicken Sie bitte hier:",
                 "Start"]},
             { itemID: "reset", data: [60]},  //reset the gains of the practice phase
-            { itemID: "ultRound1", blockID: 1, blockPos: -1, type: "goodOffer"},
-            { itemID: "ultRound2", blockID: 1, blockPos: 0, type: "badOffer"},
-            { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", blockID: 1, blockPos: 2, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { itemID: "ultRound3", blockID: 2, blockPos: 0, type: "midOffer"},
-            { frame : "SST", itemID: "O2p13", blockID: 2, blockPos: 1, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 },
-            { frame : "SST", itemID: "O2p13", blockID: 2, blockPos: 2, type: "AP", timeout: 7500, data: ["macht", "meine", "glücklich", "Arbeit", "müde", "mich"], polarity: -1, pos: 3, neg: 5 }
+            { itemID: "ultimatum", blockID: 1, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 1, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 1, blockPos: 0 },
+
+            { itemID: "ultimatum", blockID: 2, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 2, blockPos: 0 },
+            { itemID: "R19_V2_5NP", blockID: 2, blockPos: 1, type: "PN", data: ["gibt", "Probleme", "neue", "Chancen", "es", "viele"], polarity: 1, pos: 4, neg: 2                         },
+
+            { itemID: "ultimatum", blockID: 3, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 3, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 3, blockPos: 0 },
+            { itemID: "A6R_V2_10PN", blockID: 3, blockPos: 1, type: "PN", data: ["Zuversicht", "ist", "Trauer", "voller", "Leben", "mein"], polarity: -1, pos: 1, neg: 3                   },
+            { itemID: "E15_V2_2NP", blockID: 3, blockPos: 2, type: "PN", data: ["gescheitert", "bin", "immer", "ich", "fast", "siegreich"], polarity: 1, pos: 6, neg: 1                    },
+
+            { itemID: "ultimatum", blockID: 4, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 4, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 4, blockPos: 0 },
+            { itemID: "E8_V2_5NP", blockID: 4, blockPos: 1, type: "PN", data: ["meine", "verpuffen", "Anstrengungen", "geschätzt", "sicher", "werden"], polarity: 1, pos: 4, neg: 2        },
+
+            { itemID: "ultimatum", blockID: 5, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 5, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 5, blockPos: 0 },
+            { itemID: "E14_V2_3NP", blockID: 5, blockPos: 1, type: "PN", data: ["Zukunft", "in", "alles", "wird", "angenehmer", "schwerer"], polarity: 1, pos: 5, neg: 6                   },
+
+            { itemID: "ultimatum", blockID: 6, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 6, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 6, blockPos: 0 },
+            { itemID: "E10_V2_8PN", blockID: 6, blockPos: 1, type: "PN", data: ["erreichen", "ich", "Anschluss", "den", "verpassen", "werde"], polarity: -1, pos: 1, neg: 5               },
+
+            { itemID: "ultimatum", blockID: 7, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 7, blockPos: 0 },
+            { itemID: "E18_V2_4PN", blockID: 7, blockPos: 1, type: "PN", data: ["froh", "schuld", "bin", "immer", "wieder", "ich"], polarity: -1, pos: 1, neg: 2                           },
+
+            { itemID: "ultimatum", blockID: 8, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 8, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 8, blockPos: 0 },
+            { itemID: "E24_V2_1NP", blockID: 8, blockPos: 1, type: "PN", data: ["Sorgen", "viele", "habe", "sehr", "ich", "Chancen"], polarity: 1, pos: 6, neg: 1                          },
+            { itemID: "E13_V2_9NP", blockID: 8, blockPos: 2, type: "PN", data: ["stehen", "Chancen", "echt", "schlecht", "die", "großartig"], polarity: 1, pos: 6, neg: 4                  },
+
+            { itemID: "ultimatum", blockID: 9, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 9, blockPos: 0 },
+            { itemID: "E22_V2_6NP", blockID: 9, blockPos: 1, type: "PN", data: ["noch", "wir", "Strafe", "bekommen", "Auszeichnung", "eine"], polarity: 1, pos: 5, neg: 3                  },
+
+            { itemID: "ultimatum", blockID: 10, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 10, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 10, blockPos: 0 },
+            { itemID: "O5_V2_10NP", blockID: 10, blockPos: 1, type: "PN", data: ["verpasst", "die", "genutzt", "meistens", "Chancen", "werden"], polarity: -1, pos: 3, neg: 1               },
+            { itemID: "O7_V2_6NP", blockID: 10, blockPos: 2, type: "PN", data: ["meine", "werde", "erreichen", "Ziele", "verfehlen", "ich"], polarity: -1, pos: 3, neg: 5                   },
+
+            { itemID: "ultimatum", blockID: 11, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 11, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 11, blockPos: 0 },
+            { itemID: "E21_V2_6PN", blockID: 11, blockPos: 1, type: "PN", data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5         },
+            { itemID: "56_V2_7NP", blockID: 11, blockPos: 2, type: "PN", data: ["man", "Falsche", "das", "tut", "meist", "Richtige"], polarity: 1, pos: 6, neg: 2                           },
+
+            //30
+
+            { itemID: "ultimatum", blockID: 12, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 12, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 12, blockPos: 0 },
+            { itemID: "O11_V2_7PN", blockID: 12, blockPos: 1, type: "PN", data: ["meine", "professionell", "sind", "Bewerbungen", "bestimmt", "aussichtslos"], polarity: -1, pos: 2, neg: 6 },
+            { itemID: "E1_V2_4NP", blockID: 12, blockPos: 2, type: "PN", data: ["Schuld", "Geschenke", "mir", "sie", "die", "geben"], polarity: -1, pos: 2, neg: 1                          },
+
+            { itemID: "ultimatum", blockID: 13, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 13, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 13, blockPos: 0 },
+            { itemID: "E2_V2_4PN", blockID: 13, blockPos: 1, type: "PN", data: ["erwischt", "verpasst", "den", "habe", "ich", "Zug"], polarity: -1, pos: 1, neg: 2                          },
+            { itemID: "E12_V2_9PN", blockID: 13, blockPos: 2, type: "PN", data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6                 },
+
+            { itemID: "ultimatum", blockID: 14, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 14, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 14, blockPos: 0 },
+            { itemID: "E16_V2_5PN", blockID: 14, blockPos: 1, type: "PN", data: ["mal", "bewundert", "werde", "beschuldigt", "ich", "wieder"], polarity: -1, pos: 2, neg: 4                 },
+            { itemID: "O10r_V2_1PN", blockID: 14, blockPos: 2, type: "PN", data: ["sinnvoll", "meistens", "sind", "Seminare", "meine", "sinnlos"], polarity: -1, pos: 1, neg: 6             },
+
+            { itemID: "ultimatum", blockID: 15, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 15, blockPos: 0 },
+            { itemID: "E4_V2_7NP", blockID: 15, blockPos: 1, type: "PN", data: ["bin", "schuld", "fast", "ich", "immer", "fleißig"], polarity: -1, pos: 6, neg: 2                           },
+
+            { itemID: "ultimatum", blockID: 16, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 16, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 16, blockPos: 0 },
+            { itemID: "O4_V2_2PN", blockID: 16, blockPos: 1, type: "PN", data: ["Erfolg", "habe", "gewöhnlich", "ich", "viel", "Misserfolg"], polarity: -1, pos: 1, neg: 6                  },
+            { itemID: "A2_V2_3NP", blockID: 16, blockPos: 2, type: "PN", data: ["bin ", "einfach", "manchmal", "ich", "traurig", "glücklich"], polarity: 1, pos: 6, neg: 5                  },
+
+            { itemID: "ultimatum", blockID: 17, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 17, blockPos: 0 },
+            { itemID: "O9r_V2_8PN", blockID: 17, blockPos: 1, type: "PN", data: ["rosig", "sehr", "Zukunft", "die", "düster", "ist"], polarity: -1, pos: 1, neg: 5                          },
+
+            { itemID: "ultimatum", blockID: 18, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 18, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 18, blockPos: 0 },
+            { itemID: "E7_V2_10NP", blockID: 18, blockPos: 1, type: "PN", data: ["verloren", "viel", "verdient", "ich", "Geld", "habe"], polarity: -1, pos: 3, neg: 1                       },
+            { itemID: "O6r_V2_2NP", blockID: 18, blockPos: 1, type: "PN", data: ["zerstört", "große", "Wünsche", "werden", "sehr", "erfüllt"], polarity: 1, pos: 6, neg: 1                  },
+
+            { itemID: "ultimatum", blockID: 19, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 19, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 19, blockPos: 0 },
+            { itemID: "O1r_V2_1PN", blockID: 19, blockPos: 1, type: "PN", data: ["glücklich", "irgendwann", "mal", "werde", "ich", "sterben"], polarity: -1, pos: 1, neg: 6                 },
+
+            { itemID: "ultimatum", blockID: 20, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 20, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 20, blockPos: 0 },
+            { itemID: "E23_V2_9PN", blockID: 20, blockPos: 1, type: "PN", data: ["wird", "Akku", "gleich", "voll", "der", "leer"], polarity: 1, pos: 4, neg: 6                              },
+
+            { itemID: "ultimatum", blockID: 21, blockPos: -2 },
+            { itemID: "ultimatum", blockID: 21, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 21, blockPos: 0 },
+            { itemID: "E20_V2_3NP", blockID: 21, blockPos: 1, type: "PN", data: ["Kinder", "viel", "die", "machen", "Kummer", "Vergnügen"], polarity: 1, pos: 6, neg: 5                     },
+
+            { itemID: "ultimatum", blockID: 22, blockPos: -1 },
+            { itemID: "ultimatum", blockID: 22, blockPos: 0 },
+            { itemID: "E11_V2_8PN", blockID: 22, blockPos: 1, type: "PN", data: ["hoffnungslos", "aktuelle", "Situation", "ist", "optimal", "meine"], polarity: 1, pos: 5, neg: 1           }
         ]
 
     },

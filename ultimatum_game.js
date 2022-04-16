@@ -248,8 +248,15 @@ hayStack.ultimatum.continuationFactory = function(test) {
             //the continuations of ultimatum itself
             trialobj.trialID = i + 1;
             if (0 === trialobj.data.length) {
-                //load offer from the options series, unless specified in trial
-                trialobj.data[0] = offers[j];
+                //load offer from the options series, unless specified in trial. A
+                //negative offer is a bad offer, but it is meant to be positive.
+                if (offers[j] < 0) {
+                    trialobj.type = "bad";
+                    trialobj.data[0] = -offers[j];
+                } else {
+                    trialobj.type = "good";
+                    trialobj.data[0] = offers[j];
+                }
                 j++;
             }
             trialobj.type = trialType;
