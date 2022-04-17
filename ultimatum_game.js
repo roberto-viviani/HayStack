@@ -52,6 +52,10 @@ hayStack.ultimatum.state = {
         this.v_budget_playertwo = 0;
         this.responses = [];
         this.total_rounds = total_rounds;
+    },
+    resetBudget : function() {
+        this.v_budget_playerone = 0;
+        this.v_budget_playertwo = 0;
     }
 };
 
@@ -197,7 +201,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
     var trialType = '';
     var sessionID = hayStack.output.emptyTrial().sessionID; //del?
     var newRandInt = hayStack.ultimatum.view.rand_int(0,50);
-    if (newRandInt % 2  === 0) {
+    if (newRandInt % 2  === 0 & false) {
         offers = test.options.xiang;
         trialType = "xiang";
     } else {
@@ -245,20 +249,23 @@ hayStack.ultimatum.continuationFactory = function(test) {
         }
         else if ("ultimatum" === trialobj.frame) {
             //the continuations of ultimatum itself
-            trialobj.trialID = i + 1;
-            if (0 === trialobj.data.length) {
-                //load offer from the options series, unless specified in trial. A
-                //negative offer is a bad offer, but it is meant to be positive.
-                if (offers[j] < 0) {
-                    trialobj.type = "bad";
-                    trialobj.data[0] = -offers[j];
-                } else {
-                    trialobj.type = "good";
-                    trialobj.data[0] = offers[j];
+            if ("ultimatum" === trialobj.itemID) {  //avoid 'reset', 'resetBudget' etc.
+                trialobj.trialID = i + 1;
+                if (trialobj.blockID === 16) console.log(trialobj);
+                if (0 === trialobj.data.length) {
+                    //load offer from the options series, unless specified in trial. A
+                    //negative offer is a bad offer, but it is meant to be positive.
+                    if (offers[j] < 0) {
+                        trialobj.type = "bad";
+                        trialobj.data[0] = -offers[j];
+                    } else {
+                        trialobj.type = "good";
+                        trialobj.data[0] = offers[j];
+                    }
+                    j++;
                 }
-                j++;
+                trialobj.itemID = trialType;
             }
-            if (trialobj.itemID !== "reset") trialobj.itemID = trialType;
             conts.push(hayStack.ultimatum.simpleContinuationFactory(trialobj));
         } 
         else {
@@ -274,16 +281,19 @@ hayStack.ultimatum.continuationFactory = function(test) {
 
 //for export
 hayStack.ultimatum.simpleContinuationFactory = function(trial) {
-    //trials with itemID reset the scores
+    //trials with this itemID reset the scores and the series
     if (trial.itemID === "reset") return function () {
         hayStack.ultimatum.state.reset(trial.data[0]);
         hayStack.continuations.next();
-    }
+    };
+    //trials with itemID resetBudget only set the budge to zero
+    if (trial.itemID === "resetBudget") return function () {
+        hayStack.ultimatum.state.resetBudget();
+        hayStack.continuations.next();
+    };
     //ordinary trial
     return function() {
         hayStack.view.setTemplate("ultimatum", "ultimatumStyle");
-        
-        lib = hayStack.ultimatum;
-        lib.start_trial(trial);
-    }
+        hayStack.ultimatum.start_trial(trial);
+    };
 }
