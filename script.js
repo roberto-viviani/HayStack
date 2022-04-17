@@ -268,38 +268,63 @@
                      -3,    -6,    -5,    -7,    -4,    -6,    -1,    -5,    -5,    -3,     
                      -5,    -5,    -6,    -5,    -5,    -3,    -2,    -4,    -4,    -5],
             //Offers generated from a mixture of two Gaussians, proportion 60/40%,
-            //having means 10 and 4, and variances 0.8 and 1.3. The first offers
+            //having means 10 and 5.5, and variances 0.8 and 1.5. The first offers
             //establishes (realistic) expectations of mean offers. Further offers
             //generate prediction errors. Source: Kienhöfer, Sittenberger, Rabl, Labek, 
             //Viviani 2020, "Preliminary analysis of the 'ultimatum' paradigm in the
             //paracetamol study", Technical Report, May-September 2020. In that work,
             //offers had a mean of 9 and 5.5; they were modified here to increase 
             //comparability with the xiang series.
-            series : [
+            mixture : [
                      11, 12, 10,    //1
                      11,  9,        //2
                      12, 12, 11,    //3
-                     -3, -1, -3,    //4
+                     -3, -4, -4,    //4
                      12, 11, 10,    //5
-                     -4, -4, -5,    //6
-                     -3, -2,        //7
-                     -2, -5, -3,    //8
+                     -5, -2, -6,    //6
+                     -8, -7,        //7
+                     -5, -9, -4,    //8
                      9, 10,         //9
                      12, 11, 11,    //10
-                     -6, -3, -4,    //11
+                     -4, -7, -4,    //11
                      11, 11,  9,    //12
                      10, 12, 10,    //13
-                     -2, -3, -4,    //14
-                     -3, -6,        //15
-                     -6, -4, -3,    //16
+                     -4, -2, -5,    //14
+                     -8, -6,        //15
+                     -4, -2, -6,    //16
                      10, 11,        //17
                      10, 10, 10,    //18
-                     -1, -5, -4,    //19
+                     -7, -6, -6,    //19
                      10, 10, 12,    //20
-                     -4, -5, -3,    //21
-                     -4, -5         //22
-                    ]
-        },
+                     -6, -5, -5,    //21
+                     -7, -6         //22
+                    ],
+            //this, not used at present, is the same as xiang but in a mixed series
+            series : [
+                        11, 10, 13,    //1
+                        13,  12,        //2
+                        11, 12, 14,    //3
+                        -1, -4, -3,    //4
+                        14, 11, 12,    //5
+                        -6, -3, -4,    //6
+                        -3, -3,        //7
+                        -4, -4, -3,    //8
+                        10, 13,        //9
+                        13, 13, 10,    //10
+                        -6, -5, -7,    //11
+                        13, 11,  11,    //12
+                        13, 12, 12,    //13
+                        -4, -6, -1,    //14
+                        -5, -5,        //15
+                        -3, -5, -5,    //16
+                        13, 14,        //17
+                        11, 10, 10,    //18
+                        -6, -5, -5,    //19
+                        11, 11, 13,    //20
+                        -3, -2, -4,    //21
+                        -4, -5         //22
+                       ]
+           },
 
         data : [],
         trials: [

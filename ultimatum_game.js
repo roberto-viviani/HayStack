@@ -201,7 +201,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
     var trialType = '';
     var sessionID = hayStack.output.emptyTrial().sessionID; //del?
     var newRandInt = hayStack.ultimatum.view.rand_int(0,50);
-    if (newRandInt % 2  === 0 & false) {
+    if (newRandInt % 2  === 0) {
         offers = test.options.xiang;
         trialType = "xiang";
     } else {
@@ -251,7 +251,6 @@ hayStack.ultimatum.continuationFactory = function(test) {
             //the continuations of ultimatum itself
             if ("ultimatum" === trialobj.itemID) {  //avoid 'reset', 'resetBudget' etc.
                 trialobj.trialID = i + 1;
-                if (trialobj.blockID === 16) console.log(trialobj);
                 if (0 === trialobj.data.length) {
                     //load offer from the options series, unless specified in trial. A
                     //negative offer is a bad offer, but it is meant to be positive.
