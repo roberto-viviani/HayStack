@@ -205,7 +205,7 @@ hayStack.ultimatum.continuationFactory = function(test) {
         offers = test.options.xiang;
         trialType = "xiang";
     } else {
-        offers = test.options.series;
+        offers = test.options.mixture;
         trialType = "mixture";
     }
 
