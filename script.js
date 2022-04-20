@@ -54,7 +54,7 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoLPFSBF", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte geben Sie für die folgenden Aussagen an,<br>inwieweit " + 
-                    "diese für Sie zutreffend sind.", "start"],
+                    "diese für Sie zutreffend sind.", "Start"],
                 footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
@@ -96,7 +96,7 @@
                     "oder falschen Antworten. Bitte beschreiben Sie sich so ehrlich wie " + 
                     "möglich - wir werden Ihre Antworten vertraulich behandeln.<br><br>" + 
                     "Nehmen Sie sich etwas Zeit, lesen Sie jede Aussage sorgfältig durch, " + 
-                    "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "start"],
+                    "und kreuzen Sie jeweils diejenige Antwort an, die Sie am besten beschreibt.", "Start"],
                 footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
@@ -159,7 +159,7 @@
                 "die Ihrem Befinden während der letzen Wochen am besten entspricht/entsprochen " + 
                 "hat. Die möglichen Antworten sind hierbei:<br><br>0 selten oder überhaupt nicht " + 
                 "(weniger als 1 Tag)<br>1 manchmal (1 bis 2 Tage lang)<br>2 öfters (3 bis 4 Tage " + 
-                "lang)<br>3 meistens, die ganze Zeit (5 bis 7 Tage lang)", "start"]}, //anpassen Instruktionen
+                "lang)<br>3 meistens, die ganze Zeit (5 bis 7 Tage lang)", "Start"]}, //anpassen Instruktionen
             { itemID: "ADS01", data: ["Während der letzten Wochen...<br><br>...haben mich Dinge beunruhigt die mir sonst nichts ausmachen.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS02", data: ["Während der letzten Wochen...<br><br>...hatte ich kaum Appetit.", "selten", "manchmal", "öfters", "meistens"]},
             { itemID: "ADS03", data: ["Während der letzten Wochen...<br><br>...konnte ich meine trübsinnige Laune nicht loswerden, obwohl meine Freunde oder Familie versuchten, mich aufzumuntern.", "selten", "manchmal", "öfters", "meistens"]},
@@ -200,7 +200,7 @@
             { frame: "infopage"/*bleibt*/ , itemID: "infoPTED", type: "info"/*bleibt*/, skipOutput: true/*bleibt*/,
                 timeout: 0, timeRefractory: 0,
                 data: ["Bitte beantworten Sie die folgenden Aussagen und " + 
-                    "Feststellungen und kreuzen Sie die für Sie zutreffende Option an.<br>", "start"],
+                    "Feststellungen und kreuzen Sie die für Sie zutreffende Option an.<br>", "Start"],
                 footerText: "Hinweis: Bevor Sie mit der nächsten " + 
                     "Aufgabe beginnen, können Sie an dieser Stelle gerne noch eine kurze Verschnaufpause " +
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
