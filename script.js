@@ -331,8 +331,8 @@
             //instruction ultimatum
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
-                data: ["Kommen wir nun zum zweiten Teil der Studie.<br><br>Sie werden auf der nächsten " +
-                "Seite ein Spiel spielen, bei dem Geld zwischen Ihnen und " +
+                data: ["Kommen wir nun zum zweiten Teil der Studie.<br><br>Sie werden auf den nächsten " +
+                "Seiten ein Spiel spielen, bei dem Geld zwischen Ihnen und " +
                 "verschiedenen Mitspielern aufgeteilt wird. Sie starten in jeder Runde mit 20 €. " +
                 "Ihr Mitspieler wird Ihnen ein Angebot machen, wie sie die 20 € aufteilen. " +
                 "Sie können sich in jeder Runde entscheiden, ob Sie das Angebot annehmen oder ablehnen wollen. " + 
