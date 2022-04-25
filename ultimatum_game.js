@@ -172,6 +172,13 @@ hayStack.ultimatum.response = function(trialsrc) {
         // goto intertrial
         hayStack.ultimatum.intertrial();
     };
+
+    //display footer if required
+    if (undefined !== trialsrc.explanationText) {
+        setTimeout(function() {
+            document.getElementById("footer").innerHTML = trialsrc.explanationText;
+        }, 5000);
+    }
 };
 
 
