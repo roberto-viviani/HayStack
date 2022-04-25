@@ -140,10 +140,21 @@ hayStack.ultimatum.response = function(trialsrc) {
     trial.timestamp = output.timestamp(startTime);
     trial.source = trialsrc.source;
 
+    //display footer if required
+    var toutID = 0;
+    if (undefined !== trialsrc.explanationText) {
+        toutID = setTimeout(function() {
+            document.getElementById("footer").innerHTML = trialsrc.explanationText;
+        }, 7500);
+    }
+    
     // if clicked "accept"
     document.getElementById("accept").onclick = function() {
         // compute reaction time
         trial.RT = new Date() - startTime;
+
+        //clear timeout
+        if (toutID) clearTimeout(toutID);
 
         // save reaction
         trial.response = "accept";
@@ -165,6 +176,9 @@ hayStack.ultimatum.response = function(trialsrc) {
         // compute reaction time
         trial.RT = new Date() - startTime;
 
+        //clear timeout
+        if (toutID) clearTimeout(toutID);
+
         // save reaction
         trial.response = "reject";
         output.pushTrial(trial);
@@ -172,13 +186,6 @@ hayStack.ultimatum.response = function(trialsrc) {
         // goto intertrial
         hayStack.ultimatum.intertrial();
     };
-
-    //display footer if required
-    if (undefined !== trialsrc.explanationText) {
-        setTimeout(function() {
-            document.getElementById("footer").innerHTML = trialsrc.explanationText;
-        }, 5000);
-    }
 };
 
 

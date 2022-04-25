@@ -106,7 +106,9 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
     //the handlers define an unfold acting on the output object as an accumulator
     var trialStart = undefined;
     var hTimeout = undefined;
+    var hTimeExplanation = undefined;
     var timeoutCallback = function() {
+            clearTimeout(hTimeExplanation);
             //in case both a timeout and an onclick were in the queue, 
             //we only process the first
             if (hTimeout === undefined) return;
@@ -123,6 +125,7 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
     var onClickFactory = function (numelem, trialobj) {
         return function (event) {
             var rt = Date.now() - trialStart;
+            clearTimeout(hTimeExplanation);
             trialobj.timestamp = output.timestamp(trialStart);
             if (rt < trialobj.timeRefractory) return;
             clearTimeout(hTimeout);
@@ -139,11 +142,17 @@ hayStack.SST.simpleContinuationFactory = function(trialobj) {
     return function () {
         hayStack.view.setTemplate("SST", "SSTStyle");
         view.resetHandlers();
+        clearTimeout(hTimeExplanation);
         view.setData(trialobj.data);
         trialStart = Date.now();
         if (trialobj.timeout > 0)
             //hTimeout = setTimeout(onTimeoutFactory(trialobj), trialobj.timeout);
             hTimeout = setTimeout(timeoutCallback, trialobj.timeout);
         view.setHandlers(onClickFactory, trialobj);
+        if (undefined !== trialobj.explanationText) {
+            hTimeExplanation = setTimeout(function() {
+                document.getElementById("footer").innerHTML = trialobj.explanationText;
+            }, 7500);
+        }
     };
 }

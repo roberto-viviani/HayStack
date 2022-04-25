@@ -373,10 +373,12 @@
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:", "Start"]},
             //practice trials. Override timeout. Override skipOutput.
-            { frame : "SST", skipOutput: true, itemID: "Pr01", type: "AP", timeout: 7500,
+            { frame : "SST", skipOutput: true, itemID: "Pr01", type: "AP", timeout: 0,
+                explanationText: "Bei dem Satz 'wir können nun lange warten', clicken sie auf 'warten';<br>bei 'wir können nun lange sitzen' auf 'sitzen'",
                 data: ["warten", "wir", "lange", "können", "sitzen", "nun"], polarity: -1, pos: 1, neg: 5 },
-            { frame : "SST", skipOutput: true, itemID: "Pr02", type: "AP", timeout: 7500,
-                data: ["nun", "Ich", "Post", "Haltestelle", "zur", "gehe"], polarity: -1, pos: 3, neg: 4},
+            { frame : "SST", skipOutput: true, itemID: "Pr02", type: "AP", timeout: 0,
+                explanationText: "Bei dem Satz 'ich gehe nun zur Post', clicken sie auf 'Post';<br>bei 'ich gehe nun zur Haltestelle' auf 'Haltestelle'",
+                data: ["nun", "ich", "Post", "Haltestelle", "zur", "gehe"], polarity: -1, pos: 3, neg: 4},
             { itemID: "resetBudget" },
             { itemID: "ultPractice", skipOutput: true, timeWaitProposal: 4000, 
                 explanationText: "Clicken Sie auf 'Akzeptieren' oder 'Ablehnen'<br>um eine Entscheidung zu treffen",
