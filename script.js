@@ -252,6 +252,7 @@
         description : "ultimatum game, Stefanie Bernardin Jan 2022, Roberto Viviani March 2022",
         timeout : 0,  //no timeout
         timeRefractory : 300,
+        timeWaitProposal : 2000,  //time to wait for the proposal
         skipOutput : false,
         randomOrder : false,
         version : "1.0",
@@ -345,9 +346,9 @@
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:",
                 "Start"]},
-            { itemID: "reset", data: [4]},  //set the number of practice rounds
-            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: -1, type: "practice"},
-            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: 0, type: "practice"},
+            { itemID: "reset", data: [7]},  //set the number of practice rounds
+            { itemID: "ultPractice", skipOutput: true, timeWaitProposal: 4000, data: [10], blockID: 0, blockPos: -1, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, timeWaitProposal: 4000, data: [10], blockID: 0, blockPos: 0, type: "practice"},
             //instruction SST
             { frame: "infopage", itemID: "startinstruct", type: "info", timeout: 0,
                 data: ["Zwischen den Spielrunden sind Sie immer wieder gefragt, eine kleine Aufgabe zu erledigen. " + 
@@ -355,8 +356,14 @@
                 "Wörter in einer durcheinandergewürfelten Reihenfolge beinhalten. Aus diesen " + 
                 "Wörtern können Sie verschiedene Sätze bilden. Für die Bildung eines Satzes brauchen Sie " +
                 "nicht alle Wörter.<br><br>" +
-                "Bilden Sie im Kopf aus den Wörtern einen Satz und <b>klicken Sie auf " +
+                "Bilden Sie schnell im Kopf aus den Wörtern einen Satz und <b>klicken Sie auf " +
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden</b>. " +
+                "Zum Beispiel: die Reihenfolge der Wörter könnte die folgende sein:<br><br>" + 
+                "warten   wir   lange  können  sitzen   nun<br><br>" +
+                "Wenn sie den Satz 'wir können nun lange warten' im Kopf bilden, klicken Sie auf 'warten'; " + 
+                "wenn Sie den Satz 'wir können nun lange sitzen' bilden, klicken Sie auf 'sitzen'.<br>" + 
+                "Es gibt keinen richtigen oder falschen Satz, solange der Satz nach der Grammatik aufgebaut ist. " + 
+                "Verwenden Sie dabei den ersten Satz, den Sie bilden können. " +
                 "Nachdem Sie ein Wort angetippt haben, kommen Sie automatisch zum nächsten Satz oder zurück zum Spiel.<br><br>" + 
                 "Bitte beachten Sie, dass Sie bei der Lösung der Aufgaben nur 7.5 Sek. Zeit pro Satz haben!<br><br>" +
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
@@ -366,13 +373,18 @@
                 data: ["warten", "wir", "lange", "können", "sitzen", "nun"], polarity: -1, pos: 1, neg: 5 },
             { frame : "SST", skipOutput: true, itemID: "Pr02", type: "AP", timeout: 7500,
                 data: ["nun", "Ich", "Post", "Haltestelle", "zur", "gehe"], polarity: -1, pos: 3, neg: 4},
-            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: -1, type: "practice"},
-            { itemID: "ultPractice", skipOutput: true, data: [10], blockID: 0, blockPos: 0, type: "practice"},
+            { itemID: "resetBudget" },
+            { itemID: "ultPractice", skipOutput: true, timeWaitProposal: 4000, data: [10], blockID: 0, blockPos: -1, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, timeWaitProposal: 4000, data: [10], blockID: 0, blockPos: 0, type: "practice"},
             { frame : "SST", skipOutput: true, itemID: "Pr03", type: "AP", timeout: 7500,
                 data: ["Tisch", "Anna", "auf", "sitzt", "dem", "Stuhl"], polarity: -1, pos: 1, neg: 6 },
             { frame : "SST", skipOutput: true, itemID: "Pr04", type: "AP", timeout: 7500,
                 data: ["Hosen", "blau", "sind", "seine", "schwarz", "alle"], polarity: -1, pos: 2, neg: 4 },
-            //the test starts here.
+            { itemID: "resetBudget" },
+            { itemID: "ultPractice", skipOutput: true, data: [11], blockID: 0, blockPos: -1, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, data: [9], blockID: 0, blockPos: 0, type: "practice"},
+            { itemID: "ultPractice", skipOutput: true, data: [11], blockID: 0, blockPos: -1, type: "practice"},
+                //the test starts here.
             { frame : "infopage", itemID: "infoUltimatum", type: "info", skipOutput: true,
                 timeout: 0, timeRefractory: 0,
                 data: ["Jetzt fängt das echte Spiel an. Hinweis: Sie können sich in jeder Runde entscheiden, ob "  + 
