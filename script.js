@@ -334,12 +334,12 @@
                 data: ["Kommen wir nun zum zweiten Teil der Studie.<br><br>Sie werden auf den nächsten " +
                 "Seiten ein Spiel spielen, bei dem Geld zwischen Ihnen und " +
                 "verschiedenen Mitspielern aufgeteilt wird. Sie starten in jeder Runde mit 20 €. " +
-                "Ihr Mitspieler wird Ihnen ein Angebot machen, wie sie die 20 € aufteilen. " +
+                "Ihr Mitspieler wird Ihnen ein Angebot machen, wie Sie die 20 € aufteilen. " +
                 "Sie können sich in jeder Runde entscheiden, ob Sie das Angebot annehmen oder ablehnen wollen. " + 
                 "Akzeptieren Sie das Angebot, so wird " +
                 "Ihnen beiden der jeweilige Anteil der 20 € gutgeschrieben. Lehnen Sie das Angebot ab, so " +
                 "erhalten beide Spieler nichts und gehen leer aus.<br><br>" +
-                "Die Mitspieler verhalten sich wie echte Menschen. Sie sind Spielern nachempfunden, " + 
+                "Die Reaktionen der Mitspieler basiren auf dem Verhalten realer Menschen. Sie sind Spielern nachempfunden, " + 
                 "deren Verhalten in vorherigen Experimenten erhoben wurde.<br><br>" +
                 "Wenn Sie bei dieser Studie Ihr Smartphone verwenden, legen Sie es am besten quer.<br><br>" + 
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
@@ -357,7 +357,7 @@
                 "nicht alle Wörter.<br><br>" +
                 "Bilden Sie im Kopf aus den Wörtern einen Satz und <b>klicken Sie auf " +
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden</b>. " +
-                "Nachdem Sie ein Wort angetippt haben kommen Sie automatisch zum nächsten Satz oder zurück zum Spiel.<br><br>" + 
+                "Nachdem Sie ein Wort angetippt haben, kommen Sie automatisch zum nächsten Satz oder zurück zum Spiel.<br><br>" + 
                 "Bitte beachten Sie, dass Sie bei der Lösung der Aufgaben nur 7.5 Sek. Zeit pro Satz haben!<br><br>" +
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:", "Start"]},
