@@ -395,7 +395,8 @@ hayStack.continuations.push(function () {
     var secondNameInp      = document.getElementById("secondName");
     var matriculationNoInp = document.getElementById("matriculationNo");
     var logonIdInpt        = document.getElementById("logonId");
-    var email              = document.getElementById("email") | {value: "NA"};
+    var email              = document.getElementById("email");
+    if (!email) email = {value: ""};
 
     var elem = document.getElementById("btnLogoff");
     if (undefined === elem) console.log("Invalid coding of logoff page");
