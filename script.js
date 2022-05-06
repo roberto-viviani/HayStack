@@ -456,7 +456,7 @@
             { itemID: "ultimatum", blockID: 8, blockPos: -2 },
             { itemID: "ultimatum", blockID: 8, blockPos: -1 },
             { itemID: "ultimatum", blockID: 8, blockPos: 0 },
-            { frame : "SST", itemID: "E24_V2_1NP", blockID: 8, blockPos: 1, type: "PN", timeout: 7500, data: ["Sorgen", "viele", "habe", "sehr", "ich", "Chancen"], polarity: 1, pos: 6, neg: 1                          },
+            { frame : "SST", itemID: "E21_V2_6PN", blockID: 8, blockPos: 1, type: "PN", timeout: 7500, data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5         },
             { frame : "SST", itemID: "E13_V2_9NP", blockID: 8, blockPos: 2, type: "PN", timeout: 7500, data: ["stehen", "Chancen", "echt", "schlecht", "die", "großartig"], polarity: 1, pos: 6, neg: 4                  },
 
             { itemID: "resetBudget" },
@@ -475,7 +475,7 @@
             { itemID: "ultimatum", blockID: 11, blockPos: -2 },
             { itemID: "ultimatum", blockID: 11, blockPos: -1 },
             { itemID: "ultimatum", blockID: 11, blockPos: 0 },
-            { frame : "SST", itemID: "E21_V2_6PN", blockID: 11, blockPos: 1, type: "PN", timeout: 7500, data: ["jetzt", "ist", "vielversprechend", "Lage", "aussichtslos", "meine"], polarity: -1, pos: 3, neg: 5         },
+            { frame : "SST", itemID: "E12_V2_9PN", blockID: 11, blockPos: 2, type: "PN", timeout: 7500, data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6                 },
             { frame : "SST", itemID: "56_V2_7NP", blockID: 11, blockPos: 2, type: "PN", timeout: 7500, data: ["man", "Falsche", "das", "tut", "meist", "Richtige"], polarity: 1, pos: 6, neg: 2                           },
 
             //30
@@ -491,14 +491,14 @@
             { itemID: "ultimatum", blockID: 13, blockPos: -2 },
             { itemID: "ultimatum", blockID: 13, blockPos: -1 },
             { itemID: "ultimatum", blockID: 13, blockPos: 0 },
-            { frame : "SST", itemID: "E2_V2_4PN", blockID: 13, blockPos: 1, type: "PN", timeout: 7500, data: ["erwischt", "verpasst", "den", "habe", "ich", "Zug"], polarity: -1, pos: 1, neg: 2                          },
-            { frame : "SST", itemID: "E12_V2_9PN", blockID: 13, blockPos: 2, type: "PN", timeout: 7500, data: ["das", "Projekt", "ich", "hinkriegen", "werde", "vermasseln"], polarity: 1, pos: 4, neg: 6                 },
+            { frame : "SST", itemID: "E2_V2_4PN", blockID: 11, blockPos: 1, type: "PN", timeout: 7500, data: ["erwischt", "verpasst", "den", "habe", "ich", "Zug"], polarity: -1, pos: 1, neg: 2                          },
+            { frame : "SST", itemID: "E16_V2_5PN", blockID: 11, blockPos: 1, type: "PN", timeout: 7500, data: ["mal", "bewundert", "werde", "beschuldigt", "ich", "wieder"], polarity: -1, pos: 2, neg: 4                 },
 
             { itemID: "resetBudget" },
             { itemID: "ultimatum", blockID: 14, blockPos: -2 },
             { itemID: "ultimatum", blockID: 14, blockPos: -1 },
             { itemID: "ultimatum", blockID: 14, blockPos: 0 },
-            { frame : "SST", itemID: "E16_V2_5PN", blockID: 14, blockPos: 1, type: "PN", timeout: 7500, data: ["mal", "bewundert", "werde", "beschuldigt", "ich", "wieder"], polarity: -1, pos: 2, neg: 4                 },
+            { frame : "SST", itemID: "E24_V2_1NP", blockID: 14, blockPos: 1, type: "PN", timeout: 7500, data: ["Sorgen", "viele", "habe", "sehr", "ich", "Chancen"], polarity: 1, pos: 6, neg: 1                          },
             { frame : "SST", itemID: "O10r_V2_1PN", blockID: 14, blockPos: 2, type: "PN", timeout: 7500, data: ["sinnvoll", "meistens", "sind", "Seminare", "meine", "sinnlos"], polarity: -1, pos: 1, neg: 6             },
 
             { itemID: "resetBudget" },
