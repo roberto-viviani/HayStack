@@ -132,6 +132,7 @@ hayStack.ultimatum.response = function(trialsrc) {
     trial.itemID = trialsrc.itemID;
     trial.type = trialsrc.type;
     trial.polarity = "";
+    trial.skipOutput = trialsrc.skipOutput;
     trial.response = [];
     //trial.respKey = resp; 
     trial.responseData = "blockID:"  + trialsrc.blockID + ",blockPos:" + trialsrc.blockPos;
