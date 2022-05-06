@@ -364,7 +364,7 @@
                 "das eine Wort, das Sie an das Ende des Satzes setzen würden</b>. " +
                 "Zum Beispiel: die Reihenfolge der Wörter könnte die folgende sein:<br><br>" + 
                 "warten   wir   lange  können  sitzen   nun<br><br>" +
-                "Wenn sie den Satz 'wir können nun lange warten' im Kopf bilden, klicken Sie auf 'warten'; " + 
+                "Wenn Sie den Satz 'wir können nun lange warten' im Kopf bilden, klicken Sie auf 'warten'; " + 
                 "wenn Sie den Satz 'wir können nun lange sitzen' bilden, klicken Sie auf 'sitzen'.<br>" + 
                 "Es gibt keinen richtigen oder falschen Satz, solange der Satz nach der Grammatik aufgebaut ist. " + 
                 "Verwenden Sie dabei den ersten Satz, den Sie bilden können. " +
