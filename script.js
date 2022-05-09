@@ -246,6 +246,43 @@
         ]
     },
 
+    MiniSLE: {
+        frame: "mchoice",//bleibt
+        description: "Mini stressful life events",
+        version: "1.0",//bleibt
+        timeout: 0, //no timeout
+        timeRefractory: 200,//bleibt
+        randomOrder: false,//bleibt
+        skipOutput: false,//bleibt
+        baselineScore: 0,
+
+        //common properties of all trials
+        type: "MiniSLE",
+        polarity: 1,//bleibt
+        trials: [
+            {
+                itemID: "MSLE01", data: ["In den vergangenen zwei Wochen hatte ich eine Situation erlebt,...<br><br>" +
+                    "... in der ich mich ungerecht behandelt gefühlt habe.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]
+            },
+            {
+                itemID: "MSLE02", data: ["In den vergangenen zwei Wochen hatte ich eine Situation erlebt,...<br><br>" +
+                    "... in der ich mich erniedrigt gefühlt habe.", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]
+            },
+            {
+                itemID: "MSLE03", data: ["In den vergangenen zwei Wochen hatte ich eine Situation erlebt,...<br><br>" +
+                    "... wo große Veränderungen in meinem Leben aufgetreten sind (Körperverletzung, Nötigung, Vergewaltigung, " +
+                    "Überfall, Raubüberfall, Rechtliche Probleme, große finanzielle Probleme, ernsthafte Wohnungsprobleme, " +
+                    "Arbeitsplatzverlust, Schwere Krankheit oder Verletzung, Schwere eheliche Probleme, Scheidung/Trennung, " +
+                    "Verlust einer Vertrauensperson).", "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]
+            },
+            {
+                itemID: "MSLE04", data: ["In den vergangenen zwei Wochen hatte ich eine Situation erlebt,...<br><br>" +
+                    "... in der eins der nachfolgenden Ereignisse aufgetreten ist: zwischenmenschlicher Konflikt, " +
+                    "eine schwere persönliche Krise, die schwere Erkrankung einer Person im sozialen Umfeld, " +
+                    "Tod einer Person im sozialen Umfeld.",
+                    "trifft nicht zu", "trifft kaum zu", "trifft teilweise zu", "trifft zu", "trifft voll zu"]
+            }
+    },
     
     Ultimatum : {
         frame : "ultimatum",
