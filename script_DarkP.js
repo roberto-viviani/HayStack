@@ -29,10 +29,10 @@ module.exports = {
     A special property 'options' contains an object that is attached as a property
     of the test, not of trials.
 
-    The server listens at port 61543 and recognizes requests for tests when the 
+    The server listens at port 61666 and recognizes requests for tests when the 
     url starts with 'test:'. The required test or tests may be specified in the url 
     after this, e.g.
-    http://safpsy186.psychiatrie3.uni-ulm.de:61543/test:SSTDepr
+    http://safpsy186.psychiatrie3.uni-ulm.de:61666/test:SSTDepr
     Separate multiple tests with a comma. The tests are then given in order.
 
     This script files collects scales developed for HayStack so far.

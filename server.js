@@ -4,7 +4,7 @@
  *  Roberto Viviani, December 2021
  */
 
-const PORT = 61543;  //Change this to set the port of your server
+const PORT = 61666;  //Change this to set the port of your server
 
 var http = require("http"), 
 	fs = require("fs");
