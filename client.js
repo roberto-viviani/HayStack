@@ -424,9 +424,8 @@ hayStack.continuations.push(function () {
 hayStack.continuations.push(function () {
     hayStack.view.msg("Sie sind am Ende der Testung angekommen.<br>" + 
         "Vielen herzlichen Dank, dass Sie an dieser Studie teilgenommen haben!<br><br>" + 
-        "Bei Fragen können Sie sich gerne bei uns melden: " +
-        "Lisa Grimm (lisa.grimm@student.uibk.ac.at) oder "+
-        "Stefanie Bernardin (stefanie.bernardin@student.uibk.ac.at)");
+        "Bei Fragen können Sie sich gerne bei mir melden: " +
+        "Luna Rabl (luna.rabl@student.uibk.ac.at)");
     hayStack.view.setStyle("defaultStyle");
     window.onbeforeunload = undefined;
     hayStack.output.postTrials(hayStack.continuations.next);
