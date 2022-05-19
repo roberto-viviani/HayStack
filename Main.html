@@ -85,7 +85,7 @@
             <body>
                 <h1 id="lblHeadline" class="logoff">Versuchpersonenstunden</h1>
                 <p  id="lblInput" class="logoff">Die Teilnahme an dieser Studie wird für Studenten/innen der Universität Innsbruck
-                        mit 1/2 Versuchspersonenstunde(n) vergütet. Um Probandenstunden an Studierende der Universität zu verteilen, 
+                        mit 1 Versuchspersonenstunde(n) vergütet. Um Probandenstunden an Studierende der Universität zu verteilen, 
                         brauchen wir die folgenden Daten.<br>
                         Diese werden getrennt von den Daten aus dem Experiment gespeichert, um die Anonymität zu bewahren.<br>
                         Wenn keine Experimentenstunden benötigt werden, können Sie die Felder leer lassen und direkt auf 'weiter' klicken.
@@ -97,6 +97,16 @@
                         <div class ="Daten">Matrikelnummer: <input class="input" type="text" name="matriculationNo" id="matriculationNo" value=""><br><br></div>
                         <div class="Daten">c-Kennung (z.B. csas1234): <input class="input" type="text" name="logonId" id="logonId" value=""><br><br></div>
                     </div>
+                    <p>Sie können einen von insgesamt drei Geldbeträgen im Wert von jeweils 
+                        100 Euro gewinnen. Wenn Sie an der Verlosung des Geldbetrages 
+                        teilnehmen möchten und Sie keine c-Kennung haben (z.B. wenn Sie nicht 
+                        an der Universität Innsbruck studieren), dann geben Sie bitte Ihre 
+                        Email-Adresse an. Möchten Sie nicht an der Verlosung teilnehmen können 
+                        sie das Feld einfach leer lassen. Falls Sie StudentIn der Universität 
+                        Innsbruck sind, ist die Angabe der c-Kennung ausreichend, um an der 
+                        Verlosung teilzunehmen. Es können keinerlei Rückschlüsse auf Ihre 
+                        Antworten gezogen werden.
+                    </p>
                     <!--- alternativtext <p>
                         Wenn Sie an der Verlosung der 15 Amazon Gutscheine im Wert von 30€ teilnehmen wollen, und sie keine c-Kennung
                         angegeben haben (z.B. wenn Sie nicht an der Universität Innsbruck studieren), dann geben Sie hier Ihre Email-Adresse 
@@ -162,7 +172,6 @@
                                 <option value="">--Bitte wählen--</option>
                                 <option value ="female">weiblich</option>
                                 <option value ="male">männlich</option>
-                                <option value ="divers">divers</option>
                             </select>
                         </div>
                         <div class="demographics"><label for="education">Welchen Abschluss haben Sie?<br></label>
@@ -603,13 +612,13 @@
             <p id="welcome" style="text-align: left">Herzlich Willkommen zur Studie!<br><br></p>
             <p id="lblInput" style="text-align:left">Liebe Teilnehmerinnen und Teilnehmer,<br><br>
                 vielen Dank, dass Sie Interesse an der Studie „Entscheidungsfindung und Schemaaktivierung“ 
-                haben und teilnehmen möchten! 
-                In dieser Studie sollen aktuelle und neu entwickelte Tests (beispielsweise der Scrambled Sentences Task), 
-                zur Untersuchung unterschiedlicher Persönlichkeitsmerkmale überprüft werden. Vor 
+                haben und teilnehmen möchten! In der folgenden Studie bitten wir Sie, zunächst ein paar 
+                Fragen zu beantworten, bevor Sie anschließend an einem interaktiven Spiel teilnehmen. Vor 
                 jeder Aufgabe erhalten Sie eine kurze Einführung, was zu tun ist.<br><br>
                 Damit Ihre Anonymität gewährleistet ist, werden Ihre persönlichen Daten getrennt von 
                 Ihren Antworten gespeichert. Es kann keine Verbindung zwischen Ihren Antworten, der Erhebung 
-                und Ihnen als Person hergestellt werden.<br><br>
+                und Ihren persönlichen Angaben, die für die Eintragung der Versuchspersonenstunden 
+                und/oder die Teilnahme am Gewinnspiel benötigt werden, gezogen werden.<br><br>
                 Über Zwecke und Ziele der Studie wurden Sie bereits in der Einladungsemail informiert (siehe 
                 <a href="Einwilligung.html" target="_blank">hier</a>). Wenn Sie auf 'weiter' klicken, 
                 erklären Sie sich damit einverstanden, an der Studie freiwillig teilzunehmen, und bestätigen, 
@@ -622,8 +631,8 @@
                 und behalten Sie dieses Format über den Verlauf der Studie bei. Es kann bei einzelnen 
                 Abschnitten dazu kommen, dass Sie alle Antwortmöglichkeiten nur durch Scrollen des 
                 Bildschirms erkennen können.</b><br><br>
-                Wenn Sie Fragen zu dieser Untersuchung haben, wenden Sie sich bitte an: Luna Rabl 
-                (luna.rabl@student.uibk.ac.at).
+                Wenn Sie Fragen zu dieser Untersuchung haben, wenden Sie sich bitte an: Lisa Grimm 
+                (lisa.grimm@student.uibk.ac.at) oder Stefanie Bernardin (stefanie.bernardin@student.uibk.ac.at).
             </p>
             <br><br>
             <button class="next" id="btnNext">weiter >></button>
