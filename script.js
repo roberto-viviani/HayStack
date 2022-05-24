@@ -302,8 +302,8 @@
                     "machen.<br>Klicken Sie auf Start, wenn Sie bereit sind."
             },
             { itemID: "SD401", type: "Mach", data: ["Es ist nicht ratsam, seine Geheimnisse preiszugeben.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
-            { itemID: "SD402", type: "Mach", data: ["Man muss die wichtigen Personen auf seine Seite ziehen, koste es, was es wolle.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)]},
-            { itemID: "SD403", type: "Mach", data: ["Vermeide direkte Konflikte mit Anderen, denn sie könnten in der Zukunft von Nutzen sein.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)]},
+            { itemID: "SD402", type: "Mach", data: ["Man muss die wichtigen Personen auf seine Seite ziehen, koste es, was es wolle.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
+            { itemID: "SD403", type: "Mach", data: ["Vermeide direkte Konflikte mit Anderen, denn sie könnten in der Zukunft von Nutzen sein.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
             { itemID: "SD404", type: "Mach", data: ["Verhalte dich unauffällig, wenn du deinen Willen durchsetzen willst.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
             { itemID: "SD405", type: "Mach", data: ["Die Situation zu manipulieren, erfordert Planung.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
             { itemID: "SD406", type: "Mach", data: ["Schmeicheln ist ein gutes Mittel, um Leute auf deine Seite zu ziehen.","1 (stimme überhaupt nicht zu)", "2", "3", "4", "5 (stimme voll zu)"]},
