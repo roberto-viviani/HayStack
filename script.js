@@ -139,7 +139,7 @@
     SSTWW : {
         frame: "mchoice",
         description: "SST bekannt",
-        version: "2.0",
+        version: "1.0",
         timeout: 0, 
         timeRefractory: 1000,
         randomOrder: false,
