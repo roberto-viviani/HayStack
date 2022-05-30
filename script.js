@@ -135,6 +135,27 @@
         ]
     },
 
+
+    SSTWW : {
+        frame: "mchoice",
+        description: "SST bekannt",
+        version: "2.0",
+        timeout: 0, 
+        timeRefractory: 1000,
+        randomOrder: false,
+        skipOutput: false,
+        baselineScore: -1,
+
+        //common properties of all trials
+        type: "SSTWW",
+        polarity: -1,
+        trials: [
+            { frame: "infopage", randomOrder: false, itemID: "SSTWW", type: "info", timeout: 0,
+                data: ["Denken Sie bitte an den gerade bearbeiteten Test zurück."]},
+            { itemID: "SSTWW1", data: ["Haben Sie bereits an einer Studie teilgenommen, in der Sie diesen Test einmal ausfüllen mussten?", "Ja", "Nein", "Weiß ich nicht mehr"]}
+        ]
+    },
+
     LPFSBF : {
         frame: "mchoice",//bleibt
         description: "LevelofPersonalityFunctioningScaleBriefForm",
