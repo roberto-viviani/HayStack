@@ -152,7 +152,7 @@
         trials: [
             { frame: "infopage", randomOrder: false, itemID: "SSTWW", type: "info", timeout: 0,
                 data: ["Denken Sie bitte an den gerade bearbeiteten Test zurück."]},
-            { itemID: "SSTWW1", data: ["Haben Sie bereits an einer Studie teilgenommen, in der Sie diesen Test einmal ausfüllen mussten?", "Ja", "Nein", "Weiß ich nicht mehr"]}
+            { itemID: "SSTWW1", data: ["Haben Sie den vorausgegangenen Test bereits in einer Studie in der Vergangenheit bearbeitet?", "Ja", "Nein", "Weiß ich nicht mehr"]}
         ]
     },
 
