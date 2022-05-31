@@ -87,7 +87,7 @@ hayStack.output = (function () {
         //try and identify server, on fail use sapfsy186
         var reg = /^http:\/(\/.*:\d+)/;
         var url = reg.exec(document.baseURI);
-        var SERVER = "/safpsy186.psychiatrie3.uni-ulm.de:61543";
+        var SERVER = "/safpsy186.psychiatrie3.uni-ulm.de:61666";
         undefined === url ? seq.open("POST", SERVER) :  seq.open("POST", url[0]);
         seq.addEventListener("load", (undefined === onTerminate) ? function() {} : onTerminate);
         seq.setRequestHeader("Content-Type", "text/plain");
@@ -344,7 +344,7 @@ hayStack.continuations.push(function () {
     var reg = /^http:\/(\/.*:\d+)/;
     var url = undefined;
     url = reg.exec(document.baseURI);
-    var SERVER = "/safpsy186.psychiatrie3.uni-ulm.de:61543";
+    var SERVER = "/safpsy186.psychiatrie3.uni-ulm.de:61666";
     url = (undefined === url) ? SERVER : url[0];
     url += ("/trials:" + hayStack.output.getSubjectID() + 
         ":" + hayStack.testRequest.join(","));
