@@ -63,7 +63,7 @@
                 "wenn Sie den Satz 'wir können nun lange sitzen' bilden, klicken Sie auf 'sitzen'.<br>" + 
                 "Es gibt keinen richtigen oder falschen Satz, solange der Satz nach der Grammatik aufgebaut ist. " + 
                 "Verwenden Sie dabei den ersten Satz, den Sie bilden können. " +
-                "Nachdem Sie ein Wort angetippt haben, kommen Sie automatisch zum nächsten Satz oder zurück zum Spiel.<br><br>" + 
+                "Nachdem Sie ein Wort angetippt haben, kommen Sie automatisch zum nächsten Satz.<br><br>" + 
                 "Bitte beachten Sie, dass Sie bei der Lösung der Aufgaben nur 7.5 Sek. Zeit pro Satz haben!<br><br>" +
                 "Hinweis: Die nachfolgenden Durchläufe dienen ausschließlich der Übung.<br><br>" +
                 "Wenn Sie bereit sind, klicken Sie bitte hier:", "Start"]},
