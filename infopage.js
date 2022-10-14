@@ -20,3 +20,14 @@ hayStack.infopage.simpleContinuationFactory = function(trial) {
         document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
     }
 }
+
+//a continuation to display a message
+hayStack.infopage.messageContinuationFactory = function(errMsg) {
+    return function() {
+        hayStack.view.setTemplate("infopage", "infopageStyle");
+        hayStack.view.set(errMsg, "infotext");
+        hayStack.view.set("stopped", "infobtn");
+        hayStack.view.set(trial.headerText, "ERROR");
+        document.getElementById("infobtn").onmousedown = hayStack.continuations.next;
+    }
+}
