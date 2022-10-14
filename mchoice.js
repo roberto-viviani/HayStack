@@ -46,6 +46,9 @@ hayStack.mchoice.view = {
 hayStack.mchoice.computeResponse = function(resp, trial, rt) {
     //response encoding.
     if (rt <= 0) return "NA";  //miss trial
+    if (undefined !== trial.responses) {  //direct encoding of response score in script
+        return trial.responses[resp - 1];
+    }
     var baselineScore = (undefined === trial.baselineScore) ? 0 : trial.baselineScore;
     var score = resp - 1;  //resp is 1-based, we want a zero-based score
     if (-1 === trial.polarity)
@@ -139,6 +142,10 @@ hayStack.mchoice.continuationFactory = function(test) {
         //the other factories a test.
         if ("mchoice" === trialobj.frame) {
                 trialobj.trialID = i + 1;
+                if (undefined !== trialobj.responses)  //check length of responses if specified
+                    if (trialobj.responses.length != trialobj.data.length-1) 
+                        return hayStack.infopage.messageContinuationFactory("Invalid response vector in test " + trialobj.testID + 
+                            ", trial " + trialobj.itemID + ": " + trialobj.frame);
                 conts.push(loopContinuationFactory(trialobj));
         }
         else if ("infopage" === trialobj.frame) {
@@ -146,7 +153,6 @@ hayStack.mchoice.continuationFactory = function(test) {
             conts.push(hayStack.infopage.simpleContinuationFactory(trialobj));
         }
         else {
-            conts.clear();
             hayStack.view.msg("Invalid frame in test " + trialobj.testID + 
                 ", trial " + trialobj.itemID + ": " + trialobj.frame);
             return [];
